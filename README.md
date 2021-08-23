@@ -41,7 +41,7 @@ By the end of the course, you will be able to:
 
 **Course Dates:** Mon, August 23 – Friday, October 8, 2021
 
-**Class Times:** Monday, Wednesday, Friday at 3:40pm – 5:30pm
+**Class Times:** Monday, Wednesday, Friday at 3:40pm PST – 5:30pm PST
 
 <!-- Hybrid sections are a mixture of online and in person components.  In person sessions include labs and group work as noted on your schedule.  These sections will run according to the Hybrid Delivery Policy: [make.sc/hybrid-delivery-policy](make.sc/hybrid-delivery-policy) -->
 
