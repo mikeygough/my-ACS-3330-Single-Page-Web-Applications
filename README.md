@@ -63,9 +63,9 @@ By the end of the course, you will be able to:
 | 14 | Wed, Sep 22 | [Redux Part 2] | - |
 | 15 | Fri, Sep 24 | Lab | - |
 | 16 | Mon, Sep 27 | [React Hooks] | - |
-| 16 | Wed, Sep 29 | - | - |
+| 16 | Wed, Sep 29 | TBA | - |
 | 17 | Fri, Oct  1 | Lab | - |
-| 18 | Mon, Oct  4 | - | - |
+| 18 | Mon, Oct  4 | TBA | - |
 | 19 | Wed, Oct  6 | Final Assessment | - |
 | 20 | Fri, Oct  8 | [Present Final Projects] | - |
 
