@@ -19,13 +19,13 @@ If you want to build next-generation mobile experiences that reach the widest po
 ## Prerequisites:  
 
 - [BEW 1.1](https://github.com/Make-School-Courses/BEW-1.1-RESTful-and-Resourceful-MVC-Architecture)
-- [FEW 1.2](https://github.com/Make-School-Courses/FEW-1.2-JavaScript-Foundations)
+- [ACS 1320](https://github.com/Tech-at-DU/ACS-1320-JavaScript-Foundations)
 
-## Course Specifics
+<!-- ## Course Specifics
 
 **Course Delivery**: online | 7 weeks | 14 sessions
 
-**Course Credits**: 3 units | 37.5 Seat Hours | 75 Total Hours
+**Course Credits**: 3 units | 37.5 Seat Hours | 75 Total Hours -->
 
 ## Learning Outcomes
 
@@ -39,11 +39,11 @@ By the end of the course, you will be able to:
 
 ## Schedule
 
-**Course Dates:** Tuesday, June 1 – Thursday, July 15, 2021 (7 weeks)
+**Course Dates:** Mon, August 23 – Friday, October 8, 2021
 
-**Class Times:** Tuesday, Thursday at 2:30pm–4:00pm (14 class sessions)
+**Class Times:** Monday, Wednesday, Friday at 3:40pm – 5:30pm
 
-Hybrid sections are a mixture of online and in person components.  In person sessions include labs and group work as noted on your schedule.  These sections will run according to the Hybrid Delivery Policy: [make.sc/hybrid-delivery-policy](make.sc/hybrid-delivery-policy)
+<!-- Hybrid sections are a mixture of online and in person components.  In person sessions include labs and group work as noted on your schedule.  These sections will run according to the Hybrid Delivery Policy: [make.sc/hybrid-delivery-policy](make.sc/hybrid-delivery-policy) -->
 
 | Class | Date | Topics | Assignment |
 |:------|:-----|:-------|:-----------|
@@ -53,16 +53,16 @@ Hybrid sections are a mixture of online and in person components.  In person ses
 |  4 | Mon, Aug 30 | [React and Forms] | - |
 |  5 | Wed, Sep  1 | [Conditional Rendering] | [Assignment 2 - Weather API] - Weather API |
 |  6 | Fri, Sep  3 | [React Lab] | - |
-|  7 | Mon, Sep  6 | [Callbacks and Promises] | - |
-|  8 | Wed, Sep  8 | [Making Network Requests] | [Assignment 3 - React + Redux Tutorial] - Tutorial |
+|  7 | Mon, Sep  6 | Labor no class! | - |
+|  8 | Wed, Sep  8 | [Callbacks and Promises] | - |
 |  9 | Fri, Sep 10 | Lab | - |
-| 10 | Mon, Sep 13 | [Application State] | - |
-| 11 | Wed, Sep 15 | [Redux] | [Assignment 4 - Custom Project] - Custom Project |
+| 10 | Mon, Sep 13 | [Making Network Requests] | [Assignment 3 - React + Redux Tutorial] |
+| 11 | Wed, Sep 15 | [Application State] | - |
 | 12 | Fri, Sep 17 | Lab | - |
-| 13 | Mon, Sep 20 | [Redux Part 2] | - | 
-| 14 | Wed, Sep 22 | [React Hooks] | - |
+| 13 | Mon, Sep 20 | [Redux] | [Assignment 4 - Custom Project] | 
+| 14 | Wed, Sep 22 | [Redux Part 2] | - |
 | 15 | Fri, Sep 24 | Lab | - |
-| 16 | Mon, Sep 27 | - | - |
+| 16 | Mon, Sep 27 | [React Hooks] | - |
 | 16 | Wed, Sep 29 | - | - |
 | 17 | Fri, Oct  1 | Lab | - |
 | 18 | Mon, Oct  4 | - | - |
