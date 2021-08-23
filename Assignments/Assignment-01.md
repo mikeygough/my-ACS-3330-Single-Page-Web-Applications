@@ -43,13 +43,15 @@ Here is an [awesome Tweet](https://twitter.com/steveluscher/status/7410895643290
 
 > map/filter/reduce in a tweet:
 >
-> `[🌽, 🐮, 🐔].map(cook)` -> `[🍿, 🍔, 🍳]`
+> `[🌽, 🐮, 🐔].map(cook)` ➡ `[🍿, 🍔, 🍳]`
 >
-> `[🍿, 🍔, 🍳].filter(isVegetarian)` -> `[🍿, 🍳]`
+> `[🍿, 🍔, 🍳].filter(isVegetarian)` ➡ `[🍿, 🍳]`
 >
-> `[🍿, 🍳].reduce(eat)` -> `💩`
+> `[🍿, 🍳].reduce(eat)` ➡ `💩`
 
-All three are methods of Array. That is you will always call map, filter and reduce on an array. For example: 
+All three are methods of Array. That is you will always call map, filter and reduce on an array. Or we could say that every array has these methods. 
+
+For example: 
 
 ```JS
 const arr = [1,2,3,4]
