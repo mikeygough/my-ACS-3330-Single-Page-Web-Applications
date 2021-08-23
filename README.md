@@ -1,8 +1,8 @@
-# FEW 2.3 - Single Page Applications
+# ACS 3330 - Single Page Applications
 
-| Course Section | Instructor | Slack Channel | Course Website | Instructor 1-on-1 | Tracker |
+<!-- | Course Section | Instructor | Slack Channel | Course Website | Instructor 1-on-1 | Tracker |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| A | **@mitchell** | `#few-2-3` | [make.sc/few2.3](https://make.sc/few2.3) | [Virtual Office](https://make.sc/mitchell-zoom) | [GradeScope](https://www.gradescope.com) |
+| A | **@mitchell** | `#few-2-3` | [make.sc/few2.3](https://make.sc/few2.3) | [Virtual Office](https://make.sc/mitchell-zoom) | [GradeScope](https://www.gradescope.com) | -->
 
 ## Course Description
 
@@ -47,20 +47,27 @@ Hybrid sections are a mixture of online and in person components.  In person ses
 
 | Class | Date | Topics | Assignment |
 |:------|:-----|:-------|:-----------|
-|  1 | Tue, June 1  | [React and functional Programming] | [Assignment 1 - React Product List] - React Tutorial |
-|  2 | Thu, June 3  | [React, Props, and State] | - |
-|  3 | Tue, June 8  | [React and Forms] | - |
-|  4 | Thu, June 10 | [React Lab] | - |
-|  5 | Tue, June 15 | [Conditional Rendering] | [Assignment 2 - Weather API] - Weather API |
-|  6 | Thu, June 17 | [Callbacks and Promises] | - |
-|  7 | Tue, June 22 | [Making Network Requests] | [Assignment 3 - React + Redux Tutorial](Assignments/Assignment-03.md) - Tutorial |
-|  8 | Thu, June 24 | [Application State] | - |
-|  9 | Tue, June 29 | [Redux] | [Assignment 4 - Custom Project] - Custom Project |
-| 10 | Thu, July 1  | [Redux Part 2] | - | 
-| 11 | Tue, July 6  | [React Hooks] | - |
-| 12 | Thu, July 8  | [Present Final Projects] | - |
-| 13 | Tue, July 13 | Final Assessment | - |
-| 14 | Thu, July 15 | Present Final Project | - |
+|  1 | Mon, Aug 23 | [React and functional Programming] | [Assignment 1 - React Product List] - React Tutorial |
+|  2 | Wed, Aug 25 | [React, Props, and State] | - |
+|  3 | Fri, Aug 27 | Lab | - |
+|  4 | Mon, Aug 30 | [React and Forms] | - |
+|  5 | Wed, Sep  1 | [Conditional Rendering] | [Assignment 2 - Weather API] - Weather API |
+|  6 | Fri, Sep  3 | [React Lab] | - |
+|  7 | Mon, Sep  6 | [Callbacks and Promises] | - |
+|  8 | Wed, Sep  8 | [Making Network Requests] | [Assignment 3 - React + Redux Tutorial] - Tutorial |
+|  9 | Fri, Sep 10 | Lab | - |
+| 10 | Mon, Sep 13 | [Application State] | - |
+| 11 | Wed, Sep 15 | [Redux] | [Assignment 4 - Custom Project] - Custom Project |
+| 12 | Fri, Sep 17 | Lab | - |
+| 13 | Mon, Sep 20 | [Redux Part 2] | - | 
+| 14 | Wed, Sep 22 | [React Hooks] | - |
+| 15 | Fri, Sep 24 | Lab | - |
+| 16 | Mon, Sep 27 | - | - |
+| 16 | Wed, Sep 29 | - | - |
+| 17 | Fri, Oct  1 | Lab | - |
+| 18 | Mon, Oct  4 | - | - |
+| 19 | Wed, Oct  6 | Final Assessment | - |
+| 20 | Fri, Oct  8 | [Present Final Projects] | - |
 
 [React and functional Programming]: Lessons/lesson-01.md
 [React, Props, and State]: Lessons/lesson-02.md
