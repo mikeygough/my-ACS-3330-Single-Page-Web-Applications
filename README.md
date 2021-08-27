@@ -49,7 +49,7 @@ By the end of the course, you will be able to:
 |:------|:-----|:-------|:-----------|
 |  1 | Mon, Aug 23 | [React and functional Programming] | [Assignment 1 - React Product List] - React Tutorial |
 |  2 | Wed, Aug 25 | [React, Props, and State] | - |
-|  3 | Fri, Aug 27 | Lab | - |
+|  3 | Fri, Aug 27 | [Lab 01] | - |
 |  4 | Mon, Aug 30 | [React and Forms] | - |
 |  5 | Wed, Sep  1 | [Conditional Rendering] | [Assignment 2 - Weather API] - Weather API |
 |  6 | Fri, Sep  3 | [React Lab] | - |
@@ -81,6 +81,8 @@ By the end of the course, you will be able to:
 [Redux Part 2]: Lessons/lesson-10.md
 [React Hooks]: Lessons/lesson-11.md
 [Present Final Projects]: Lessons/lesson-12.md
+
+[Lab 01]: Lessons/lab-01.md
 
 [Assignment 1 - React Product List]: Assignments/Assignment-01.md
 [Assignment 2 - Weather API]: Assignments/Assignment-02.md
