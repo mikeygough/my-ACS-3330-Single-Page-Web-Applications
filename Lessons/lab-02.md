@@ -10,7 +10,7 @@ You should have a button that adds one of each coin type.
 
 Your final work might look like this: 
 
-[images/lab-2.png](images/lab-2.png)
+![images/lab-2.png](images/lab-2.png)
 
 Your page should have the following elements: 
 
@@ -23,4 +23,4 @@ Your page should have the following elements:
 
 Your finished app should work like the animated gif below. When the buttons are clicked notice the count of coins and the total amount are updated. 
 
-[images/lab-2.gif](images/lab-2.gif)
+![images/lab-2.gif](images/lab-2.gif)
