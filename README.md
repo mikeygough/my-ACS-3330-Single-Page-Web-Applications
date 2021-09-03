@@ -52,7 +52,7 @@ By the end of the course, you will be able to:
 |  3 | Fri, Aug 27 | [Lab 01] | - |
 |  4 | Mon, Aug 30 | [React and Forms] | - |
 |  5 | Wed, Sep  1 | [Conditional Rendering] | [Assignment 2 - Weather API] - Weather API |
-|  6 | Fri, Sep  3 | [React Lab] | - |
+|  6 | Fri, Sep  3 | [Lab 02] | - |
 |  7 | Mon, Sep  6 | Labor no class! | - |
 |  8 | Wed, Sep  8 | [Callbacks and Promises] | - |
 |  9 | Fri, Sep 10 | Lab | - |
@@ -83,6 +83,7 @@ By the end of the course, you will be able to:
 [Present Final Projects]: Lessons/lesson-12.md
 
 [Lab 01]: Lessons/lab-01.md
+[Lab 02]: Lessons/lab-02.md
 
 [Assignment 1 - React Product List]: Assignments/Assignment-01.md
 [Assignment 2 - Weather API]: Assignments/Assignment-02.md
