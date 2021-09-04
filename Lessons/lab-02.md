@@ -24,3 +24,14 @@ Your page should have the following elements:
 Your finished app should work like the animated gif below. When the buttons are clicked notice the count of coins and the total amount are updated. 
 
 ![images/lab-2.gif](images/lab-2.gif)
+
+Here is an outline of the steps you might follow: 
+
+- Create a new react app with: `npx create-react-app coin-counter`
+- Use the useState hook to define a variable for a counter. Create a variable and a setter function for: 
+	- pennies and setPennies
+	- nickles and setNickles
+	- dimes and setDimes
+	- quarters and setQuarters
+- Define a variable total and set the value to pennies * 0.01 + nickles * 0.05 etc. 
+- Create a button to add each of the coin types. Call the setter function for the coin type and add one to the current value. 
