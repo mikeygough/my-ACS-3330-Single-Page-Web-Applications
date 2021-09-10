@@ -59,7 +59,7 @@ Connect your components to your state variables. For the checkboxes your state v
 
 Notice the value `peperoni` is assigned to the `checked` property. Noitce that `onChange` calls the setter function `setPeperoni` with the value `!peperoni` which flips the value from true to false or from false to true. 
 
-## Use condistional rendering
+## Use conditional rendering
 
 Use conditional rendering to display state of the form on the left in the summary area. 
 
