@@ -6,5 +6,5 @@ The goal of this lab is to create an order page for a Pizza. Take a look at the 
 
 You will creating a form with an input and some check boxes. As you enter information and select the check boxes the page should display a summary of the order on the right side. 
 
-![lab 3 gif](images/lab-3-gif)
+![lab 3 gif](images/lab-3.gif)
 
