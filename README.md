@@ -55,7 +55,7 @@ By the end of the course, you will be able to:
 |  6 | Fri, Sep  3 | [Lab 02] | - |
 |  7 | Mon, Sep  6 | Labor no class! | - |
 |  8 | Wed, Sep  8 | [Callbacks and Promises] | - |
-|  9 | Fri, Sep 10 | Lab | - |
+|  9 | Fri, Sep 10 | [Lab 03] | - |
 | 10 | Mon, Sep 13 | [Making Network Requests] | [Assignment 3 - React + Redux Tutorial] |
 | 11 | Wed, Sep 15 | [Application State] | - |
 | 12 | Fri, Sep 17 | Lab | - |
@@ -84,6 +84,7 @@ By the end of the course, you will be able to:
 
 [Lab 01]: Lessons/lab-01.md
 [Lab 02]: Lessons/lab-02.md
+[Lab 03]: Lessons/lab-03.md
 
 [Assignment 1 - React Product List]: Assignments/Assignment-01.md
 [Assignment 2 - Weather API]: Assignments/Assignment-02.md
