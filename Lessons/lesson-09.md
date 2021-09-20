@@ -28,6 +28,94 @@ What is the store?
 
 <!-- > -->
 
+## Install Redux
+
+Start with a new project:
+
+```
+npx create-react-app redux-example
+```
+
+To use React and redux you'll need to add these dependencies:
+
+```
+yarn add redux react-redux
+```
+
+(use `npm i redux react-redux` if you like)
+
+Set up your project. Add a folder for actions and reducers. 
+
+Add a simple action. Create `actions/index.js`. 
+
+```JS
+export const INCREMENT = 'INCREMENT'
+
+export const increment = () => {
+	return {
+		type: INCREMENT
+	}
+}
+```
+
+Add a simple reducer. Create: `reducers/counterReducer.js`
+
+```JS
+import { INCREMENT } from '../actions'
+
+const counterReducer = (state = 0, action) => {
+	switch(action.type) {
+		case INCREMENT: 
+			return state + 1
+		
+		default:
+			return state
+	}
+}
+
+export default counterReducer
+```
+
+Redux can work with multiple reducers so we combine them. Create: `reducers/index.js`.
+
+```JS
+import { combineReducers } from 'redux'
+import counterReducer from './counterReducer'
+
+export default combineReducers({
+	count: counterReducer
+})
+```
+
+Next create the store. You can do this in a separate file or in `index.js` or `App.js`. Open `index.js` and make the following modifications: 
+
+```JS
+...
+
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import rootReducer from './reducers'
+
+const store = createStore(rootReducer)
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+...
+```
+
+Notice the changes! Leave the other code in place and add what is shown above. 
+
+With all of this in place you can start working with Redux!
+
+<!-- > -->
+
 ```JS
 const export NEW_TODO = 'NEW_TODO'
 
@@ -45,6 +133,99 @@ function todoReducer(state = [], action) {
   // What goes here? 
 }
 ```
+
+Try it out in your app. Make a new component, create: `DisplayCount.js`
+
+```JS
+import { useSelector } from 'react-redux'
+
+function DisplayCount() {
+	const count = useSelector(state => state.count)
+	return (
+		<h1>{count}</h1>
+	)
+}
+
+export default DisplayCount
+```
+
+Use this new component in your app. Open `App.js` and replace the component function there with: 
+
+```JS
+import './App.css';
+import DisplayCount from './DisplayCount';
+
+function App() {
+  return (
+    <div className="App">
+      <DisplayCount />
+    </div>
+  );
+}
+
+export default App;
+```
+
+You should see the count displayed on your page! 
+
+Now make a button that increments the count. Create a new file: `IncrementButton.js`. 
+
+```JS
+import { useDispatch } from 'react-redux'
+import { increment } from './actions'
+
+function IncrementButton() {
+	const dispatch = useDispatch()
+
+	return (
+		<button
+			onClick={() => dispatch(increment())}
+		>Add 1</button>
+	)
+}
+
+export default IncrementButton
+```
+
+Add an instance of the `IncrementButton` to `App.js`.
+
+```JS
+import './App.css';
+import DisplayCount from './DisplayCount';
+import IncrementButton from './IncrementButton';
+
+function App() {
+  return (
+    <div className="App">
+      <DisplayCount />
+      <IncrementButton />
+    </div>
+  );
+}
+
+export default App;
+```
+
+## Challenges!
+
+If you've built the app above try these challenges: 
+
+### Challenge 1 
+
+Add another Button to `App.js`. Note! YOu do not need to make a new component! Just create another instance of `IncrementButton`. 
+
+### Challenge 2 
+
+Create a new button. This one will reset the count to 0. Call it `ResetButton`. To do this: 
+
+- Define a new action named RESET. 
+- Define an action creator function reset, that returns an object with type: RESET. 
+- Create a new component ResetButton. 
+  - Import use dispatch
+  - Import your reset action
+  - Get the dispacter (see the increment button)
+  - Setup an onClick that calls dispatch with the reset action. 
+  - Handle the reset action in your counterReducer
 
 <!-- > -->
 
