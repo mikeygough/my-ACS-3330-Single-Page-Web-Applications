@@ -94,7 +94,7 @@ Next create the store. You can do this in a separate file or in `index.js` or `A
 
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import rootReducer from './reducers'
+import rootReducer from './reducers' 
 
 const store = createStore(rootReducer)
 
