@@ -1,6 +1,6 @@
 # FEW 2.3 - Lesson 9
 
-# Redux
+# Redux 
 
 This class will cover Redux which is an application state management tool. Application State represents the data that your app manages and displays. Often it is shared across multiple views and can be updated in complex ways. 
 
