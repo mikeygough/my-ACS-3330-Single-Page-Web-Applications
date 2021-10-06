@@ -6,7 +6,9 @@ The steps below are presented in order of complexity. Doing them in order should
 
 Complete each step to the best of your ability. Do as much of each step as you can I will award partial credit for the work that you do completely.
 
-Submit your completed work on GradeScope. 
+Submit your completed work on GradeScope.
+
+The goal of the assignment is to make a React interface for the Star Wars API. 
 
 ## Redux (extra credit)
 
@@ -20,15 +22,19 @@ Create a React Project and name it with 'final' your first and last name:
 
 `FEW 2.3 final-<first>-<last>`
 
-I should be able to run this project with `yarn start`.
+I should be able to run this project with `yarn start` or `npm start`
 
 ## Home Components - 2
 
 Create a **Home** component that displays your name and the name of this class. 
 
+This component should display your name. 
+
 ## Components Patterns - 3
 
-Create a new **StarWars** component that has a _text input_, a _button_. Use the controlled component pattern and state to store the value entered in the input. The value will be the id of a Star Wars character.
+Create a new **StarWars** component that has a _text input_, and a _button_. Use the controlled component pattern and state to store the value entered in the input. The value will be the id of a Star Wars character.
+
+The goal of this component is allow us to enter a number and submit that number with a a button.
 
 **Extra Credit:** Validate your input. 
 
@@ -87,6 +93,8 @@ The URL above returns the following JSON:
 
 Load the data for the id entered and display the name of the character. 
 
+The goal here is the get the number entered and make a request to swapi.dev and display the results.
+
 ### Displaying more information - 5
 
 After you have displayed the name expand your component to display more of the information provided by the Star Wars API. 
@@ -98,38 +106,48 @@ Besides the name, display any four elements from the data. For example:
 - Hair Color
 - Eye Color
 
+The goal here is traverse and parse the JSON repsonse and display more information in you component. 
+
 ## Saving characters - 6
 
-Your next goal is to create a Save button. Clicking this will save the current character to a list. You'll need to store a list of your saved characters. 
+Your next goal is to create a Save button. Clicking this will save the current character to a list. 
+
+You will need to define your list either on state or as part of the Redux store. 
 
 Add a save button. Clicking this will save the character data to a list of characters. Later you'll be displaying the list.
 
-Use state to store the list. 
-
 When you add a character to the list you will call the setter function with a new value/list: _you must copy the list!_
+
+Something like this: `setList([...list, newItem])`
+
+The goal here is to save a character's information to a list either in state or in Redux. 
 
 ## Display a list of saved characters - 7
 
-Display a list of the saved characters from state. 
+Display a list of the saved characters from state. Put the list on the screen beside the search form. 
 
-When you display the list display for each item show the character's name at the top and all of its information below.
+When you display the list for each item show the character's name at the top and all of its information below.
+
+The goal here is to display the saved characters. 
 
 ## Display homeworld - 8
 
 Display the homeworld of a character. 
 
-The challenge here is that the character JSON provides you with the URL to the homeworld as part of the character data. Use this URL to fetch the homeworld data. To do this you will need to make another API request using the homeworld URL. 
+The challenge here is that the character JSON provides you with the *URL to the homeworld* as part of the character data. Use this URL to fetch the homeworld data. To do this you will need to make another API request using the homeworld URL. 
 
 Display the homeworld along with the character details.
 
-It's probably best to get the homeworld at the same time that you are getting the character data. 
+It's probably best to get the homeworld *at the same time* as you are getting the character data. 
 
-You'll need to do it in this order. 
+You could follow these steps: 
 
 - Use fetch to get the character data
 - Get the homeworld from character data
 - Use fetch to get the homeworld 
-- Set state to display this data
+- Set state and include the homeworld
+
+The goal here is get the homeworld data which requires a second fetch request.
 
 ## Add Some CSS styles - 9
 
@@ -140,18 +158,27 @@ Style your work. This is an open-ended challenge. You just need to show that you
 - Style the headings
 - Style the form elements input and button
 
+The goal here is to make things display well.
+
 ## Get the list of films - 10
 
 Every character comes with a list of films. This is a list of URLs that return JSON describing a film the character appeared in. Your goal is to display the film title for each film a character appeared in. 
 
-To do this you need to load each URL in the list using fetch. Here is some code to help you out. 
+To do this you need to load each URL in the list using fetch. Here is some code to help you out. `Promise.all()` takes a list of promises and resolves them all at the same time. 
+
+Here I mapped the list of films to an array of reposnses. When `Promise.all()` resolves these the next step maps these responses to an arrray of JSON objects. 
 
 ```JS
 // Get an array of Promises, these are the responses
 const filmsRes = await Promise.all(json.films.map(film => fetch(film)))
+
 // Resolve the responses to JSON
 const filmsJSON = await Promise.all(filmsRes.map(res => res.json()))
+
+// From here you have a list of JSON objects to work with
 ```
+
+
 
 You can also use `.then()` if you like: 
 
