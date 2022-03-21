@@ -39,35 +39,37 @@ By the end of the course, you will be able to:
 
 ## Schedule
 
-**Course Dates:** Mon, August 23 – Friday, October 8, 2021
+**Course Dates:** Mon, March 21 – Friday, May 12, 2022
 
-**Class Times:** Monday, Wednesday, Friday at 3:40pm PST – 5:30pm PST
+**Class Times:** Monday, Wednesday, Friday at 4:30pm PST – 5:20pm PST
 
 <!-- Hybrid sections are a mixture of online and in person components.  In person sessions include labs and group work as noted on your schedule.  These sections will run according to the Hybrid Delivery Policy: [make.sc/hybrid-delivery-policy](make.sc/hybrid-delivery-policy) -->
 
 | Class | Date | Topics | Assignment |
 |:------|:-----|:-------|:-----------|
-|  1 | Mon, Aug 23 | [React and functional Programming] | [Assignment 1 - React Product List] - React Tutorial |
-|  2 | Wed, Aug 25 | [React, Props, and State] | - |
-|  3 | Fri, Aug 27 | [Lab 01] | - |
-|  4 | Mon, Aug 30 | [React and Forms] | - |
-|  5 | Wed, Sep  1 | [Conditional Rendering] | [Assignment 2 - Weather API] - Weather API |
-|  6 | Fri, Sep  3 | [Lab 02] | - |
-|  7 | Mon, Sep  6 | Labor no class! | - |
-|  8 | Wed, Sep  8 | [Callbacks and Promises] | - |
-|  9 | Fri, Sep 10 | [Lab 03] | - |
-| 10 | Mon, Sep 13 | [Making Network Requests] | [Assignment 3 - React + Redux Tutorial] |
-| 11 | Wed, Sep 15 | [Application State] | - |
-| 12 | Fri, Sep 17 | [Lab 04] | - |
-| 13 | Mon, Sep 20 | [Redux] | [Assignment 4 - Custom Project] | 
-| 14 | Wed, Sep 22 | [Redux Part 2] | - |
-| 15 | Fri, Sep 24 | Lab | - |
-| 16 | Mon, Sep 27 | [React Hooks] | - |
-| 16 | Wed, Sep 29 | TBA | - |
-| 17 | Fri, Oct  1 | Lab | - |
-| 18 | Mon, Oct  4 | TBA | - |
-| 19 | Wed, Oct  6 | Final Assessment | - |
-| 20 | Fri, Oct  8 | [Present Final Projects] | - |
+|  1 | Mon, March 21 | [React and functional Programming] | [Assignment 1 - React Product List] - React Tutorial |
+|  2 | Wed, March 23 | [React, Props, and State] | - |
+|  3 | Fri, March 25 | [Lab 01] | - |
+|  4 | Mon, March 28 | [React and Forms] | - |
+|  5 | Wed, March 30 | [Conditional Rendering] | [Assignment 2 - Weather API] - Weather API |
+|  6 | Fri, April  1 | [Lab 02] | - |
+|  7 | Mon, April  4 | Labor no class! | - |
+|  8 | Wed, April  6 | [Callbacks and Promises] | - |
+|  9 | Fri, April  8 | [Lab 03] | - |
+| 10 | Mon, April 11 | [Making Network Requests] | [Assignment 3 - React + Redux Tutorial] |
+| 11 | Wed, April 13 | [Application State] | - |
+| 12 | Fri, April 15 | [Lab 04] | - |
+| 13 | Mon, April 18 | [Redux] | [Assignment 4 - Custom Project] | 
+| 14 | Wed, April 20 | [Redux Part 2] | - |
+| 15 | Fri, April 22 | Lab | - |
+| 16 | Mon, April 25 | [React Hooks] | - |
+| 16 | Wed, April 27 | TBA | - |
+| 17 | Fri, April 29 | Lab | - |
+| 18 | Mon, May  2   | TBA | - |
+| 19 | Wed, May  4   | Final Assessment | - |
+| 20 | Fri, May  6   | [Present Final Projects] | - |
+| 21 | Mon, May  9   | [Present Final Projects] | - |
+| 22 | Wed, May 11   | [Present Final Projects] | - |
 
 [React and functional Programming]: Lessons/lesson-01.md
 [React, Props, and State]: Lessons/lesson-02.md
@@ -91,6 +93,12 @@ By the end of the course, you will be able to:
 [Assignment 2 - Weather API]: Assignments/Assignment-02.md
 [Assignment 3 - React + Redux Tutorial]: Assignments/Assignment-03.md
 [Assignment 4 - Custom Project]: Assignments/Assignment-04.md
+
+## Video Playlist
+
+These video cover the material from this course.
+
+https://youtube.com/playlist?list=PLoN_ejT35AEhmWcDTI6M--ha_E4lTyAtx
 
 ## Homework
 
