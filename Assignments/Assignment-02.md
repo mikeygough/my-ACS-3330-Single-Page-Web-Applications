@@ -39,9 +39,11 @@ Go to openweathermap.org, create an account, and generate an API key.
 
 ### Challenge 3: Create a Weather component
 
-Create a component that will fetch and display the weather data. You can call this something like Weather. For now your component can just display anything. 
+Create a component that will fetch and display the weather data. You can call this something like `Weather`. For now your component can just display something like a h1 and "Weather". 
 
 Delete the default code in App.js and import and render your Weather component. 
+
+Test your work!
 
 ### Challenge 4: Create a form to enter the zip and unit
 
@@ -51,11 +53,32 @@ Create a form in your Weather component. Add an input tag and use the Controlled
 
 https://github.com/Tech-at-DU/ACS-3330-Single-Page-Web-Applications/blob/master/Lessons/lesson-03.md#controlled-component-pattern
 
+It's a good idea here to use a form tag and place your form elements in the form tag. Something like: 
+
+```JS
+<form>
+  <input 
+    type="text"
+  />
+</form>
+```
+
 Test your work by displaying the zip value in the component. 
+
+Display what you enter into the input to make sure it's working. 
+
+Stretch goal: Add the placeholder attribute and set the placeholder text to something like "enter your zip"
+
+Stretch goal: Use pattern attribute and a regular expressing to limit the input to a zip code pattern. 5 numbers. Here's some more information: 
+
+- https://www.w3schools.com/tags/att_input_pattern.asp
+- https://css-tricks.com/html-for-zip-codes/
 
 ### Challenge 5: Fetch the weather data for the entered zip code
 
-Fetch the weather data from openweathermap.org using the `fetch()` api.  
+Fetch the weather data from openweathermap.org using the `fetch()` api.
+
+
 
 ### Challenge 6: Use components to display the weather data
 
