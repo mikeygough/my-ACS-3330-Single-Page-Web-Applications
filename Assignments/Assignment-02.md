@@ -47,7 +47,9 @@ Delete the default code in App.js and import and render your Weather component.
 
 You'll need a form to enter the zip code. You'll use the zip code entered to get the weather data for that location. 
 
-Createa. form in your Weather component. Add an input tag and use the Controlled component pattern to store the zip code entered in a state variable. 
+Create a form in your Weather component. Add an input tag and use the Controlled component pattern to store the zip code entered in a state variable. Follow the notes here: 
+
+https://github.com/Tech-at-DU/ACS-3330-Single-Page-Web-Applications/blob/master/Lessons/lesson-03.md#controlled-component-pattern
 
 Test your work by displaying the zip value in the component. 
 
@@ -55,8 +57,30 @@ Test your work by displaying the zip value in the component.
 
 Fetch the weather data from openweathermap.org using the `fetch()` api.  
 
-8. Use components to display the weather data
-9. Use [conditional rendering](https://reactjs.org/docs/conditional-rendering.html) to display the data after it is loaded
+### Challenge 6: Use components to display the weather data
+
+Display the weather data in another component. Imagine you have a Weather component, this component might use another component to display the weather data rather than doing all of the work to laod and display the data itself. 
+
+Imagine the structure of your app as: 
+
+- Weather (loads the data and handles the form)
+  - DisplayWeather (display the data after it's loaded)
+
+You might pass the weather data into the Display Weather component as props! This component then does all of the work of formatting, displaying, and styling the weather data. 
+
+### Challenge 7: Use Conditional Rendering
+
+When the app loads there isn't any weather data. It's also possible that you might get an error from the server in the case of a bad zip code. In these cases we can't display the weather data. Solve this problem with conditional rendering!
+
+Use one of the conditional rendering patterns to display an alternate message when there is no data to display. 
+
+The goal here is to display something in place of the Weather data when the weather data has not yet been loaded. For example 
+
+Check the notes from class: https://github.com/Tech-at-DU/ACS-3330-Single-Page-Web-Applications/blob/master/Lessons/lesson-05.md
+
+For more information: 
+
+[conditional rendering](https://reactjs.org/docs/conditional-rendering.html) to display the data after it is loaded
 
 ### Stretch Challenges 
 
