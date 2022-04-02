@@ -74,11 +74,28 @@ Stretch goal: Use pattern attribute and a regular expressing to limit the input 
 - https://www.w3schools.com/tags/att_input_pattern.asp
 - https://css-tricks.com/html-for-zip-codes/
 
+Stretch Goal: Create drop down menu with the html `<select>` element that shows the unit. The unit is the temperature unit, it can be metric, imperial, or standard. You'll set hte value of this element with a state variable. 
+
+Stretch Goal: Use three radio buttons that set select a unit. You'll need to set a state variable for this. 
+
+The last two stretch goals both set the same thing. You can use them both just for experimental purposes but in a real project you'd probably use one or the other. 
+
 ### Challenge 5: Fetch the weather data for the entered zip code
 
 Fetch the weather data from openweathermap.org using the `fetch()` api.
 
+Use the guide in lessons 6 and 7: 
 
+- [Lesson 6 - Callbacks and Promise](https://github.com/Tech-at-DU/ACS-3330-Single-Page-Web-Applications/blob/master/Lessons/lesson-06.md)
+- [Lesson 7 - Networks request with Fetch](https://github.com/Tech-at-DU/ACS-3330-Single-Page-Web-Applications/blob/master/Lessons/lesson-07.md)
+
+Stretch goal: Use async and await. 
+
+Stretch Goal: Handle network errors. If you're using `.then()` use `.catch()`. If you're using `async` and `await` use a `try{ ... } catch() { ... }` block. Read more about try catch here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
+
+Note! Handling errors here will only cover errors that occur with the network. This doesn't cover errors that might occur with a bad request. For example, the openweathermap server is down. 
+
+A request with a bad zip code is not covered here since the request is worked successfully. 
 
 ### Challenge 6: Use components to display the weather data
 
@@ -90,6 +107,12 @@ Imagine the structure of your app as:
   - DisplayWeather (display the data after it's loaded)
 
 You might pass the weather data into the Display Weather component as props! This component then does all of the work of formatting, displaying, and styling the weather data. 
+
+Stretch Goal: Handle errors from openweathermap. Note errors here will manifest in the cod property on the JSON response. When would you get an error? If you provide a bad zip cod will be 404, and **all of the other data will be missing!**
+
+How can you tell when there was an error? Check for a success instead! if cod is 200 then you can move on and get the temperature and other data. If cod is anything but 200 there was a problem. 
+
+Use conditional rendering to render the weather data or render an error message. 
 
 ### Challenge 7: Use Conditional Rendering
 
