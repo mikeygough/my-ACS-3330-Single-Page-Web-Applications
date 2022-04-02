@@ -29,14 +29,34 @@ Follow the video tutorial to buid the app.
 
 ## Challenges 
 
-1. Create a default React app
-1. Register and get an API key from openweathermap
-1. Create a Weather component
-1. Create a form to enter the zip and unit
-1. Your form should use the [controlled component pattern](https://reactjs.org/docs/forms.html) and store form values on state
-1. Fetch the weather data for the entered zip code
-1. Use components to display the weather data
-1. Use [conditional rendering](https://reactjs.org/docs/conditional-rendering.html) to display the data after it is loaded
+### Challenge 1: Create a default React app
+
+Create a default react project and test it to make sure everything is working. 
+
+### Challenge 2: Register and get an API key from openweathermap
+
+Go to openweathermap.org, create an account, and generate an API key. 
+
+### Challenge 3: Create a Weather component
+
+Create a component that will fetch and display the weather data. You can call this something like Weather. For now your component can just display anything. 
+
+Delete the default code in App.js and import and render your Weather component. 
+
+### Challenge 4: Create a form to enter the zip and unit
+
+You'll need a form to enter the zip code. You'll use the zip code entered to get the weather data for that location. 
+
+Createa. form in your Weather component. Add an input tag and use the Controlled component pattern to store the zip code entered in a state variable. 
+
+Test your work by displaying the zip value in the component. 
+
+### Challenge 5: Fetch the weather data for the entered zip code
+
+Fetch the weather data from openweathermap.org using the `fetch()` api.  
+
+8. Use components to display the weather data
+9. Use [conditional rendering](https://reactjs.org/docs/conditional-rendering.html) to display the data after it is loaded
 
 ### Stretch Challenges 
 
