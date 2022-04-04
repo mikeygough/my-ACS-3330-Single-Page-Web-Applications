@@ -77,7 +77,7 @@ Note! **parameter** is the variable that holds the **argument** which is the val
 
 The problems below have been consolidated in this GitHub repo: 
 
-https://github.com/Make-School-Labs/callbacks-and-promise
+https://github.com/Tech-at-DU/callbacks-and-promise
 
 - Fork or clone this repo
 - Solve the problems
