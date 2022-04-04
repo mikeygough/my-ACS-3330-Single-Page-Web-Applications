@@ -53,16 +53,16 @@ By the end of the course, you will be able to:
 |  4 | Mon, March 28 | [React and Forms] | - |
 |  5 | Wed, March 30 | [Conditional Rendering] | [Assignment 2 - Weather API] - Weather API |
 |  6 | Fri, April  1 | [Lab 02] | - |
-|  7 | Mon, April  4 | Labor no class! | - |
-|  8 | Wed, April  6 | [Callbacks and Promises] | - |
+|  7 | Mon, April  4 | [Callbacks and Promises] |  |
+|  8 | Wed, April  6 | [Making Network Requests] | - |
 |  9 | Fri, April  8 | [Lab 03] | - |
-| 10 | Mon, April 11 | [Making Network Requests] | [Assignment 3 - React + Redux Tutorial] |
-| 11 | Wed, April 13 | [Application State] | - |
+| 10 | Mon, April 11 | [Application State] | [Assignment 3 - React + Redux Tutorial] |
+| 11 | Wed, April 13 | [Redux] | - |
 | 12 | Fri, April 15 | [Lab 04] | - |
-| 13 | Mon, April 18 | [Redux] | [Assignment 4 - Custom Project] | 
-| 14 | Wed, April 20 | [Redux Part 2] | - |
+| 13 | Mon, April 18 | [Redux Part 2] | [Assignment 4 - Custom Project] | 
+| 14 | Wed, April 20 | [React Hooks] | - |
 | 15 | Fri, April 22 | Lab | - |
-| 16 | Mon, April 25 | [React Hooks] | - |
+| 16 | Mon, April 25 | TBA | - |
 | 16 | Wed, April 27 | TBA | - |
 | 17 | Fri, April 29 | Lab | - |
 | 18 | Mon, May  2   | TBA | - |
