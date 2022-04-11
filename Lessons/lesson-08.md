@@ -217,9 +217,10 @@ To get the clicks from your "Add to Cart" buttons you'll need to pass a function
 
 ```
 App 
+  ShoppingCart
   ProductList
     Product
-      Button onClick
+      Button onClick // should add product to cart
 ```
 
 Which can be awkward. 
