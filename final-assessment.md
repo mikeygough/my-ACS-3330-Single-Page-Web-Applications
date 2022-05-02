@@ -209,6 +209,15 @@ Promise.all([p1, p2, p3]).then(values => {
 })
 ```
 
+### Stretch Goals 
+
+Try these stretch goals to see how far your skills go! You can 
+do these in any order. 
+
+- Use Redux. Implement the app with Redux. Use Redux Thunk to handle async actions. 
+- Add a Delete button to remove items from the saved list. 
+- Handle errors. Character 17 is missing. Try to seach for character 17. What happens? Allow your app to handle this gracefully. 
+
 ### Submit your work
 
 Submit your work on Gradescope. 

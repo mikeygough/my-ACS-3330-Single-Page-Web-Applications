@@ -10,6 +10,13 @@ Redux has many parts the best way to own them is review!
 1. Describe Application State
 1. Describe Actions, Actions Creators, and Reducers
 
+## Choose your work 
+
+Everyone may be at different places of progress. 
+
+- If you're still working on the tutorial - Continue workng on it. 
+- If you're done with the tutorial - Copy your Weather API project and convert it to redux. Follow the steps below
+
 ## React Redux Review 
 
 Read the first part of this article it is a very nice and succinct explanation of React and Redux. 
