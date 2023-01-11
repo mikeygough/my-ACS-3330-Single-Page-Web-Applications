@@ -57,7 +57,7 @@ You've been learning JavaScript and you're going to learn more this term! What i
 
 Take a quick tour of this site and see what you find: 
 
-https://2020.stateofjs.com/en-US/technologies/
+https://2022.stateofjs.com/en-US/
 
 <!-- > -->
 
