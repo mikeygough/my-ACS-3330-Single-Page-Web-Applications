@@ -48,16 +48,16 @@ By the end of the course, you will be able to:
 | Class | Date | Topics | Assignment |
 |:------|:-----|:-------|:-----------|
 |  1 | Wed, Jan 11 | [React and functional Programming] | [Assignment 1 - React Product List] - React Tutorial |
-|  2 | Mon, Jan 16 | [React, Props, and State] | - |
-|  3 | Wed, Jan 18 | [React and Forms] | - |
-|  4 | Mon, Jan 23 | [Conditional Rendering] | [Assignment 2 - Weather API] - Weather API |
-|  5 | Wed, Jan 25 | [Callbacks and Promises] | - |
-|  6 | Mon, Jan 30 | [Making Network Requests] | - |
-|  7 | Wed, Feb  1 | [Application State] | [Assignment 3 - React + Redux Tutorial] |
-|  8 | Mon, Feb  6 | [Redux] | - |
-|  9 | Wed, Feb  8 | [Redux Part 2] | [Assignment 4 - Custom Project] |
-| 10 | Mon, Feb 13 | [React Hooks] |  |
-| 11 | Wed, Feb 15 |  | - |
+|  2 | Mon, Jan 16 | MLK Day no classes! |
+|  3 | Wed, Jan 18 | [React, Props, and State] | - |
+|  4 | Mon, Jan 23 | [React and Forms] | - |
+|  5 | Wed, Jan 25 | [Conditional Rendering] | [Assignment 2 - Weather API] - Weather API |
+|  6 | Mon, Jan 30 | [Callbacks and Promises] | - |
+|  7 | Wed, Feb  1 | [Making Network Requests] | - |
+|  8 | Mon, Feb  6 | [Application State] | [Assignment 3 - React + Redux Tutorial] |
+|  9 | Wed, Feb  8 | [Redux] | - |
+| 10 | Mon, Feb 13 | [Redux Part 2] | [Assignment 4 - Custom Project] |
+| 11 | Wed, Feb 15 | [React Hooks] | - |
 | 12 | Mon, Feb 20 |  | - |
 | 13 | Wed, Feb 22 |  | - | 
 | 14 | Mon, Feb 27 | Final Assessment | - |
