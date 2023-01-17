@@ -141,8 +141,8 @@ Now define a new state variable and a setter function with `useState`:
 
 ```JS
 function Counter(props) {
-	const [count, setCount] = useState(0)
-	return (
+  const [count, setCount] = useState(0)
+  return (
     ...
   )
 }
@@ -196,14 +196,14 @@ Edit your Counter.js. Go back to original version:
 ```JS
 function Counter(props) {
 
-	return (
-		<div className="Counter">
-			<small>{props.label}</small>
-			<h1>{props.value}</h1>
-			<button >+</button>
-			<button >-</button>
-		</div>
-	)
+  return (
+    <div className="Counter">
+      <small>{props.label}</small>
+      <h1>{props.value}</h1>
+      <button >+</button>
+      <button >-</button>
+    </div>
+  )
 }
 
 export default Counter
@@ -291,7 +291,7 @@ Let's apply that to the Counter example. In App,js:
       <Counter 
         label={`counter ${index}`}
         value={value} 
-        
+
         increment={() => {
           const newCount = [...count]
           newCount[index] += 1
