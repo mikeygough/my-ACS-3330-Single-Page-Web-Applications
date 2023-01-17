@@ -142,7 +142,6 @@ Now define a new state variable and a setter function with `useState`:
 ```JS
 function Counter(props) {
 	const [count, setCount] = useState(0)
-
 	return (
     ...
   )
