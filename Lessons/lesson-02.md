@@ -66,6 +66,7 @@ Create a Counter component. Make a new file named: `Counter.js`.
 
 ```JS
 function Counter(props) {
+
 	return (
 		<div className="Counter">
 			<small>{props.label}</small>
