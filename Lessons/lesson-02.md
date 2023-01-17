@@ -73,7 +73,7 @@ function Counter(props) {
       <button>+</button>
       <button>-</button>
     </div>
-	)
+  )
 }
 
 export default Counter
