@@ -251,11 +251,11 @@ Notice you're mapping the array of counts into Counter components.
 
 ## Why did we do this? 
 
-This was working before, and doesn't look any different now, why do it this way? Take a moment and snwer this for yourself. 
+This was working before, and doesn't look any different now, why do it this way? Take a moment and answer this for yourself. 
 
-In the previous incarnation it would be impossible to display the total count of all of the counters! Each counter holds it's own state but the App component doesn't have access to these state calues. 
+In the first incarnation, where each component defined it's own state, it was impossible to display the total count of all of the counters! Each counter holds it's own state but, the App component doesn't have access to these state values. 
 
-You need to lift state to the application level! Component level state is an island. Appliction state can be shared with the entire application. 
+You need to lift state to the application level! Component level state is an island. Application state can be shared with the entire application. 
 
 Add this to your App component: 
 
@@ -267,9 +267,7 @@ Here you used reduce to get the total of all counters and displayed it!
 
 Test your work. When you update a counter the total alsoi updates. 
 
-<!-- > -->
-
-With this change the values are stored in the parent component and the values are passed down to the child components. 
+With this change the values are stored in the parent component and the values are passed down to the child components through props. 
 
 <!-- > -->
 
