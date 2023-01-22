@@ -186,6 +186,10 @@ Here the check box is controlled by the `newsLetter` "state" variable. This vari
 
 Imagine this challenge as an easy front-end interview question. Solve the problem here: https://github.com/Tech-at-DU/ACS-3330-Single-Page-Web-Applications/blob/master/Lessons/lab-03.md
 
+Complete this challenge in class and submit it to gradescope. 
+
+Follow the notes in the rest of this lesson to get started on the next homework assignment. 
+
 ## Lifecycle methods and Hooks 
 
 ```JS
