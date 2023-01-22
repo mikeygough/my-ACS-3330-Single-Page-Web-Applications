@@ -6,11 +6,7 @@
 
 <!-- > -->
 
-The first goal for this class is to use React with a public web API.
-
-The second goal is to work with form elements and user input with React. React has a special pattern for this due to the way it handles the virtual DOM.
-
-Last, the goal will be to look at conditional rendering techniques that can be implemented with React. 
+The goal of this class will be to look at handling forms with React. 
 
 <!-- > -->
 
@@ -48,23 +44,13 @@ The videos are labeled "lesson 03 x" which corresponds to the class lesson numbe
 
 **Checking progress**
 
-- Where are you at on product list?
+- Where are you on the product list?
 - What do you need to do to wrap up this project?
 - What are your blockers?
 
 <!-- > -->
 
-## React Hooks
-
-<!-- > -->
-
-Hooks are a new feature to React. Hooks allow you to use state with a function based component. 
-
-Before Hooks state was only available to class based components. 
-
-<!-- > -->
-
-## Use useState 
+## Use useState
 
 <!-- > -->
 
@@ -109,6 +95,32 @@ function Example() {
 
 <!-- > -->
 
+### `const [count, setCount] = useState(0);` 🤔
+
+What is this? You should already be familiar with deconstructions with Objects. Deconstruction can also be applied to Arrays. 
+
+```JS 
+const numbers = [1, 2, 3]
+const [ one, two, three ] = numbers
+```
+
+With an object similar code might look like this: 
+
+```JS 
+const numbers = { one: 1, two: 2, three: 3 }
+const { one, two, three } = numbers
+```
+
+With objects, you must use the keys to assign the values. So the new variables created on line 2 number have the names `one`, `two`, and `three`. 
+
+In the Array example on line 2 the new variables created can have any name and they are assigned a value based on their index!
+
+### Why hooks? 
+
+React also supports components written as classes. We won't be covering these in class as they seem to be out and the world is functional components and hooks instead. 
+
+Classes take extra syntax to generate and are more complex to decipher and debug. Functions are more straightforward to troubleshoot. 
+
 ### Controlled Component Pattern
 
 <!-- > -->
@@ -133,50 +145,46 @@ function MyComponent() {
 
 <!-- > -->
 
-Here the component was creacted from a function but has access to state (`count`). 
+Here the component was created from a function but has access to state (`count`). 
 
 To use state with hooks follow these steps
 
 1. When using `useState` you'll need to import it first. 
 1. Call `useState(initialValue)` with the initial value. 
-1. Deconstruct with the array syntax to get the value, and setter function. 
-    - In the axample above the value is `count`
-    - The setter us `useCount`
+1. Deconstruct with the array syntax to get the value and setter function. 
+ - In the example above the value is `count`
+ - The setter us `useCount`
 1. To change the value of state call your setter with a new value: `setCount(99)`
 
-It's convention to name your vairable and precede the setter with 'set'. 
+It's a convention to name your variable and precede the setter with 'set'. 
 
-### `const [count, setCount] = useState(0);` 🤔
+You'll use this same pattern for all form controls! Things like `<select>` (creates a menu), checkboxes and radio buttons, etc. 
 
-What is this? You should already be familiar with deconstructions with Objects. Desconstruction can also be applied to Arrays. 
+Imagine the component above also had a check box. 
 
-```JS 
-const numbers = [1, 2, 3]
-const [ one, two, three ] = numbers
+```JS
+function MyComponent() {
+  const [name, setName] = useState('')
+  const [newsletter, setNewsletter] = useState(true)
+
+  return (
+    <input 
+      value={name}
+      onChange={(e) => setName(e.target.value)}
+    />
+    <input 
+      checked={newsletter}
+      onChange={() => setPeperoni(!newsletter)}
+    />
+  )
+}
 ```
 
-With an object similar code might look like this: 
+Here the check box is controlled by the `newsLetter` "state" variable. This variable reflects its value in the interface element and clicking the checkbox updates the variable. 
 
-```JS 
-const numbers = { one: 1, two: 2, three: 3 }
-const { one, two, three } = numbers
-```
+## Challenge 
 
-With objects you must use the keys to assign the values. So the new variables created on line 2 number have the names `one`, `two`, and `three`. 
-
-In the Array example on line 2 the new variables created can have any name and they are assigned value based of their index!
-
-### Why hooks? 
-
-React is based on **functional** react programming. At it's heart it's built from functional concepts. React isn't an Object Oriented library. The idea of having important parts of the system based on OOP code goes against it's underlying concetps. 
-
-Classes take a extra syntax to generate and more complex to decipher and debug. Functions are more straighforward to troubleshoot. 
-
-If you've ever been confused by `this` if you writing code that is only functions, removing classes, you won't have to workry about `this`.
-
-Hooks don't add a ny breaking changes. Use them if like or not if you don't. 
-
-You should expect to see Hooks in code samples online so it pays to understand them even if you don't use them. 
+Imagine this challenge as an easy front-end interview question. Solve the problem here: https://github.com/Tech-at-DU/ACS-3330-Single-Page-Web-Applications/blob/master/Lessons/lab-03.md
 
 ## Lifecycle methods and Hooks 
 
@@ -233,9 +241,9 @@ Follow the instructions to set up and run the demo project.
 
 - Download or fork the [project](https://github.com/Product-College-Labs/react-api-project)
 - Make an account with [OpenWeatherMap.org](https://home.openweathermap.org/)
-    - Go to your profile page: API Keys
-    - Generate and copy your API key
-    - Add the following to the '.env' file: 
+ - Go to your profile page: API Keys
+ - Generate and copy your API key
+ - Add the following to the '.env' file: 
 
 `REACT_APP_OPENWEATHERMAP_API_KEY=YOUR_API_KEY_HERE`
 
@@ -273,7 +281,7 @@ The input should take a zip code so I set the placeholder to "enter zip" and use
 
 ```JavaScript
 <input 
-    ...
+  ...
   type="text" 
   pattern="(\d{5}([\-]\d{4})?)"
   placeholder="enter zip"
@@ -303,7 +311,7 @@ This may seem a little strange, but it's important for two reasons.
 
 ## Challenges 
 
-Use `array.filter()` to solve some of the challenges. Filter is a method of Array that returns a new array that is a subset of the source array. Like map and reduce fitler takes a callback. The callback is passed each element from the source array and it determines if that item should be included in the output array by returning true or false if the item should not be included. 
+Use `array.filter()` to solve some of the challenges. Filter is a method of Array that returns a new array that is a subset of the source array. Like, map and reduce filter takes a callback. The callback is passed to each element from the source array and it determines if that item should be included in the output array by returning true or false if the item should not be included. 
 
 ## After Class
 
@@ -318,3 +326,4 @@ Use `array.filter()` to solve some of the challenges. Filter is a method of Arra
 1. [Conditional Rendering](https://reactjs.org/docs/conditional-rendering.html)
 1. [Conditional Rendering in React](https://blog.logrocket.com/conditional-rendering-in-react-c6b0e5af381e)
 1. [Custom environment variables](https://facebook.github.io/create-react-app/docs/adding-custom-environment-variables)
+
