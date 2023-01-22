@@ -66,14 +66,14 @@ Create a Counter component. Make a new file named: `Counter.js`.
 
 ```JS
 function Counter(props) {
-	return (
-		<div className="Counter">
-			<small>{props.label}</small>
-			<h1>{props.value}</h1>
-			<button>+</button>
-			<button>-</button>
-		</div>
-	)
+  return (
+    <div className="Counter">
+      <small>{props.label}</small>
+      <h1>{props.value}</h1>
+      <button>+</button>
+      <button>-</button>
+    </div>
+  )
 }
 
 export default Counter
@@ -141,9 +141,8 @@ Now define a new state variable and a setter function with `useState`:
 
 ```JS
 function Counter(props) {
-	const [count, setCount] = useState(0)
-
-	return (
+  const [count, setCount] = useState(0)
+  return (
     ...
   )
 }
@@ -197,14 +196,14 @@ Edit your Counter.js. Go back to original version:
 ```JS
 function Counter(props) {
 
-	return (
-		<div className="Counter">
-			<small>{props.label}</small>
-			<h1>{props.value}</h1>
-			<button >+</button>
-			<button >-</button>
-		</div>
-	)
+  return (
+    <div className="Counter">
+      <small>{props.label}</small>
+      <h1>{props.value}</h1>
+      <button >+</button>
+      <button >-</button>
+    </div>
+  )
 }
 
 export default Counter
@@ -250,7 +249,25 @@ Notice you're mapping the array of counts into Counter components.
 
 <!-- > -->
 
-With this change the values are stored in the parent component and the values are passed down to the child components. 
+## Why did we do this? 
+
+This was working before, and doesn't look any different now, why do it this way? Take a moment and answer this for yourself. 
+
+In the first incarnation, where each component defined it's own state, it was impossible to display the total count of all of the counters! Each counter holds it's own state but, the App component doesn't have access to these state values. 
+
+You need to lift state to the application level! Component level state is an island. Application state can be shared with the entire application. 
+
+Add this to your App component: 
+
+```JS
+<h1>{count.reduce((acc, n) => acc += n)}</h1>
+```
+
+Here you used reduce to get the total of all counters and displayed it! 
+
+Test your work. When you update a counter the total alsoi updates. 
+
+With this change the values are stored in the parent component and the values are passed down to the child components through props. 
 
 <!-- > -->
 
@@ -292,7 +309,7 @@ Let's apply that to the Counter example. In App,js:
       <Counter 
         label={`counter ${index}`}
         value={value} 
-        
+
         increment={() => {
           const newCount = [...count]
           newCount[index] += 1
@@ -377,4 +394,3 @@ Continue working on [Assignment 1](../Assignments/Assignment-01.md)
 - [React Props](https://reactjs.org/docs/components-and-props.html)
 - [Video Playlist](https://www.youtube.com/playlist?list=PLoN_ejT35AEhmWcDTI6M--ha_E4lTyAtx)
 - [Lifting State](https://reactjs.org/docs/lifting-state-up.html)
-
