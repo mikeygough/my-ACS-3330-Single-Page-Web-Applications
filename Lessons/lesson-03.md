@@ -174,7 +174,8 @@ function MyComponent() {
     />
     <input 
       checked={newsletter}
-      onChange={() => setPeperoni(!newsletter)}
+      type="checkbox"
+      onChange={() => setNewsletter(!newsletter)}
     />
   )
 }
