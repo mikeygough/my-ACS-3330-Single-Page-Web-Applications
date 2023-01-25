@@ -236,13 +236,13 @@ https://scotch.io/tutorials/7-ways-to-implement-conditional-rendering-in-react-a
 
 ## In Class 
 
-Start on Assignment 3. In this assignment you will create an app that works with a web API. It will need to load data and display it. To build the app you will make use of conditional rendering.
+Start on Assignment 2. In this assignment you will create an app that works with a web API. It will need to load data and display it. To build the app you will make use of conditional rendering.
 
-[Assignment 3](../Assignments/Assignment-03)
+[Assignment 2](../Assignments/Assignment-02.md)
 
 ## After Class
 
-Continue working on [Assignment 3](../Assignments/Assignment-03)
+Continue working on [Assignment 2](../Assignments/Assignment-02.md)
 
 ## Additional Resources
 
