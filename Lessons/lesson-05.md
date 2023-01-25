@@ -4,7 +4,7 @@
 
 ## Conditional Rendering
 
-Conditional rendering is the process of showing one component or another depending on data or possibly showing or not showing a component at all. 
+Conditional rendering is the process of showing one component or another depending on state or possibly showing or not showing a component at all. 
 
 <!-- > -->
 
@@ -57,7 +57,7 @@ function WeatherData(isLoaded) {
 }
 ```
 
-<small>Here is a function that returns either the Weather component or the Loading Component.</small>
+<small>Here the function returns either the Weather component or the Loading Component depending in weather `isLoaded` is truthy.</small>
 
 <!-- > -->
 
@@ -87,7 +87,7 @@ function WeatherData({ isLoaded }) { // Notice the change here!
 }
 ```
 
-Here is a function that returns either the Weather component or the Loading Component. 
+This component renders the Weather component or the Loading component. 
 
 <!-- > -->
 
@@ -103,14 +103,16 @@ function App() {
 }
 ```
 
+Notice that the function above returns JSX so it can be used like any other component! 
+
 <!-- > -->
 
-**Pattern 2** - Assign a JSX element to variables and render that. This works for situations where a list of components might be used. 
+**Pattern 2** - Assign a JSX element to a variable and render it. This works for situations where a list of components might be used. 
 
 ```JavaScript
 function WhatToEat(props) {
   const { time } = props
-  let element
+  let element // declare an empty variable
   if (time === 'morning') {
     element = <Eggs />
   } else if (time === 'lunch') {
@@ -127,9 +129,21 @@ function WhatToEat(props) {
 }
 ```
 
+Since this function return JSX is can be used as a component! 
+
+```JS
+function App() {
+  return (
+    <div>
+      {<WhatToEat time="lunch" />} // displays <Burrito />
+    </div>
+  )
+}
+```
+
 <!-- > -->
 
-**Pattern 3** Use the && operator. Here you'd render a component or render nothing. 
+**Pattern 3** Use the && operator. Here you'd render a component or render nothing. This is the standard JS comparison AND operator. If both sides are true then the right side of the && operator is rendered. 
 
 ```JS 
 <div>
@@ -142,11 +156,13 @@ function WhatToEat(props) {
 </div>
 ```
 
-<small>Here `false && 99` evaluates to false, and `true && 99` evaluates to 99.</small>
+<small>`false && 99` evaluates to false, and `true && 99` evaluates to 99. In this example if `unreadMessages.length` is greater than 0 the left side of && is true and the right side is displayed.</small>
+
+To understand this better read about [JS truthy and falsy.](https://javascript.info/logical-operators) 
 
 <!-- > -->
 
-**Pattern 4** The ternary operator is like a single line if else. 
+**Pattern 4** The ternary operator is like a single line if else. You can use this anywhere! it also works with React components! 
 
 ```JSX
 function LoginButton(props) {
@@ -162,11 +178,13 @@ function LoginButton(props) {
 }
 ```
 
-The ternary operator `condition ? truthy expression : falsey expression` works with three elements: a condition, a truthy expression, and a falsey experssion. 
+<small>In this example if `isLoggedIn` is true then LogoutButton is displayed. Otherwise LoginButton is displayed.</small>
 
-<!-- > -->
+The ternary operator `condition ? truthy expression : falsey expression` works with three elements: a condition, a truthy expression, and a falsey experssion.
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+
+<!-- > -->
 
 **Pattern 5** In some cases you'll want to show a component or nothing at all. React won't render `null` if it appears in a component. 
 
@@ -181,7 +199,11 @@ function Warning({ show, message }) {
     </div>
   ) 
 }
+```
 
+Above the Warning component "short circuits" and returns null if `show` is false. 
+
+```JSX
 function App() {
   return (
     <div>
@@ -191,6 +213,10 @@ function App() {
   )
 }
 ```
+
+The first Warning returns null which React ignores without an error. 
+
+The second Warning returns the div with the a message and is displayed. 
 
 ### Using Conditional Rendering
 
@@ -216,9 +242,7 @@ Start on Assignment 3. In this assignment you will create an app that works with
 
 ## After Class
 
-After class your goal is to use the ideas from this class make your portfolio web site a "multipage" navigable site with React Router. 
-
-[Assignment 3](../Assignments/Assignment-03)
+Continue working on [Assignment 3](../Assignments/Assignment-03)
 
 ## Additional Resources
 
