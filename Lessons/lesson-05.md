@@ -97,7 +97,7 @@ You might use this in an other component like this:
 function App() {
   return (
     <div>
-      {<WeatherData isLoaded={true} />} // displays <Weather />
+      <WeatherData isLoaded={true} /> // displays <Weather />
     </div>
   )
 }
@@ -135,7 +135,7 @@ Since this function return JSX is can be used as a component!
 function App() {
   return (
     <div>
-      {<WhatToEat time="lunch" />} // displays <Burrito />
+      <WhatToEat time="lunch" /> // displays <Burrito />
     </div>
   )
 }
