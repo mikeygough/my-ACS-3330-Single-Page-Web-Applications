@@ -52,14 +52,14 @@ By the end of the course, you will be able to:
 |  3 | Wed, Jan 18 | [React, Props, and State] | - |
 |  4 | Mon, Jan 23 | [React and Forms] | - |
 |  5 | Wed, Jan 25 | [Conditional Rendering] | [Assignment 2 - Weather API] - Weather API |
-|  6 | Mon, Jan 30 | [Callbacks and Promises] | - |
+|  6 | Mon, Jan 30 | [React Hooks] | - |
 |  7 | Wed, Feb  1 | [Making Network Requests] | - |
 |  8 | Mon, Feb  6 | [Application State] | [Assignment 3 - React + Redux Tutorial] |
 |  9 | Wed, Feb  8 | [Redux] | - |
 | 10 | Mon, Feb 13 | [Redux Part 2] | [Assignment 4 - Custom Project] |
-| 11 | Wed, Feb 15 | [React Hooks] | - |
-| 12 | Mon, Feb 20 |  | - |
-| 13 | Wed, Feb 22 |  | - | 
+| 11 | Wed, Feb 15 | - | - |
+| 12 | Mon, Feb 20 | - | - |
+| 13 | Wed, Feb 22 | - | - | 
 | 14 | Mon, Feb 27 | Final Assessment | - |
 | 15 | Wed, Mar  1 | [Present Final Projects] | - |
 

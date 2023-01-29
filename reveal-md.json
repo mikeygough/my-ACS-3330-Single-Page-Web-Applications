@@ -8,7 +8,7 @@
   "scripts": [
   ],
   "assetsDir": "assets",
-  "staticDirs": "Lessons/Images",
+  "staticDirs": "Lessons/images",
   "css": [
       "Reveal/makeschool.css"
   ]
