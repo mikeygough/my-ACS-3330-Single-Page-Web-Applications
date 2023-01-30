@@ -52,7 +52,7 @@ By the end of the course, you will be able to:
 |  3 | Wed, Jan 18 | [React, Props, and State] | - |
 |  4 | Mon, Jan 23 | [React and Forms] | - |
 |  5 | Wed, Jan 25 | [Conditional Rendering] | [Assignment 2 - Weather API] - Weather API |
-|  6 | Mon, Jan 30 | [React Hooks] | - |
+|  6 | Mon, Jan 30 | [useEffect Hook] | - |
 |  7 | Wed, Feb  1 | [Making Network Requests] | - |
 |  8 | Mon, Feb  6 | [Application State] | [Assignment 3 - React + Redux Tutorial] |
 |  9 | Wed, Feb  8 | [Redux] | - |
@@ -73,7 +73,7 @@ By the end of the course, you will be able to:
 [Application State]: Lessons/lesson-08.md
 [Redux]: Lessons/lesson-09.md
 [Redux Part 2]: Lessons/lesson-10.md
-[React Hooks]: Lessons/lesson-11.md
+[useEffect Hook]: Lessons/lesson-11.md
 [Present Final Projects]: Lessons/lesson-12.md
 
 [Lab 01]: Lessons/lab-01.md
