@@ -2,7 +2,7 @@
 
 ## `useEffect` Hook
 
-`useEffect` is an important but confusing hook to master. You'll use it to 
+`useEffect` is an important but confusing hook to master. You will run into it in the future!
 
 ## Why you should know this
 
