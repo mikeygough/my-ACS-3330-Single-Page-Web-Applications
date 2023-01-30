@@ -1,26 +1,26 @@
 # FEW 2.3 - Lesson 11
 
-## `useEffect` Hook
+## `useEffect` Hook 🪝
 
 `useEffect` is an important but confusing hook to master. You will run into it in the future!
 
-## Why you should know this
+## Why you should know this 🤔
 
 `useEffect` is important and needed to handle lifecycle and asynchronous actions. 
 
 `useEffect` also has some pitfalls that can cause hard-to-diagnose problems. Understanding `useEffect` will allow you to spot these problems and know how to solve them. 
 
-## Learning Objectives
+## Learning Objectives 😱
 
 - Use `useEffect` in projects
 - Describe and explain `useEffect` its purpose and use cases 
 - Implement lifecycle updates with `useEffect`
 
-## Quick Review of callbacks
+## Quick Review of callbacks 📞
 
 A callback is a function that is passed to another function. 
 
-## Class-based components 
+## Class-based components 🏛️
 
 React also supports components written as classes. In the past, this was the only way to create components that used state. Here is an example: 
 
@@ -72,7 +72,7 @@ function Counter() {
 
 The second is shorter but maybe it's harder to understand what is happening. 
 
-## Lifecycle methods 
+## Lifecycle methods 👪
 
 LifeCycle methods are methods that are called during the life of your component. This allows your component to react to situations like when it is created when it is updated when it is added or removed from the DOM. These are important events in the life of a component, just as important as life events like birth, death, and graduation!
 
