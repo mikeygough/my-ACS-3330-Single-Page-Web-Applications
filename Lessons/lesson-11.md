@@ -48,7 +48,7 @@ class Counter extends Component {
 <Counter />
 ```
 
-This code is longer with lots of dot syntax but is self-documenting. 
+This code has lots of dot syntax but is also self documenting. 
 
 The same component as a function: 
 
