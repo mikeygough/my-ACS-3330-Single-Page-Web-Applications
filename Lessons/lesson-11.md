@@ -12,9 +12,8 @@
 
 ## Learning Objectives
 
-- Use `useEffect`
-- Describe and explain `useEffect` 
-- Implement async updates with `useEffect`
+- Use `useEffect` in projects
+- Describe and explain `useEffect` its purpose and use cases 
 - Implement lifecycle updates with `useEffect`
 
 ## Quick Review of callbacks
