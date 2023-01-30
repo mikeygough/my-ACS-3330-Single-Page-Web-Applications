@@ -20,6 +20,45 @@
 
 A callback is a function that is passed to another function. 
 
+Find the callbacks in line of code below: 
+
+```JS
+const arr1 = arr.map(n => n * 2) // 
+const arr2 = arr.filter(function(n) { return n < 20 }) // 
+const arr3 = arr.reduce(function sum(acc, n) { return acc + n }) // 
+
+// Foreach 
+// 
+arr.forEach(n => {
+  console.log(`n = ${n}`)
+})
+
+// setTimeout and setInterval
+setTimeout(() => {
+  console.log('Two seconds later')
+}, 2000)
+
+function message() {
+	console.log('Every ten seconds')
+}
+setInterval(message, 10000)
+
+// There are plenty more
+document.body.addEventListener('click', e => {
+  console.log(`You clicked ${e.target}`)
+})
+
+requestAnimationFrame(timestamp => {
+
+})
+
+navigator.geolocation.getCurrentPosition(pos => {
+  console.log(pos.coords)
+}, err => {
+  console.log(err)
+}, {});
+```
+
 ## Class-based components 🏛️
 
 React also supports components written as classes. In the past, this was the only way to create components that used state. Here is an example: 
