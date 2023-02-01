@@ -83,7 +83,12 @@ You need to be able to identify one of the swatches as the "correct" color. Deci
 
 ### Stretch Goals 
 
+Try these stretch goals: 
 
+- Add a hover state to the swatches and a cursor pointer
+- When the answer is incorrect high light the correct swatch in some way
+- After an answer is chosen show the hex color in each color swatch
+- Add a countdown before showing the swatches
 
 ## Conclusion 
 
