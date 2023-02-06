@@ -78,6 +78,22 @@ Keep in mind that Application State and Redux are different from  Component Stat
 
 In other words Redux holds state outside of components and components can register to receive updates when state changes and hooks that allow components to make changes to state.
 
+With components you need to pass props down the chain of componants. 
+
+![passing props](images/01-props.png)
+
+An event in a component needs to pass props up the chain. 
+
+![events go up](images/02-up-chain.png)
+
+Using Redux your application state will reside outside the component hierarchy. 
+
+![redux store](images/03-redux-store.png)
+
+Actions sent to the store are handled in the order they are received. 
+
+![actions are handled in order](images/04-redux-action.png)
+
 ### Why use Redux? 
 
 **Pros**
@@ -103,7 +119,7 @@ In other words Redux holds state outside of components and components can regist
 
 https://redux.js.org
 
-## Products with Redux
+## Building Applications with Redux
 
 In this example what you will do is use Redux to remake the product list project. You'll use Redux to manage a list of items in a shopping cart. 
 
