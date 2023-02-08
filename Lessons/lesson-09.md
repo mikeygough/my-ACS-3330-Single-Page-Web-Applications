@@ -1,10 +1,12 @@
 # FEW 2.3 - Lesson 9
 
-# Redux 
+# Redux Toolkit
 
-This class will cover Redux which is an application state management tool. Application State represents the data that your app manages and displays. Often it is shared across multiple views and can be updated in complex ways. 
+Redux Toolkit is the officially endorsed Redux integration for create-react-app projects. They describe themselves as: 
 
-Redux is a JS library based on the Flux pattern that 
+> The official, opinionated, batteries-included toolset for efficient Redux development
+
+Check out the website: https://redux-toolkit.js.org
 
 <!-- > -->
 
@@ -28,342 +30,260 @@ What is the store?
 
 <!-- > -->
 
-## Install Redux
+Review the Redux concepts: 
 
-Start with a new project:
+The Store:
 
-```
-npx create-react-app redux-example
-```
+![The store](images/03-redux-store.png)
 
-To use React and redux you'll need to add these dependencies:
+Actions:
 
-```
-yarn add redux react-redux
-```
+![actions](images/04-redux-action.png)
 
-(use `npm i redux react-redux` if you like)
+Key concepts: 
 
-Set up your project. Add a folder for actions and reducers. 
+- The store lives outside your component tree
+- Components get values from the store directly
+- To change state a component sends an action
 
-Add a simple action. Create `actions/index.js`. 
+## Redux 
 
-```JS
-export const INCREMENT = 'INCREMENT'
+Redux is an application state management library. They describe as: 
 
-export const increment = () => {
-	return {
-		type: INCREMENT
-	}
-}
-```
+> A Predictable State Container for JS Apps
 
-Add a simple reducer. Create: `reducers/counterReducer.js`
+Check out their website: https://redux.js.org
 
-```JS
-import { INCREMENT } from '../actions'
+To use redux you need to create a store object. To create the store you need to define some reducers. A reducer is used to manage a "piece" of the application state. A piece of state is a value that you are storing in the store. Each "piece" of state will have a reducer that is responsible for updating that "piece."
 
-const counterReducer = (state = 0, action) => {
-	switch(action.type) {
-		case INCREMENT: 
-			return state + 1
+Imagine you were creating a todo app and the application state was an array of todo objects. You might define "todosRedcuer" as handled adding, removing, and updating todo items in the array. 
 
-		default:
-			return state
-	}
-}
+Changes to state are made by sending actions. An action has a type and a payload. In the todos example, you might send a "createTodo" action, with a payload that is the name of the thing you want to that appears on the list like: "do laundry."
 
-export default counterReducer
-```
+- Redux has a store where all of the state is stored
+- Reducers handle changes to state
+- Actons are sent to the store when you want to make a change
+- A payload is included with an action it has the data needed to make the change
 
-Redux can work with multiple reducers so we combine them. Create: `reducers/index.js`.
+## React-Redux 
+
+React Redux is a library that acts as the glue or conduit that connects React and Redux. 
+
+React Redux gives us a Provider component and some react hooks. The provider component and hooks are what allow your components to communicate with the store. 
+
+You will always wrap your top-level component, usually App, in the `<Provider>` component. The provider takes the store as a prop. Something like this: 
 
 ```JS
-import { combineReducers } from 'redux'
-import counterReducer from './counterReducer'
+<Provider store={store}>
+  <App />
+</Provider>
+```
 
-export default combineReducers({
-	count: counterReducer
+The code above came from `index.js` in my React project. 
+
+## React Toolkit
+
+React Toolkit provides utilities and a framework to use Redux in React projects. It's here that you will define the reducers and actions that we talked about above! 
+
+Redux Toolkit divides state into "slices." Think of a slice of the initial value for a piece of state, the action, and the reducer to manage that piece. 
+
+You would start defining a slice with `createSlice`. 
+
+Start with `createSlice`. Look for this code in the tutorial projects. They all implement Redux Toolkit! Every slice needs a name. You create a slice with the `createSlice` function and supply an object to configure it. 
+
+```JS
+import { createSlice } from '@reduxjs/toolkit'
+
+export const todosSlice = createSlice({
+  name: 'todos'
 })
 ```
 
-Next create the store. You can do this in a separate file or in `index.js` or `App.js`. Open `index.js` and make the following modifications: 
+Every slice needs an initial value. Imagine the todos app. If todos are stored in an array. The initial value for this slice might be an empty array. 
 
 ```JS
-...
+import { createSlice } from '@reduxjs/toolkit'
 
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
-import rootReducer from './reducers'
-
-const store = createStore(rootReducer)
-
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-...
-```
-
-Notice the changes! Leave the other code in place and add what is shown above. 
-
-With all of this in place you can start working with Redux!
-
-<!-- > -->
-
-```JS
-const export NEW_TODO = 'NEW_TODO'
-
-export const newTodo = (item) => {
-  // What goes here?
+const initialState = {
+  value: []
 }
+
+export const todosSlice = createSlice({
+  name: 'todos', 
+  initialState, 
+})
 ```
 
-<!-- > -->
+A slice needs to define some reducers. 
 
 ```JS
-import { NEW_TODO } from '../actions'
+import { createSlice } from '@reduxjs/toolkit'
 
-function todoReducer(state = [], action) {
-  // What goes here? 
+const initialState = {
+  value: []
 }
+
+export const todosSlice = createSlice({
+  name: 'todos', 
+  initialState, 
+  reducers: {
+
+  }
+})
 ```
 
-Try it out in your app. Make a new component, create: `DisplayCount.js`
+Notice how a reducer is an object. Each of the properties/keys on the reducers object will be functions that handle changes to state. 
+
+```JS
+import { createSlice } from '@reduxjs/toolkit'
+
+const initialState = {
+ value: []
+}
+
+export const todosSlice = createSlice({
+  name: 'todos', 
+  initialState, 
+  reducers: {
+    addTodo: (state, action) => {
+      state.value.push( { doWhat: action.payload, completed: false, date: new Date() } ) 
+    },
+  }
+})
+```
+
+Here I added `addTodo` action. The function takes two parameters: `state` and `action`. `state` is the array from `initialState` and an action is an object with a `payload` property. Imagine the payload is the name of a new todo item that needs to be added to the todos array, something like "wash the dog." I added a couple of extra items to the todo object to make a realistic example. The object pushed into `state.value` would be a new todo item in our array. 
+
+The function `(state, action) => { state.value.push(...)}` is the reducer, and `addTodo` is the action! 
+
+The last step is to export the actions and reducer, like this: 
+
+```JS
+import { createSlice } from '@reduxjs/toolkit'
+
+const initialState = {
+  value: []
+}
+
+export const todosSlice = createSlice({
+  name: 'todos', 
+  initialState, 
+  reducers: {
+    addTodo: (state, action) => {
+      state.value.push( { doWhat: action.payload, completed: false, date: new Date() } ) 
+    },
+  }
+})
+
+export const { addTodo } = timersSlice.actions
+export default todosSlice.reducer
+```
+
+Notice how you export the action and the reducer. 
+
+What if you need to remove a todo from the array? You need to define a new action and a new reducer. To remove an item from an array we need to know its index. In this case, the index might be the payload. 
+
+```JS
+export const todosSlice = createSlice({
+  name: 'todos', 
+  initialState, 
+  reducers: {
+    addTodo: (state, action) => {
+      state.value.push( { doWhat: action.payload, completed: false, date: new Date() } ) 
+    },
+    removeTodo: (state, action) => {
+      state.value.splice(acton.payload, 1) // removes 1 item at index payload
+    }
+  }
+})
+```
+
+Here is a new action `removeTodo` with a new reducer. The reducer always takes `state` and `action` as parameters. Every reducer you define will take these two parameters! 
+
+The last step is to export the action
+
+```JS
+export const { addTodo, removeTodo } = timersSlice.actions
+```
+
+## React Redux Hooks
+
+I mentioned React Redux supplied some hooks. The two most common hooks you will use are: `useSelector` and `useDispatch`
+
+**useSelector**
+
+Imagine you wanted to display the list of todos in a component. 
 
 ```JS
 import { useSelector } from 'react-redux'
+import TodoView from './TodoView'
 
-function DisplayCount() {
-	const count = useSelector(state => state.count)
-	return (
-		<h1>{count}</h1>
-	)
+export default function ListTodos() {
+  const todos = useSelector(state => state.todos.value)
+  
+  return // display some todo items here...
 }
-
-export default DisplayCount
 ```
 
-Use this new component in your app. Open `App.js` and replace the component function there with: 
+`useSelector` takes a call back that receives your redux state. Since we want the todos we get them with `state.todos.value`. Compare this to the `initialState` that was defined in the example above. Since `todos` is an array you could map it to components. 
 
-```JS
-import './App.css';
-import DisplayCount from './DisplayCount';
+**useDispatch**
 
-function App() {
-  return (
-    <div className="App">
-      <DisplayCount />
-    </div>
-  );
-}
-
-export default App;
-```
-
-You should see the count displayed on your page! 
-
-Now make a button that increments the count. Create a new file: `IncrementButton.js`. 
+Imagine you want to create a new todo. For this, you need to send an action to the dispatcher. Import the action and the `useSelector` hook. 
 
 ```JS
 import { useDispatch } from 'react-redux'
-import { increment } from './actions'
+import { addTodo } from '../features/timers/todosSlice'
 
-function IncrementButton() {
-	const dispatch = useDispatch()
+export default function NewTodo() {
+  const [ name, setName ] = useState('')
+  const dispatch = useDispatch()
 
-	return (
-		<button
-			onClick={() => dispatch(increment())}
-		>Add 1</button>
-	)
-}
-
-export default IncrementButton
-```
-
-Add an instance of the `IncrementButton` to `App.js`.
-
-```JS
-import './App.css';
-import DisplayCount from './DisplayCount';
-import IncrementButton from './IncrementButton';
-
-function App() {
   return (
-    <div className="App">
-      <DisplayCount />
-      <IncrementButton />
+    <div>
+      <input
+        value={name}
+        onChange={(e) => setName(e.target.value)}/>
+      <button
+        onClick={() => dispatch(addTodo( name ))}
+      >Save</button>
     </div>
-  );
-}
-
-export default App;
-```
-
-## Challenges!
-
-If you've built the app above try these challenges: 
-
-### Challenge 1 
-
-Add another Button to `App.js`. Note! YOu do not need to make a new component! Just create another instance of `IncrementButton`. 
-
-### Challenge 2 
-
-Create a new button. This one will reset the count to 0. Call it `ResetButton`. To do this: 
-
-- Define a new action named RESET. 
-- Define an action creator function reset, that returns an object with type: RESET. 
-- Create a new component ResetButton. 
-  - Import use dispatch
-  - Import your reset action
-  - Get the dispacter (see the increment button)
-  - Setup an onClick that calls dispatch with the reset action. 
-  - Handle the reset action in your counterReducer
-
-<!-- > -->
-
-## Learning Objectives
-
-1. Define Reference and value types
-2. Identify references and values in JavaScript
-3. Use destructuring to create a shallow copy of objects and arrays
-
-<!-- > -->
-
-## The Final Project
-
-Use this class to get started on your final project!
-
-Your project should include the following: 
-
-- Built-in React
-- Uses Redux
-- Uses the Controlled component pattern
-
-### Define your application state
-
-Since your project will use Redux you'll need to think about the store. Ask yourself these questions: 
-
-- What data does your project need to store?
-- How will the data be organized? 
-
-The store is an object and each key holds a value. The value at each key is assigned by a reducer. 
-
-The keys in the store can be objects, arrays, or other value types. Your project can use more than one reducer but each reducer is responsible for the value at a single key. 
-
-Imagine your store has a list of posts. It might look like this: 
-
-```JS
-store = {
-  posts: [...]
+  )
 }
 ```
 
-This might be defined a posts reducer: 
+First I imported `useDipatch` and `addTodo`. I need `useDispatch` to "dispatch" actions and I need the action I exported from the slice above. 
+
+Here I used the React controlled component pattern to enter a "name" in an input. I used the state variable `name` to hold the name. 
+
+In the component, I called `useDispatch` and it returns a function that is used to dispatch actions. 
+
+Dispatch an action by calling the action and providing the payload as the argument. This returns the action object. Call the `dispatch` function and provide the action object as an argument. You could break this down like this: 
 
 ```JS
-function postsReducer(state = [], action) {
-  ... // remember this will always return an array! 
-}
+<button
+  onClick={() => {
+    const action = addTodo( name ) // name is the payload
+    dispatch( action ) // call dispatch with an action
+  }}
+>Save</button>
 ```
 
-When you set up Redux with `combineReducers` you define the shape of the store: 
+## Review
 
-```JS
-combineReducers({
-  posts: postsReducer
-})
-```
-
-Imagine you have to know which post someone is currently viewing. We need the index of this post. As it is now `postsReducer` can't support this since it has only an array. How would you solve this? 
-
-There are two routes you can take: 
-
-**Solution 1** Make `posts` into an object. 
-
-```JS
-function postsReducer(state = { selectedPost: 0, posts: [] }, action) {
-  ... // Must return an object with keys: selectedPost, and posts 
-}
-```
-
-**Solution 2** Add a second reducer! 
-
-The current reducer stays the same. 
-
-```JS
-function postsReducer(state = [], action) {
-  ... // remember this will always return an array! 
-}
-```
-
-Then add a new reducer: 
-
-```JS
-function selectedPostReducer(state = 0, action) {
-  ... // Always returns a number 
-}
-```
-
-In this case you would add a second key to combine reducers: 
-
-```JS
-combineReducers({
-  posts: postsReducer,
-  selectedPost: selectedPostReducer
-})
-```
-
-### Define the Application state for the app
-
-What does it look like? What shape or form does this data take? Define your data now. Write an object that looks like the data your app needs to store. 
-
-## Define Actions 
-
-Actions determine the ways your application can make changes to the store. In a Redux application changes to the application, state can only be made with an action. 
-
-- List all of the actions your application can take
-- For each action think of what information might be required by that action. 
-
-For example, with the example above, creating a new post might require a title and some text content. The action might be called: ADD_POST. Every action will have a corresponding function. In this case, the function would need to take the title and content as parameters. 
-
-```JS
-const ADD_POST = 'ADD_POST'
-
-function addPost(title, content) {
-  return {
-    type: ADD_POST,
-    payload: { content }
-  }
-}
-```
-
-Your reducers would be called with the current state value and the action object returned from `addPost` when the action is issued. 
-
-### Define your actions
-
-Think of all of the ways your application will change its state. Make an action for each state. 
-
-## In Class Challenges 
-
-- Create a new react project if you haven't already
-- Add redux to your project
-  - Import dependencies
-  - Create an actions folder
-  - Create a Reducers folder
-- Define your actions
-  - Define a name
-  - Define the function
-- Add reducers
-  - Define a reducers
-  - Combine your reducers
+- Redux is an application state management library
+- Redux Toolkit is the official library to integrate redux with react
+- Redux Toolkit divides state into slices
+- A slice is made up of
+  - initial state 
+  - actions
+  - and reducers
+- Actions are "messages" that you send to make changes to state
+- Reducers are where changes to state occur
+- React Redux provides components and hooks that work with redux
+- The `Provider` component makes the hooks work
+- `useSelector` gives your component access to redux state
+- `useDispatch` allows your components to send actions
 
 ## After Class
 
@@ -379,5 +299,6 @@ Submit your work to grade scope.
 
 ## Additional Resources
 
-1. 
+- https://redux.js.org
+- https://redux-toolkit.js.org
 
