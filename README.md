@@ -56,7 +56,7 @@ By the end of the course, you will be able to:
 |  7 | Wed, Feb  1 | Interview Challenge | - |
 |  8 | Mon, Feb  6 | [Application State] | [Assignment 3 - React + Redux Tutorial] |
 |  9 | Wed, Feb  8 | [Redux] | - |
-| 10 | Mon, Feb 13 | [Redux Part 2] | [Assignment 4 - Custom Project] |
+| 10 | Mon, Feb 13 | [React and Express] | [Assignment 4 - Custom Project] |
 | 11 | Wed, Feb 15 | - | - |
 | 12 | Mon, Feb 20 | - | - |
 | 13 | Wed, Feb 22 | - | - | 
@@ -73,6 +73,7 @@ By the end of the course, you will be able to:
 [Application State]: Lessons/lesson-08.md
 [Redux]: Lessons/lesson-09.md
 [Redux Part 2]: Lessons/lesson-10.md
+[React and Express]: Lessons/react-express.md
 [useEffect Hook]: Lessons/lesson-11.md
 [Present Final Projects]: Lessons/lesson-12.md
 
