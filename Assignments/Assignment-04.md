@@ -16,7 +16,9 @@ Your project does have to meet these criteria:
   - Form elememts should implememt Controlled Component Pattern
 - Integrates or makes network request to an external API
   - Fetch and Render data with React from external libraries
-- Manages Application state with Redux
+- Includes one of the following:
+  - Uses Redux to manage application state
+  - Uses a server and consumes JSON from the server
 
 ### Deliverable
 
