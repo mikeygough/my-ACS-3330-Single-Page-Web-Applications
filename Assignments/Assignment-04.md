@@ -34,7 +34,7 @@ Class 13 - May 12
 |:-----------|:---------------------------|:-------------------------|:---------------------|
 | Completed  | Did not complete    | Completed tutorial     | Solved some or all challenges |
 | Functional | Is not functional   | Base tutorial functional | Challenges are functioning |
-| Uses Redux | Does not use Redux | Makes use of redux, actions, and reducers | - |
+| Uses Redux or server | Does not use Redux or server | Makes use of redux, actions, and reducers | - |
 | Uses loads network data | Doesn't load network data | Loads network data | - |
 | Code quality | Indentation is bad spacing is inconsistent | Uses consistent indentation and spacing | Well written and well commented |
 
