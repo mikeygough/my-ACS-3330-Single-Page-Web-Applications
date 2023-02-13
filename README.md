@@ -58,7 +58,7 @@ By the end of the course, you will be able to:
 |  9 | Wed, Feb  8 | [Redux] | - |
 | 10 | Mon, Feb 13 | [React and Express] | [Assignment 4 - Custom Project] |
 | 11 | Wed, Feb 15 | - | - |
-| 12 | Mon, Feb 20 | - | - |
+| 12 | Mon, Feb 20 | President's Day | Holiday |
 | 13 | Wed, Feb 22 | - | - | 
 | 14 | Mon, Feb 27 | Final Assessment | - |
 | 15 | Wed, Mar  1 | [Present Final Projects] | - |
