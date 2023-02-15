@@ -55,6 +55,10 @@ npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch
 ```
 Notice this line is reading `src/input.css` and outputting `dist/output.css`. 
 
+The `--watch` flag compiles and rewrites the output.css every time you save your other files. 
+
+If you are using Liveserver in VS Code you go to the liveserver settings and and check the box: Full Reload. Live server doesn't refresh CSS when reloading this will force it to also reload CSS, so that you see changes from Tailwind. 
+
 Install the Tailwind extension for VS Code. Search for it in extensions. This will give you code hints and make it a lot faster and easier to work with. 
 
 Style the body tag. Tailwind works via class names. Each class represents one or more CSS styles. The name also includes the value. 
@@ -280,4 +284,3 @@ Now do all of the things you did earlier but this time in your react components.
 ```
 
 Use the code hints and the docs to help you out!
-
