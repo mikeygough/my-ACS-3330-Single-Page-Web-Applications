@@ -42,6 +42,16 @@ module.exports = {
 
 Add: `src/input.css`
 
+Add the following to input CSS: 
+
+```CSS
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+These lines import the base styles from Tailwind. 
+
 Add an HTML file with the boilerplate HTML: `dist/index.html`. Add this line to load your CSS in the head of the document: 
 
 ```HTML
