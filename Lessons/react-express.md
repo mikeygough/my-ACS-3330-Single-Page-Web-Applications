@@ -128,6 +128,20 @@ const { isLoading, error, data } = useQuery('sfpopos', () => {
 
 We just want to return the last promise!
 
+## Challenges 
+
+That challenge it create a server and handle server data in React. See the challenges here: https://github.com/Tech-at-DU/React-Express-Tutorial 
+
+You should: 
+
+- Define your own JSON data to serve
+- Define your own route
+- Set your route up to return your JSON
+- In React create a component that loads data from your route using React Query
+- Display the data you loaded using compponents
+
+Submit this to Lab 4 on Gradescope. 
+
 ## Resources 
 
 - https://expressjs.com
