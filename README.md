@@ -57,7 +57,7 @@ By the end of the course, you will be able to:
 |  8 | Mon, Feb  6 | [Application State] | [Assignment 3 - React + Redux Tutorial] |
 |  9 | Wed, Feb  8 | [Redux] | - |
 | 10 | Mon, Feb 13 | [React and Express] | [Assignment 4 - Custom Project] |
-| 11 | Wed, Feb 15 | - | - |
+| 11 | Wed, Feb 15 | [Tailwind CSS] | - |
 | 12 | Mon, Feb 20 | President's Day | Holiday |
 | 13 | Wed, Feb 22 | - | - | 
 | 14 | Mon, Feb 27 | Final Assessment | - |
@@ -76,6 +76,7 @@ By the end of the course, you will be able to:
 [React and Express]: Lessons/react-express.md
 [useEffect Hook]: Lessons/lesson-11.md
 [Present Final Projects]: Lessons/lesson-12.md
+[Tailwind CSS]: Lessons/tailwind.ms
 
 [Lab 01]: Lessons/lab-01.md
 [Lab 02]: Lessons/lab-02.md
