@@ -76,7 +76,7 @@ By the end of the course, you will be able to:
 [React and Express]: Lessons/react-express.md
 [useEffect Hook]: Lessons/lesson-11.md
 [Present Final Projects]: Lessons/lesson-12.md
-[Tailwind CSS]: Lessons/tailwind.ms
+[Tailwind CSS]: Lessons/tailwind.md
 
 [Lab 01]: Lessons/lab-01.md
 [Lab 02]: Lessons/lab-02.md
