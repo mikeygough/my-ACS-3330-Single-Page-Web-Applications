@@ -79,38 +79,71 @@ You can animate just about any CSS property. Try these:
 ></motion.div>
 ```
 
-Often you will want an element to end at it's default value, this would be where it would have been normally. This means you need to start the animation with some different initial values. 
+### What can you animate: 
+
+Just about any CSS property. Some of the properties have been renamed most use the standard CSS property names. 
+
+- x: The horizontal position
+- y: The vertical position
+
+Other properties use the JS CSS property name (this is the standard CSS property name in camel case)
+
+- border
+- borderRadius
+- color
+- margin
+- padding
+- etc. 
+
+### Values 
+
+Frameer supports a wide range of values. You can use numbers and strings. A number by itself is most often pixels. A number as a string should include a unit, like regular CSS. 
+
+Colors in the form of RGB, HEX, and HSLA are supported. 
+
+Some CSS properties use multiple values. For example `border: 1px solid black`. Framer suports these also. 
+
+- boxShadow: "10px 10px 0 rgba(0, 0, 0, 0.2)"
+
+https://www.framer.com/motion/component/#supported-values
+
+### Initial, Animate, and Exit
+
+Often you will want an element to end at it's default value, this would be where it would have been normally. To animate into this position you need to start the animation with some offset values.
+
+Framer use the `animate` prop as where you want the element to go to, and `initial` prop as the starting values offset. 
 
 ```JS
 <motion.div
   initial={{ opacity: 0, x: -500 }}
-  animate={{
-    opacity: 1.0,
-    x: 0,
-    y: 0,
-    borderRadius: 0
-  }}
+  animate={{ opacity: 1, x: 0 }}
 ></motion.div>
 ```
 
-Notice the initial values place the object 500 pixels to the left and the opacity to 0. The animate values move the object onto the screen and make it opaque. 
+Notice the initial values place the object 500 pixels to the left (-500) and the opacity to 0. The animate values move the object onto the screen to its "default" position and opaque. 
+
+### Transition properties
 
 To control the duration of an animation and other features of the motion such easing use the `transition` prop. 
 
 ```JS
 <motion.div
   initial={{ opacity: 0, x: -500 }}
-  animate={{
-    opacity: 1.0,
-    x: 0,
-    y: 0,
-    borderRadius: 0
-  }}
+  animate={{ opacity: 1.0, x: 0 }}
   transition={{ duration: 3 }}
 ></motion.div>
 ```
 
-Here the animation takes 3 seconds. 
+Now the animation takes 3 seconds. 
+
+Imagine the `transistion` properties determin how the CSS properties get from one value to another. 
+
+There a few useful transition properties. 
+
+- delay: the number of seconds to delay before beginning motion
+- type: easing type 
+
+https://www.framer.com/motion/transition/
 
 ### Exit
 
@@ -118,26 +151,25 @@ Often you will have components that are mounted and unmounted and you'll want to
 
 The `animate` motion is applied when a component appears. Use `exit` to define motion applied to something that is leaving. 
 
+To animate groups of child elements use the AnimatePresence component. 
+
 ### AnimatePresence
 
-The `AnimatePresence` component is to mange groups of motion components that entering and exiting the DOM. 
+The `AnimatePresence` component is used to mange groups of motion components that are entering and exiting the DOM. Imagine a dynamic app that adds new elements and removes old elements, AnimatePresence would be used to animate new elements into view and animate elements out of view using exit. 
 
 Here is an example using the Redux Timers app. 
 
 ```JS
-import React from 'react'
-import { useSelector } from 'react-redux'
-import TimerView from './TimerView'
-
+...
 import { motion, AnimatePresence } from "framer-motion"
 
 export default function ListTimers() {
 	const timers = useSelector(state => state.timers.value)
 	
-	const init = {opacity: 0}         // set initial values
-	const intro = {opacity: 1}        // values to animate in
-	const exit = {opacity: 0}         // values to animate out
-  const transition = {duration: 2}  // transition properties
+	const initial = {opacity: 0, x: -100}
+	const animate = {opacity: 1, x: 0}
+	const exit = {opacity: 0, x: 100}
+  const transition = {duration: 2}
 
 	return (
     <div>
@@ -145,8 +177,8 @@ export default function ListTimers() {
         {timers.map((timer, i) => (
           <motion.div
             key={`timer-${timer.id}`}
-            initial={init}
-            animate={intro}
+            initial={initial}
+            animate={animate}
             exit={exit}
             transition={transition}
           >
@@ -159,5 +191,8 @@ export default function ListTimers() {
 }
 ```
 
-Important! This does not work if the `motion` elements do not have a key! Since the example uses an array we need to know which elements are updated. This requires a unique key! 
+**Important!** motion elements used with AnimatePresence must have a unique key! Without a unique key Framer Motion can not tell which elements are new and which are current.  
 
+The example above was taken from the Timers tutorial. To make this work updated the timer objects unique id values using `uniqid` package. I used this id as the key for each motion element. 
+
+https://www.framer.com/motion/animate-presence/
