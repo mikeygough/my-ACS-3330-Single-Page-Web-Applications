@@ -196,3 +196,15 @@ export default function ListTimers() {
 The example above was taken from the Timers tutorial. To make this work updated the timer objects unique id values using the `uniqid` package. I used this id as the key for each motion element. 
 
 https://www.framer.com/motion/animate-presence/
+
+## Challenge!
+
+Use Framer Motion to add some motion to the Redux tutorial. 
+
+Start by animating a a button or other interaction. Use the gestures: 
+
+https://www.framer.com/motion/gestures/
+
+**Chellenge 2**
+
+Use the AnimatePresence component to animate elements in and out as they are added an removed. 
