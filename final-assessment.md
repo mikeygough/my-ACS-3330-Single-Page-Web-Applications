@@ -215,6 +215,7 @@ Try these stretch goals to see how far your skills go! You can
 do these in any order. 
 
 - Use Redux. Implement the app with Redux. Use Redux Thunk to handle async actions. 
+- Use React Query to load your data. This might even be easier than using Fetch.
 - Add a Delete button to remove items from the saved list. 
 - Handle errors. Character 17 is missing. Try to seach for character 17. What happens? Allow your app to handle this gracefully. 
 
