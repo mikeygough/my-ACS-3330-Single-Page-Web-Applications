@@ -222,3 +222,13 @@ do these in any order.
 ### Submit your work
 
 Submit your work on Gradescope. 
+
+## Assessing your knowledge
+
+Use this rubric to assess how your understanding of the learning objectives. You should be striving for an average score of 1 or greater in each row. 
+
+| Expectations | Does not meet (0) | Meets (1) | Exceeds (2) |
+|:-------------|:--------------|:-----|:---------|
+| **Completion** | Less than 70% of the challenges completed. | More than 70% of the challenges completed | Completed one or more of the stretch challenges |
+| **Functionality** | Project does not function or throws errors. | Project runs without errors. | Project runs well without warnings in the console. |
+| **Code Quality** | Code editor shows warnings or linter errors. Formatting is inconsistent. | Code is well written and well formatted. | Code is well written and well organized. Careful attention has been paid to naming variables, functions, and components |
