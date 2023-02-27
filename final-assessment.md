@@ -95,6 +95,8 @@ Load the data for the id entered and display the name of the character.
 
 The goal here is the get the number entered and make a request to swapi.dev and display the results.
 
+* A stretch goal is to use React Query you might consider that here. 
+
 ### Displaying more information - 5
 
 After you have displayed the name expand your component to display more of the information provided by the Star Wars API. 
@@ -160,6 +162,8 @@ Style your work. This is an open-ended challenge. You just need to show that you
 
 The goal here is to make things display well.
 
+* A stretch goal is to use Tailwind CSS
+
 ## Get the list of films - 10
 
 Every character comes with a list of films. This is a list of URLs that return JSON describing a film the character appeared in. Your goal is to display the film title for each film a character appeared in. 
@@ -177,8 +181,6 @@ const filmsJSON = await Promise.all(filmsRes.map(res => res.json()))
 
 // From here you have a list of JSON objects to work with
 ```
-
-
 
 You can also use `.then()` if you like: 
 
@@ -216,6 +218,10 @@ do these in any order.
 
 - Use Redux. Implement the app with Redux. Use Redux Thunk to handle async actions. 
 - Use React Query to load your data. This might even be easier than using Fetch.
+- Use TailwindCSS to style your project
+- Use Framer Motion to add animation. Try any of the following: 
+	- Animate the Search button
+	- Animate the list of elements as they are created
 - Add a Delete button to remove items from the saved list. 
 - Handle errors. Character 17 is missing. Try to seach for character 17. What happens? Allow your app to handle this gracefully. 
 
