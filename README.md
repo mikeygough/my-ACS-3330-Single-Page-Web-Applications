@@ -39,29 +39,28 @@ By the end of the course, you will be able to:
 
 ## Schedule
 
-**Course Dates:** Term 1 Jan 11 - Mar 3 2023
+**Course Dates:** Spring A 2024 Jan 15 - Mar 4
 
-**Class Times:** Monday and Wednesday at 9:15 AM PST – 12:15 PM PST
+**Class Times:** Tuesday and Thursday at 1:00 PM PST – 3:45 PM PST
 
 <!-- Hybrid sections are a mixture of online and in person components.  In person sessions include labs and group work as noted on your schedule.  These sections will run according to the Hybrid Delivery Policy: [make.sc/hybrid-delivery-policy](make.sc/hybrid-delivery-policy) -->
 
 | Class | Date | Topics | Assignment |
 |:------|:-----|:-------|:-----------|
-|  1 | Wed, Jan 11 | [React and functional Programming] | [Assignment 1 - React Product List] - React Tutorial |
-|  2 | Mon, Jan 16 | MLK Day no classes! |
-|  3 | Wed, Jan 18 | [React, Props, and State] | - |
-|  4 | Mon, Jan 23 | [React and Forms] | - |
-|  5 | Wed, Jan 25 | [Conditional Rendering] | [Assignment 2 - Weather API] - Weather API |
-|  6 | Mon, Jan 30 | [useEffect Hook] | - |
-|  7 | Wed, Feb  1 | Interview Challenge | - |
-|  8 | Mon, Feb  6 | [Application State] | [Assignment 3 - React + Redux Tutorial] |
-|  9 | Wed, Feb  8 | [Redux] | - |
-| 10 | Mon, Feb 13 | [React and Express] | [Assignment 4 - Custom Project] |
-| 11 | Wed, Feb 15 | [Tailwind CSS] | - |
-| 12 | Mon, Feb 20 | President's Day | Holiday |
-| 13 | Wed, Feb 22 | [Framer Motion] | - | 
-| 14 | Mon, Feb 27 | Final Assessment | - |
-| 15 | Wed, Mar  1 | [Present Final Projects] | - |
+|  1 | Tue, Jan 15 | [React and functional Programming] | [Assignment 1 - React Product List] - React Tutorial |
+|  2 | Thr, Jan 18 | MLK Day no classes! |
+|  3 | Tue, Jan 23 | [React, Props, and State] | - |
+|  4 | Thr, Jan 25 | [React and Forms] | - |
+|  5 | Tue, Jan 30 | [Conditional Rendering] | [Assignment 2 - Weather API] - Weather API |
+|  6 | Thr, Feb  1 | [useEffect Hook] | - |
+|  7 | Tue, Feb  6 | Interview Challenge | - |
+|  8 | Thr, Feb  8 | [Application State] | [Assignment 3 - React + Redux Tutorial] |
+|  9 | Tue, Feb 13 | [Redux] | - |
+| 10 | Thr, Feb 15 | [React and Express] | [Assignment 4 - Custom Project] |
+| 11 | Tue, Feb 20 | [Tailwind CSS] | - |
+| 12 | Thr, Feb 22 | President's Day | Holiday |
+| 13 | Tue, Feb 27 | [Framer Motion] | - | 
+| 14 | Thr, Feb 29 | Final Assessment | - |
 
 [React and functional Programming]: Lessons/lesson-01.md
 [React, Props, and State]: Lessons/lesson-02.md
