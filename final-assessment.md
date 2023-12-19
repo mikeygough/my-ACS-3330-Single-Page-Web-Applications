@@ -18,11 +18,11 @@ For extra credit, you can solve the problems below using Redux. This is not requ
 
 Your final assessment is a React Project.
 
-Create a React Project and name it with 'final' your first and last name:
+Create a React Project your first and last name:
 
-`FEW 2.3 final-<first>-<last>`
+`ACS 3330 Final Assessment <first> <last>`
 
-I should be able to run this project with `yarn start` or `npm start`
+I should be able to run this project with `npm start`
 
 ## Home Components - 2
 
