@@ -48,19 +48,19 @@ By the end of the course, you will be able to:
 | Class | Date | Topics | Assignment |
 |:------|:-----|:-------|:-----------|
 |  1 | Tue, Jan 16 | [React and functional Programming] | [Assignment 1 - React Product List] - React Tutorial |
-|  2 | Thr, Jan 18 | MLK Day no classes! |
-|  3 | Tue, Jan 23 | [React, Props, and State] | - |
-|  4 | Thr, Jan 25 | [React and Forms] | - |
-|  5 | Tue, Jan 30 | [Conditional Rendering] | [Assignment 2 - Weather API] - Weather API |
+|  2 | Thr, Jan 18 | [React, Props, and State] |
+|  3 | Tue, Jan 23 | [React and Forms] | - |
+|  4 | Thr, Jan 25 | [Conditional Rendering] | Weather API |
+|  5 | Tue, Jan 30 | [Assignment 2 - Weather API] | - |
 |  6 | Thr, Feb  1 | [useEffect Hook] | - |
 |  7 | Tue, Feb  6 | Interview Challenge | - |
 |  8 | Thr, Feb  8 | [Application State] | [Assignment 3 - React + Redux Tutorial] |
 |  9 | Tue, Feb 13 | [Redux] | - |
 | 10 | Thr, Feb 15 | [React and Express] | [Assignment 4 - Custom Project] |
 | 11 | Tue, Feb 20 | [Tailwind CSS] | - |
-| 12 | Thr, Feb 22 | President's Day | Holiday |
-| 13 | Tue, Feb 27 | [Framer Motion] | - | 
-| 14 | Thr, Feb 29 | Final Assessment | - |
+| 12 | Thr, Feb 22 | [Framer Motion] | - |
+| 13 | Tue, Feb 27 | Final Assessment | - | 
+| 14 | Thr, Feb 29 | Final Presentation | - |
 
 [React and functional Programming]: Lessons/lesson-01.md
 [React, Props, and State]: Lessons/lesson-02.md
