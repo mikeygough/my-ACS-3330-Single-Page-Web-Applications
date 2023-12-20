@@ -47,7 +47,7 @@ By the end of the course, you will be able to:
 
 | Class | Date | Topics | Assignment |
 |:------|:-----|:-------|:-----------|
-|  1 | Tue, Jan 15 | [React and functional Programming] | [Assignment 1 - React Product List] - React Tutorial |
+|  1 | Tue, Jan 16 | [React and functional Programming] | [Assignment 1 - React Product List] - React Tutorial |
 |  2 | Thr, Jan 18 | MLK Day no classes! |
 |  3 | Tue, Jan 23 | [React, Props, and State] | - |
 |  4 | Thr, Jan 25 | [React and Forms] | - |
