@@ -53,8 +53,8 @@ By the end of the course, you will be able to:
 |  4 | Thr, Jan 25 | [Conditional Rendering] | Weather API |
 |  5 | Tue, Jan 30 | [Assignment 2 - Weather API] | - |
 |  6 | Thr, Feb  1 | [useEffect Hook] | - |
-|  7 | Tue, Feb  6 | Interview Challenge | - |
-|  8 | Thr, Feb  8 | [Application State] | [Assignment 3 - React + Redux Tutorial] |
+|  7 | Tue, Feb  6 | Interview Challenge | [Assignment 3 - React + Redux Tutorial] |
+|  8 | Thr, Feb  8 | [Application State] | - |
 |  9 | Tue, Feb 13 | [Redux] | - |
 | 10 | Thr, Feb 15 | [React and Express] | [Assignment 4 - Custom Project] |
 | 11 | Tue, Feb 20 | [Tailwind CSS] | - |
