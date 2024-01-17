@@ -342,6 +342,25 @@ Here you called the increment function you passed down to this function through 
 
 <!-- > -->
 
+## Immutable data and state 
+
+React works on functional programming concepts. An important idea is immutable state and avoiding shared mutable state. In this example you used an array. Since arrays are stored as a reference, updating the array mutates the shared reference which creates a problem in your syatem that relies on immutable state! 
+
+When using arrays as state in React you must copy the array when every you mutate it! In the example you did this: 
+
+```JS
+// Good! 
+const newCount = [...count] // Created copy of the original array! 
+newCount[2] += 1 // Mutate the NEW array
+setCount(newCount) // Update state
+```
+
+Read more about this here: 
+
+https://react.dev/learn/updating-arrays-in-state
+
+<!-- > -->
+
 **Challenge!** Add a decrement function that will decrease the count when the - button is clicked.
 
 <!-- > -->
