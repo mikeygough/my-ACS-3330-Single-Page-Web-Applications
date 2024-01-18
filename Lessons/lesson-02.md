@@ -4,7 +4,7 @@
 
 ## React Props and State
 
-This class you will work on improving the codebase you've developed in the previous classes.
+In this class, you will work on improving the codebase you've developed in the previous classes.
 
 <!-- > -->
 
@@ -13,7 +13,7 @@ This class you will work on improving the codebase you've developed in the previ
 1. Describe Props and State
 1. Compare Props and State
 1. Use Props and State
-1. Apply Profesional best practice with ESLint
+1. Apply Professional best practice with ESLint
 
 <!-- > -->
 
@@ -29,8 +29,8 @@ The videos are labeled "lesson 02 x" which corresponds to the class lesson numbe
 
 ## Review
 
-1. What is a Single Page Application?
-1. Name some pros and cons of Single Page Applications?
+1. What is a single-page application?
+1. Name some pros and cons of single-page applications.
 1. Create a new react project
 1. What is JSX in your own words?
 
@@ -169,7 +169,7 @@ Notice we use `setCount(newValue)` to change the value of count!
 
 <!-- > -->
 
-Changing state by calling the setter function caues the component to render. This is why we see the component update! 
+Changing state by calling the setter function causes the component to render. This is why we see the component update! 
 
 Just changing the value of state is not enough. For example: `<button onClick={() => count + 1}>` would not display the new count!
 
@@ -177,21 +177,21 @@ Just changing the value of state is not enough. For example: `<button onClick={(
 
 ## Lifting State
 
-What is lifting state? This is the process of moving values from a child component to a parent component.
+What is "lifting state"? This is the process of moving values from a child component to a parent component.
 
 <!-- > -->
 
-Consider the counter example. What if you needed to show the total of all Counters? How would you do that?
+Consider the counter-example. What if you needed to show the total of all Counters? How would you do that?
 
-The easiest way to handle this will be to pass the count down to the counter as a prop. The parent component would own and track state. While child component simply displays the value.
-
-<!-- > -->
-
-The solution is to "lift" state from each of the Counters and store the state in the parent. You can then pass the value of each counter down as a prop to be displayed. 
+The easiest way to handle this will be to pass the count down to the counter as a prop. The parent component would own and track state. While the child component simply displays the value.
 
 <!-- > -->
 
-Edit your Counter.js. Go back to original version: 
+The solution is to "lift" the state from each of the Counters and store the state in the parent. You can then pass the value of each counter down as a prop to be displayed. 
+
+<!-- > -->
+
+Edit your Counter.js. Go back to the original version: 
 
 ```JS
 function Counter(props) {
@@ -213,7 +213,7 @@ Here the value and the label are passed to the component as props.
 
 Notice I removed the `onClick` for now. You'll add these again later.
 
-Notice you removed state! You're going to put state in App. 
+Notice you removed the state! You're going to put the state in the App component. 
 
 <!-- > -->
 
@@ -253,9 +253,11 @@ Notice you're mapping the array of counts into Counter components.
 
 This was working before, and doesn't look any different now, why do it this way? Take a moment and answer this for yourself. 
 
-In the first incarnation, where each component defined it's own state, it was impossible to display the total count of all of the counters! Each counter holds it's own state but, the App component doesn't have access to these state values. 
+In the first incarnation, where each component defined its state, it was impossible to display the total count of all of the counters! Each counter holds its state but, the App component doesn't have access to these state values. 
 
-You need to lift state to the application level! Component level state is an island. Application state can be shared with the entire application. 
+Read more about lifting state: https://react.dev/learn/sharing-state-between-components#lifting-state-up-by-example
+
+You need to lift the state to the application level! The component level state is an island. Application state can be shared with the entire application. 
 
 Add this to your App component: 
 
@@ -265,9 +267,9 @@ Add this to your App component:
 
 Here you used reduce to get the total of all counters and displayed it! 
 
-Test your work. When you update a counter the total alsoi updates. 
+Test your work. When you update a counter the total also updates. 
 
-With this change the values are stored in the parent component and the values are passed down to the child components through props. 
+With this change, the values are stored in the parent component and the values are passed down to the child components through props. 
 
 <!-- > -->
 
@@ -296,11 +298,11 @@ newCount[2] += 1 // add 1 to index 2
 setCount(newCount) // updated 
 ```
 
-This works! The first line creates a copy of the count array and uses that to update state! 
+This works! The first line creates a copy of the count array and uses that to update the state! 
 
 <!-- > -->
 
-Let's apply that to the Counter example. In App,js:
+Let's apply that to the Counter example. In App.js:
 
 ```JS
 <div className="App">
@@ -321,7 +323,7 @@ Let's apply that to the Counter example. In App,js:
 </div>
 ```
 
-Here you added a new `increment` prop. This is a function that will update the count at index. 
+Here you added a new `increment` prop. This is a function that will update the count at the index. 
 
 <!-- > -->
 
@@ -344,9 +346,9 @@ Here you called the increment function you passed down to this function through 
 
 ## Immutable data and state 
 
-React works on functional programming concepts. An important idea is immutable state and avoiding shared mutable state. In this example you used an array. Since arrays are stored as a reference, updating the array mutates the shared reference which creates a problem in your syatem that relies on immutable state! 
+React works on functional programming concepts. An important idea is an immutable state and avoiding a shared mutable state. In this example, you used an array. Since arrays are stored as a reference, updating the array mutates the shared reference which creates a problem in your system that relies on immutable state! 
 
-When using arrays as state in React you must copy the array when every you mutate it! In the example you did this: 
+When using arrays as the state in React you must copy the array whenever you mutate it! In the example you did this: 
 
 ```JS
 // Good! 
@@ -379,7 +381,7 @@ decrement={() => {
 }}
 ```
 
-In Count.js use call the decrement function: 
+In Count.js use props to call the decrement function: 
 
 ```JS
 <button onClick={props.decrement}>-</button>
