@@ -222,7 +222,7 @@ The second Warning returns the div with the a message and is displayed.
 
 This might be good when you want to see the logic at the point where something is rendered. 
 
-Read more about [Conditional Rendering in React](https://reactjs.org/docs/conditional-rendering.html)
+Read more about [Conditional Rendering in React](https://react.dev/learn/conditional-rendering)
 
 Conditional Rendering techniques
 
