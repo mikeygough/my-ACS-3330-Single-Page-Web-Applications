@@ -62,7 +62,7 @@ import { useState } from 'react'
 
 <!-- > -->
 
-Use `useState` to generate a state variable and setter function that that variable. 
+Use `useState` to generate a state variable and setter function for that variable. 
 
 ```JS
 function MyComponent() {
@@ -75,6 +75,8 @@ function MyComponent() {
 
 <!-- > -->
 
+A complete example component: 
+
 ```JS
 import React, { useState } from 'react';
 
@@ -83,12 +85,12 @@ function Example() {
   const [count, setCount] = useState(0);
 
   return (
-    <div>
+    <>
       <p>You clicked {count} times</p>
       <button onClick={() => setCount(count + 1)}>
         Click me
       </button>
-    </div>
+    </>
   );
 }
 ```
@@ -97,11 +99,11 @@ function Example() {
 
 ### `const [count, setCount] = useState(0);` 🤔
 
-What is this? You should already be familiar with deconstructions with Objects. Deconstruction can also be applied to Arrays. 
+What is this? You should already be familiar with deconstruction with Objects. Deconstruction can also be applied to Arrays. 
 
 ```JS 
 const numbers = [1, 2, 3]
-const [ one, two, three ] = numbers
+const [ one, two, three ] = numbers // one == 1
 ```
 
 With an object similar code might look like this: 
@@ -111,15 +113,15 @@ const numbers = { one: 1, two: 2, three: 3 }
 const { one, two, three } = numbers
 ```
 
-With objects, you must use the keys to assign the values. So the new variables created on line 2 number have the names `one`, `two`, and `three`. 
+With objects, you must use the keys to assign the values. So the new variables created on line 2 have the names `one`, `two`, and `three`. 
 
-In the Array example on line 2 the new variables created can have any name and they are assigned a value based on their index!
+In the Array example on line 2 the new variables created can have any name and values are assigned based on their index!
 
 ### Why hooks? 
 
-React also supports components written as classes. We won't be covering these in class as they seem to be out and the world is functional components and hooks instead. 
+React also supports components written as classes. We won't be covering these here as they seem to be out of favor and the world is using functional components and hooks more often. 
 
-Classes take extra syntax to generate and are more complex to decipher and debug. Functions are more straightforward to troubleshoot. 
+Classes take extra syntax to generate and are more complex to decipher and debug. 
 
 ### Controlled Component Pattern
 
@@ -141,24 +143,24 @@ function MyComponent() {
 }
 ```
 
-<small>Here name stores the value displayed in the input.</small>
+<small>Here `name` stores the value displayed in the input.</small>
 
 <!-- > -->
 
-Here the component was created from a function but has access to state (`count`). 
+The component was created from a function but has access to state (`count` in ths case). 
 
-To use state with hooks follow these steps
+To use state with hooks follow these steps:
 
-1. When using `useState` you'll need to import it first. 
-1. Call `useState(initialValue)` with the initial value. 
-1. Deconstruct with the array syntax to get the value and setter function. 
+1. Import `useState`: `import { useState } from 'react'` 
+2. Call `useState(initialValue)` with the initial value inside your component. 
+3. Deconstruct with the return value using Array syntax to get the value and setter function. 
  - In the example above the value is `count`
  - The setter us `useCount`
-1. To change the value of state call your setter with a new value: `setCount(99)`
+4. To change the value of state call your setter with a new value. For example: `setCount(99)`
 
-It's a convention to name your variable and precede the setter with 'set'. 
+It's a convention to name your variable and use the same name prefixed with 'set' for the setter. 
 
-You'll use this same pattern for all form controls! Things like `<select>` (creates a menu), checkboxes and radio buttons, etc. 
+You'll use this same pattern for all form controls! Things like `<select>` (creates a menu), checkboxes and radio buttons, etc. You will have a variable for each and that variable will set the value or state of the form element. A change in the value or state of the form element sets state for the variable. 
 
 Imagine the component above also had a check box. 
 
