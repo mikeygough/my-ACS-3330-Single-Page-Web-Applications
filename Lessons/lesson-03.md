@@ -162,6 +162,10 @@ It's a convention to name your variable and use the same name prefixed with 'set
 
 You'll use this same pattern for all form controls! Things like `<select>` (creates a menu), checkboxes and radio buttons, etc. You will have a variable for each and that variable will set the value or state of the form element. A change in the value or state of the form element sets state for the variable. 
 
+This is called the controlled component pattern.
+
+Read the docs: https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components
+
 Imagine the component above also had a check box. 
 
 ```JS
@@ -183,7 +187,7 @@ function MyComponent() {
 }
 ```
 
-Here the check box is controlled by the `newsLetter` "state" variable. This variable reflects its value in the interface element and clicking the checkbox updates the variable. 
+Here the check box is controlled by the `newsLetter` "state" variable. This variable reflects its value in the interface element and clicking the checkbox updates the variable. Notice that checkbox doesn't have a `value` attribute, and instead uses `checked` to reflect it's state. 
 
 ## Challenge 
 
