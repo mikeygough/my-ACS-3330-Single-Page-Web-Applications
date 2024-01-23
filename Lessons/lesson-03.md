@@ -250,7 +250,6 @@ When state changes a component renders
 
 Follow the instructions to set up and run the demo project.
 
-- Download or fork the [project](https://github.com/Product-College-Labs/react-api-project)
 - Make an account with [OpenWeatherMap.org](https://home.openweathermap.org/)
  - Go to your profile page: API Keys
  - Generate and copy your API key
