@@ -50,7 +50,7 @@ By the end of the course, you will be able to:
 |  1 | Tue, Jan 16 | [React and functional Programming] | [Assignment 1 - React Product List] - React Tutorial |
 |  2 | Thr, Jan 18 | [React, Props, and State] |
 |  3 | Tue, Jan 23 | [React and Forms] | - |
-|  4 | Thr, Jan 25 | [Conditional Rendering] | Weather API |
+|  4 | Thr, Jan 25 | [Conditional Rendering] | [Assignment 2 - Weather API] |
 |  5 | Tue, Jan 30 | [Assignment 2 - Weather API] | - |
 |  6 | Thr, Feb  1 | [useEffect Hook] | - |
 |  7 | Tue, Feb  6 | Interview Challenge | [Assignment 3 - React + Redux Tutorial] |
