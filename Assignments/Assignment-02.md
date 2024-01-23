@@ -146,6 +146,10 @@ After you have completed the challenges above try these challenges. You can give
       - https://erikflowers.github.io/weather-icons/
       - https://fontawesome.com/v5.15/icons?d=gallery&p=1&q=weather
       - https://www.iconfinder.com/weather-icons?price=free
+1. Add a button to get the weather by Geolocation.
+  - You may need to launch react in HTTPS mode for this to work. To do that start with: `HTTPS=true npm start`
+  - To get the geocoordinates use: `navigator.geolocation.getCurrentPosition()` https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
+  - You'll need to call OpenWeatherMap's geo api. Check the docs here: https://openweathermap.org/current
 
 ### Resources
 
