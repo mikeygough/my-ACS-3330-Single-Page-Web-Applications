@@ -146,10 +146,6 @@ After you have completed the challenges above try these challenges. You can give
       - https://erikflowers.github.io/weather-icons/
       - https://fontawesome.com/v5.15/icons?d=gallery&p=1&q=weather
       - https://www.iconfinder.com/weather-icons?price=free
-      - 
-### Due date
-
-Class 6 - June 8, Submit your work on GradeScope
 
 ### Resources
 
