@@ -195,7 +195,7 @@ function Warning({ show, message }) {
   }
   return (
     <div>
-      Warnging: {message}
+      Warning: {message}
     </div>
   ) 
 }
