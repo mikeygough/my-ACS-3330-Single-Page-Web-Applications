@@ -218,6 +218,58 @@ The first Warning returns null which React ignores without an error.
 
 The second Warning returns the div with the a message and is displayed. 
 
+## Bonus Topic Higher Order Components
+
+You can take the first example a step further using a Higher Order Component. A higher order component is a function that takes a component as a parameter and returns a new component that "wraps" the provided component. 
+
+Here is an example that adds an `isVisible` prop to any component. 
+
+```JS
+import React, { useState } from 'react'
+
+// Message - Displays a message 
+function Message({text}) { 
+	return <i>{text}</i>
+}
+
+// Wraps another component with hide and show capability
+// Higher Order Component 
+function makeHidden(BaseComp) {
+	return (props) => {
+		
+		if (props.isVisible === true) {
+			return (
+				<BaseComp {...props} />
+				// <i>?</i>
+			)
+		}
+		return null
+	}
+}
+
+// Make two wrapped components 
+const Fizz = makeHidden(Message)
+const Buzz = makeHidden(Message)
+const MessageHideable = makeHidden(Message)
+
+function Conditional_4() {
+	const [count, setCount] = useState(false)
+
+	return (
+		<div>
+			<button onClick={() => setCount(count + 1)}>Count: {count}</button>
+			{/* Display the wrapped components */}
+			<Fizz isVisible={count % 3 === 0} text='Fizz' />
+			<Buzz isVisible={count % 5 === 0} text='Buzz' />
+		</div>
+	)
+}
+
+export default Conditional_4
+```
+
+Here the `Message` component can be passed to the `makeHidden` function which returns a new component that hides and shows itself based on the prop `isVisible`.
+
 ### Using Conditional Rendering
 
 This might be good when you want to see the logic at the point where something is rendered. 
