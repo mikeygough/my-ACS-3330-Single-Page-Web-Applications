@@ -9,9 +9,15 @@ Read this: https://javascript.info/closure
 - Scope determins where a variable can be "accessed"
 - JS has block scope, function scope, and module scope
 
-Some examples:
+Here are some examples to review scope. 
 
 ### var 
+
+Variables declared with `var` are scoped to their nearest containing function. 
+
+"Hoisting" essentially moves the declaration to the top of that scope. 
+
+https://developer.mozilla.org/en-US/docs/Glossary/Hoisting
 
 ```JS
 // var === function scope 
@@ -31,8 +37,6 @@ function bar() {
 		// i scoped to bar!
 	} 
 }
-
-
 ```
 
 ### const and let
@@ -134,6 +138,8 @@ console.log(iterateThings())
 console.log(iterateThings())
 ```
 
+Explain what is happening in the code sample above related to "closures" and the lexical environment. 
+
 ### Example 3 
 
 ```js
@@ -160,6 +166,10 @@ console.log('Count Man:', resetCount())
 console.log('Count Man:', count())
 console.log('Count Man:', count())
 ```
+
+Explain what is happening in the code sample above related to "closures" and the lexical environment. 
+
+### Example 4
 
 ```HTML
 <!DOCTYPE html>
@@ -237,6 +247,6 @@ function WatchCount() {
 export default WatchCount
 ```
 
-Solve the stale closure so that this component logs the updated value of count. 
+Solve the stale closure so that this component logs the updated value of count. The article provides one solution but there are others. Stretch challenge, understanding the concept of closure, find a different solution! 
 
 
