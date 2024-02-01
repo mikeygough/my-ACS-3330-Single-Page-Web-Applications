@@ -52,7 +52,7 @@ By the end of the course, you will be able to:
 |  3 | Tue, Jan 23 | [React and Forms] | - |
 |  4 | Thr, Jan 25 | [Conditional Rendering] | [Assignment 2 - Weather API] |
 |  5 | Tue, Jan 30 | [useEffect Hook] | - |
-|  6 | Thr, Feb  1 | Closures | - |
+|  6 | Thr, Feb  1 | [Closures] | - |
 |  7 | Tue, Feb  6 | Interview Challenge | [Assignment 3 - React + Redux Tutorial] |
 |  8 | Thr, Feb  8 | [Application State] | - |
 |  9 | Tue, Feb 13 | [Redux] | - |
@@ -77,6 +77,8 @@ By the end of the course, you will be able to:
 [Present Final Projects]: Lessons/lesson-12.md
 [Tailwind CSS]: Lessons/tailwind.md
 [Framer Motion]: Lessons/framer-motion.md
+
+[Closures]: Lessons/closures.md
 
 [Lab 01]: Lessons/lab-01.md
 [Lab 02]: Lessons/lab-02.md
