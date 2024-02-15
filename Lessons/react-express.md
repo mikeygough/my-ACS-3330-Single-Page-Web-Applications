@@ -4,7 +4,7 @@ Used as a front end React often consumes data from a backend. This lesson will c
 
 ## Single Page applications and web APIs
 
-Single page applications consume data but don't use templates. A site built as a multipage site might generate a new page from a template with a each request. A single page site will the single page and request updates as JSON data updating the DOM to show changes. 
+Single page applications consume data but don't use templates. A site built as a multipage site might generate a new page from a template with a each request. A single page site will load a single page and request updates as JSON data updating the DOM to show changes. 
 
 ## Examples
 
@@ -16,7 +16,7 @@ The Examples use React Query.
 
 ## React Query 
 
-React Query is a tool for loading data into your react projects. 
+React Query is a library for loading data into your react projects. 
 
 To use React Query you'll need to set up a "QueryClientProvider". This is a component that needs to wrap your App component. Put it in `index.js`. 
 
@@ -31,7 +31,7 @@ const queryClient = new QueryClient()
 // Wrap the App in the QueryClientProvider
 ReactDOM.render(
   <QueryClientProvider client={queryClient}>
-    ...
+    <App />
   </QueryClientProvider>,
  document.getElementById('root')
 );
@@ -41,10 +41,6 @@ From any component you can make a query with the `useQuery` hook.
 
 ```JS
 import { useQuery } from 'react-query'
-
-// This example uses React Query. 
-// Rect Query requires a QueryClientProvider. 
-// See index.js to see where this is setup. 
 
 function PublicSpaces() {
   // Load /sfpopos using useQuery
@@ -92,7 +88,7 @@ Notice that the `useQuery` hook takes two parameters.
 useQuery(<query-key>, () => { <Promise> });
 ```
 
-The Query Key is a unique identifer for the data you are loading. For most purposes you can use a string. If you are loading data from different end points use a different key for each. 
+The Query Key is a unique identifer for the data you are loading. For most purposes you can use any string. If you are loading data from different end points use a different key for each. The URI path makes a good string. 
 
 Advanced topic: If you are loading data from the same endpoint but using parameters to get the data you can use an array with a list of the parameters. 
 
@@ -108,7 +104,7 @@ The example above uses `fetch()` which returns a Promise which resolves to a res
 fetch -> response -> json
 ```
 
-The example code looks liek this: 
+The example code looks like this: 
 
 ```JS
 const { isLoading, error, data } = useQuery('sfpopos', () => {
@@ -119,7 +115,7 @@ const { isLoading, error, data } = useQuery('sfpopos', () => {
 We can break this down to: 
 
 ```JS
-const { isLoading, error, data } = useQuery('sfpopos', () => {
+const { isLoading, error, data } = useQuery('sfpopos', async () => {
 	const res = fetch('/sfpopos')
 	const json = res.json()
 	return json
