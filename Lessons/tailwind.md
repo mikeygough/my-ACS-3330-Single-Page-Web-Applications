@@ -438,3 +438,5 @@ https://tailwindcss.com/docs/margin
 Check out this full cheatsheet. 
 
 https://nerdcave.com/tailwind-cheat-sheet
+
+Consider using TailwindCSS in your final project! 
