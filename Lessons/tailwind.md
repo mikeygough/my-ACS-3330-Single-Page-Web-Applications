@@ -40,7 +40,7 @@ module.exports = {
 }
 ```
 
-Add: `src/input.css`
+Add a new file: `src/input.css`
 
 Add the following to input CSS: 
 
@@ -294,3 +294,147 @@ Now do all of the things you did earlier but this time in your react components.
 ```
 
 Use the code hints and the docs to help you out!
+
+## Tailwind Cheatsheet
+
+Getting started with Tailwind requires an undewrstanding of their naming conventions. 
+
+## bg-color-value 
+
+Sets the background color. There are a built in list of colors each with a range of values. For example: 
+
+```
+bg-red-200 // Light red/pink
+bg-red-600 // Dark full red
+```
+
+Colors are: slate, gray, zinc, neutral, stone, red, orange, amber, yellow, lime, green, emerald, teal, cyan, sky, blue, indigo, violet, purple, fuchsia, pink, rose, 
+
+Values range from 50 to 950. 
+
+Put these together like this: 
+
+```
+bg-grey-200
+bg-blue-600
+bg-teal-500
+```
+
+https://tailwindcss.com/docs/background-color#basic-usage
+
+This color scheme applies to anything that uses a color! 
+
+## text
+
+Use text to set many of the font properties. 
+
+```
+text-sm   // font-size 14px
+text-base // font-size 16px
+text-lg   // font-size 18px
+text-xl   // font-size 20px
+...
+text-7xl  // font-size 72px
+
+```
+
+https://tailwindcss.com/docs/font-size
+
+## text color
+
+Use any of the colors listed above. 
+
+```
+text-slate-200
+text-red-700
+```
+https://tailwindcss.com/docs/text-color
+
+## font 
+
+Use font for many of the other font styles like weight. 
+
+```
+font-light
+font-bold
+font-extrabold 
+```
+
+https://tailwindcss.com/docs/font-weight
+
+## Borders 
+
+### rounded 
+
+Set border-radius with: 
+
+```
+rounded
+rounded-sm // 4px
+rounded-lg // 8px
+...
+rounded-3xml // 24px
+...
+rounded-full // 999px
+```
+
+### border width 
+
+```
+... 
+border-2 // 2px 
+border-4 // 4px
+...
+border-x-2 // left and right 2px 
+...
+border-y-4 // top and bottom 4px
+...
+border-t-2 // border top 2px
+...
+```
+
+https://tailwindcss.com/docs/border-width
+
+### border color 
+
+```
+...
+border-orange-900
+...
+border-purple-400
+...
+```
+
+https://tailwindcss.com/docs/border-color
+
+## flex 
+
+```
+flex         // display: flex
+flex-row     // flex-direction: row
+justify-end  // justify-content: flex-end
+items-center // align-items: center
+```
+https://tailwindcss.com/docs/flex
+https://tailwindcss.com/docs/justify-content
+https://tailwindcss.com/docs/align-items
+
+
+## Margin and padding 
+
+```
+p-2    // padding: 8px
+px-2.5 // padding left and right 10px
+py-3   // padding top and bottom 12px 
+
+m-2    // margin: 8px
+mx-2.5 // margin left and right 10px
+my-3   // margin top and bottom 12px 
+```
+
+https://tailwindcss.com/docs/padding
+https://tailwindcss.com/docs/margin
+
+Check out this full cheatsheet. 
+
+https://nerdcave.com/tailwind-cheat-sheet
