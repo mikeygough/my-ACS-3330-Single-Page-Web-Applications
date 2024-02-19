@@ -78,6 +78,7 @@ You can animate just about any CSS property. Try these:
   }}
 ></motion.div>
 ```
+Generally you can animate any CSS property and the name will be the JS/camelcase version of the property name. 
 
 ### What can you animate: 
 
