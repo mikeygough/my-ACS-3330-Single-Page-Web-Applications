@@ -4,7 +4,7 @@ Motion can make your apps look more polished. It can also captivate the interest
 
 ## Animation in React 
 
-React's virtual DOM creates some problems for elements that are animated. If a DOM node is updated in the middle of an animation the motion would abruptly stops. This would not be the user experience you were looking for. 
+React's virtual DOM creates some problems for elements that are animated. If a DOM node is updated in the middle of an animation the motion would abruptly stop or restart. This would not be the user experience you were looking for. 
 
 React provided a solution to this with the `ReactTransitionGroup` and `ReactCSSTransitionGroup` components. The react team moved these to `react-transition-group` which is a community-maintained package, go open source! 
 
