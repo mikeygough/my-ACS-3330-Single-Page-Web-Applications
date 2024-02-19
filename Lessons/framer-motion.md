@@ -44,7 +44,15 @@ For example:
 - motion.h1
 - motion.p
 - motion.li
-- etc. 
+- etc.
+
+## Quick Start 
+
+Import `framer-motion`
+
+```
+npm install framer-motion
+```
 
 When you need to animate an element you'll use one of the motion elements in place of the standard element. Like this
 
