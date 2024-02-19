@@ -78,7 +78,6 @@ You can animate just about any CSS property. Try these:
   }}
 ></motion.div>
 ```
-Generally you can animate any CSS property and the name will be the JS/camelcase version of the property name. 
 
 ### What can you animate: 
 
@@ -98,7 +97,7 @@ Other properties use the JS CSS property name (this is the standard CSS property
 
 ### Values 
 
-Frameer supports a wide range of values. You can use numbers and strings. A number by itself is most often pixels. A number as a string should include a unit, like regular CSS. 
+Framer supports a wide range of values. You can use numbers and strings. A number by itself is most often represents pixels. A number as a string should include a unit, like regular CSS. 
 
 Colors in the form of RGB, HEX, and HSLA are supported. 
 
@@ -112,7 +111,7 @@ https://www.framer.com/motion/component/#supported-values
 
 Often you will want an element to end at its default value, this would be where it would have been normally. To animate into this position you need to start the animation with some offset values.
 
-Framer uses the `animate` prop as where you want the element to go, and the `initial` prop as the starting values offset. 
+Framer uses the `animate` prop for where you want the element to end, and the `initial` prop as the starting values offset. 
 
 ```JS
 <motion.div
@@ -121,11 +120,11 @@ Framer uses the `animate` prop as where you want the element to go, and the `ini
 ></motion.div>
 ```
 
-Notice the initial values place the object 500 pixels to the left (-500) and the opacity to 0. The animate values move the object onto the screen to its "default" position and are opaque. 
+Notice the initial values place the object 500 pixels to the left (-500) and the opacity to 0. The animate values move the object onto the screen to its "default" position and opaque.
 
 ### Transition properties
 
-To control the duration of the animation and other features of the motion such as easing the use of the `transition` prop. 
+To control the duration of the animation and other features of the motion such as easing, use of the `transition` prop. 
 
 ```JS
 <motion.div
@@ -135,14 +134,17 @@ To control the duration of the animation and other features of the motion such a
 ></motion.div>
 ```
 
-Now the animation takes 3 seconds. 
+Now the animation takes 3 seconds (duration: 3). 
 
 Imagine the `transition` properties determine how the CSS properties get from one value to another. 
 
-There are a few useful transition properties. 
+Here are a few useful transition properties. 
 
-- delay: the number of seconds to delay before beginning motion
-- type: easing type 
+- `delay`: the number of seconds to delay before beginning motion
+- `type`: easing type, can be ease in, ease out, spring etc.
+- `repeat`:
+- `staggerChildren`:
+- and more!
 
 https://www.framer.com/motion/transition/
 
@@ -152,11 +154,11 @@ Often you will have components that are mounted and unmounted and you'll want to
 
 The `animate` motion is applied when a component appears. Use `exit` to define motion applied to something that is leaving. 
 
-To animate groups of child elements use the AnimatePresence component. 
+Use the AnimatePresence component animate components that created or removed dynamically. 
 
 ### AnimatePresence
 
-The `AnimatePresence` component is used to manage groups of motion components that are entering and exiting the DOM. Imagine a dynamic app that adds new elements and removes old elements, AnimatePresence would be used to animate new elements into view and animate elements out of view using exit. 
+The `AnimatePresence` component is used to manage groups of motion components that are entering and exiting the DOM. Imagine a dynamic app that adds new elements and removes old elements, `AnimatePresence` would be used to animate new elements into view and animate elements out of view using exit. 
 
 Here is an example using the Redux Timers app. 
 
@@ -194,7 +196,7 @@ export default function ListTimers() {
 
 **Important!** motion elements used with AnimatePresence must have a unique key! Without a unique key, Framer Motion can not tell which elements are new and which are current. 
 
-The example above was taken from the Timers tutorial. To make this work updated the timer objects unique id values using the `uniqid` package. I used this id as the key for each motion element. 
+The example above was taken from the Timers tutorial. To make this work update the timer objects with unique id values using the `uniqid` package. I used this id as the key for each motion element. 
 
 https://www.framer.com/motion/animate-presence/
 
