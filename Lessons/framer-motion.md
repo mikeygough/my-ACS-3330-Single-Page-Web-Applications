@@ -2,6 +2,21 @@
 
 Motion can make your apps look more polished. It can also captivate the interest of your user base. 
 
+## Why use animation? 
+
+In many cases animation may not be a good choice. Things that move can be distracting and impossible to use or figure out for some of your audience. On the other hand if you have a solid website a little motion can make it that much more polished and inviting for your visitors. A little bit of motion can also make interactions more understandable and engaging. 
+
+Take a look at some these sites to see what people are doing with animation on the web: 
+- https://blog.hubspot.com/website/website-animation-examples
+- https://codepen.io/tag/transitions
+- https://htmlburger.com/blog/web-transitions/
+
+Discuss with your group:
+- Q: Which of these animations do you like?
+- Q: Which are not that great?
+- Q: Which of these animations do you think qould enhance a web site?
+- Q: Which of these would you implment on a site that you were creating? 
+
 ## Animation in React 
 
 React's virtual DOM creates some problems for elements that are animated. If a DOM node is updated in the middle of an animation the motion would abruptly stop or restart. This would not be the user experience you were looking for. 
