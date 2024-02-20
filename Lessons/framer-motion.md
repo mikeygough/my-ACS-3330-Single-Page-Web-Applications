@@ -10,6 +10,7 @@ Take a look at some these sites to see what people are doing with animation on t
 - https://blog.hubspot.com/website/website-animation-examples
 - https://codepen.io/tag/transitions
 - https://htmlburger.com/blog/web-transitions/
+- https://www.superside.com/blog/10-great-examples-of-animation-on-websites
 
 Discuss with your group:
 - Q: Which of these animations do you like?
