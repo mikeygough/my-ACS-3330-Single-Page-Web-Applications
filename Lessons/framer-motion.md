@@ -15,7 +15,8 @@ Discuss with your group:
 - Q: Which of these animations do you like?
 - Q: Which are not that great?
 - Q: Which of these animations do you think qould enhance a web site?
-- Q: Which of these would you implment on a site that you were creating? 
+- Q: Which of these would you implment on a site that you were creating?
+- Q: What properties are animated? 
 
 ## Animation in React 
 
