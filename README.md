@@ -59,7 +59,7 @@ By the end of the course, you will be able to:
 | 10 | Thr, Feb 15 | [React and Express] | [Assignment 4 - Custom Project] |
 | 11 | Tue, Feb 20 | [Tailwind CSS] | - |
 | 12 | Thr, Feb 22 | [Framer Motion] | - |
-| 13 | Tue, Feb 27 | Final Assessment | - | 
+| 13 | Tue, Feb 27 | [RTK Query] | - | 
 | 14 | Thr, Feb 29 | Final Presentation | - |
 
 [React and functional Programming]: Lessons/lesson-01.md
@@ -77,6 +77,7 @@ By the end of the course, you will be able to:
 [Present Final Projects]: Lessons/lesson-12.md
 [Tailwind CSS]: Lessons/tailwind.md
 [Framer Motion]: Lessons/framer-motion.md
+[RTK Query]: https://github.com/Tech-at-DU/redux-toolkit-async
 
 [Closures]: Lessons/closures.md
 
