@@ -39,28 +39,34 @@ By the end of the course, you will be able to:
 
 ## Schedule
 
-**Course Dates:** Spring A 2024 Jan 15 - Mar 4
+**Course Dates:** March 25, 2025 to May 6, 2025
 
-**Class Times:** Tuesday and Thursday at 1:00 PM PST – 3:45 PM PST
+**Class Times:** Tuesday, Thursday 1:00 PM to 3:45 PM Virtual online.
 
 <!-- Hybrid sections are a mixture of online and in person components.  In person sessions include labs and group work as noted on your schedule.  These sections will run according to the Hybrid Delivery Policy: [make.sc/hybrid-delivery-policy](make.sc/hybrid-delivery-policy) -->
 
 | Class | Date | Topics | Assignment |
 |:------|:-----|:-------|:-----------|
-|  1 | Tue, Jan 16 | [React and functional Programming] | [Assignment 1 - React Product List] - React Tutorial |
-|  2 | Thr, Jan 18 | [React, Props, and State] |
-|  3 | Tue, Jan 23 | [React and Forms] | - |
-|  4 | Thr, Jan 25 | [Conditional Rendering] | [Assignment 2 - Weather API] |
-|  5 | Tue, Jan 30 | [useEffect Hook] | - |
-|  6 | Thr, Feb  1 | [Closures] | - |
-|  7 | Tue, Feb  6 | Interview Challenge | [Assignment 3 - React + Redux Tutorial] |
-|  8 | Thr, Feb  8 | [Application State] | - |
-|  9 | Tue, Feb 13 | [Redux] | - |
-| 10 | Thr, Feb 15 | [React and Express] | [Assignment 4 - Custom Project] |
-| 11 | Tue, Feb 20 | [Tailwind CSS] | - |
-| 12 | Thr, Feb 22 | [Framer Motion] | - |
-| 13 | Tue, Feb 27 | [RTK Query] | - | 
-| 14 | Thr, Feb 29 | Final Presentation | - |
+|  -    | **Week 1**  | - | - | - |
+|  1    | Tue, Mar 25 | [React and functional Programming] | [Assignment 1 - React Product List] - React Tutorial |
+|  2    | Thr, Mar 27 | [React, Props, and State] |
+|  -    | **Week 2**  | - | - | - |
+|  3    | Tue, Apr  1 | [React and Forms] | - |
+|  4    | Thr, Apr  3 | [Conditional Rendering] | [Assignment 2 - Weather API] |
+|  -    | **Week 3**  | - | - | - |
+|  5    | Tue, Apr  8 | [useEffect Hook] | - |
+|  6    | Thr, Apr 10 | [Closures] | - |
+|  -    | **Week 4**  | - | - | - |
+|  7    | Tue, Apr 15 | Interview Challenge | [Assignment 3 - React + Redux Tutorial] |
+|  8    | Thr, Apr 17 | [Application State] | - |
+|  -    | **Week 5**  | - | - | - |
+|  9    | Tue, Apr 22 | [Redux] | - |
+| 10    | Thr, Apr 24 | [React and Express] | [Assignment 4 - Custom Project] |
+|  -    | **Week 6**  | - | - | - |
+| 11    | Tue, Apr 29 | [Tailwind CSS] | - |
+| 12    | Thr, May  1 | [Framer Motion] | - |
+|  -    | **Week 7**  | - | - | - |
+| 13    | Tue, May  6 | [RTK Query] - Final Presentation| - | 
 
 [React and functional Programming]: Lessons/lesson-01.md
 [React, Props, and State]: Lessons/lesson-02.md
