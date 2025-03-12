@@ -67,6 +67,7 @@ By the end of the course, you will be able to:
 | 12    | Thr, May  1 | [Framer Motion] | - |
 |  -    | **Week 7**  | - | - | - |
 | 13    | Tue, May  6 | [RTK Query] - Final Presentation| - | 
+| 14    | Thr, May  8 |  | Final Assessment | - |
 
 [React and functional Programming]: Lessons/lesson-01.md
 [React, Props, and State]: Lessons/lesson-02.md
