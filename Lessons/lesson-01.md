@@ -1,289 +1,168 @@
-# FEW 2.3 - Lesson 1
-
-<!-- > -->
+# ACS 3330 Lesson 1: Introduction to React & Functional Programming
 
 ## Overview
 
-This lesson will be a review of React and an introduction to functional programming. You can follow the lesson here or view it in slide form here: [Slides](https://make-school-courses.github.io/FEW-2.3-Single-Page-Web-Applications/slides/lesson-01.html#/)
-
-<!-- > -->
+This lesson provides a foundational review of React and an introduction to functional programming principles.
 
 ## Learning Objectives
 
-1. Create components
-1. Use JSX
-1. Use functional programming ideas
-  - map, filter, and reduce
+By the end of this lesson, you will be able to:
 
-<!-- > -->
+- Create React components
+- Use JSX for rendering UI
+- Apply functional programming concepts like map, filter, and reduce
 
-## Video
+## Understanding Single Page Applications (SPAs)
 
-Follow this class in these video lessons:
+Traditional websites reload a new page when navigating. In contrast, Single Page Applications (SPAs) dynamically update the content on the current page without a full reload.
 
-- https://www.youtube.com/playlist?list=PLoN_ejT35AEhmWcDTI6M--ha_E4lTyAtx
+### Why SPAs?
 
-The videos are labeled "lesson 01 x" which corresponds to the class lesson numbers. 
+The shift to SPAs improves performance and user experience. Gmail is a well-known example—it loads once and updates dynamically as you interact with emails.
 
-<!-- > -->
+### Learn More
 
-## Single Page Applications
+Read this introduction to SPAs: [What is a Single Page Application?](https://www.bloomreach.com/en/blog/2018/07/what-is-a-single-page-application.html)?
 
-<!-- > -->
+## The JavaScript Ecosystem
 
-Single Page Applications (SPA) are web pages that act as software applications. A traditional web site is made up several pages all linked, where the current web page is removed from memory when a new page is loaded.  A Single Page Application is a single web page that loads data and displays different content by changing the content of the current page without loading a new web page.
+JavaScript continues to evolve. Take a quick tour of State of JS to see the latest trends and innovations.
 
-<!-- > -->
+## Why Learn React?
 
-The [Killer App](https://en.wikipedia.org/wiki/Killer_application) for SPAs the killer app was Gmail. 
-
-Gmail is a single web page that lists your email, views email, sends email and more all within a single HTML document.
-
-<!-- > -->
-
-SPAs are the way web pages of more than minimal complexity are created these days. These days when you visit a web site you are loading a single HTML file that displays many different views that provide the experience of a fully interactive multipage site.
-
-<!-- > -->
-
-[Read about Single Page Applications](https://www.bloomreach.com/en/blog/2018/07/what-is-a-single-page-application.html)
-
-<!-- > -->
-
-## State of JS
-
-<!-- > -->
-
-You've been learning JavaScript and you're going to learn more this term! What is happening in the world of JS? 
-
-Take a quick tour of this site and see what you find: 
-
-https://2022.stateofjs.com/en-US/
-
-<!-- > -->
-
-## Why Learn React
-
-<!-- > -->
-
-React is one of the most popular web frameworks available today and with good reason. It's fast efficient and has a great workflow and developer experience.
-
-https://www.npmtrends.com/angular-vs-react-vs-vue
-
-<!-- > -->
-
-React uses functional reactive programming to solve many of the headaches of creating user interfaces.
-
-<!-- > -->
-
-It's also popular with all of the big name companies. 
+React is one of the most widely used frontend libraries, known for its efficiency and developer-friendly workflow. Many top companies rely on React, including:
 
 - Airbnb
 - Facebook
-- Instagram
 - Netflix
-- New York Times
-- Yahoo! Mail
-- Khan Academy
-- Whatsapp
-- Vivaldi Browser
-- Codeacademy
-- Dropbox
 - Uber
-- Twitter 
-- Pinterest
-- Instacart
-- Reddit 
-- Hubspot
-- Disqus
-- Pandora
-- and many more...
-
-<!-- > -->
-
-If you are going to master a single framework make it this one! It's hugely popular and all of the top companies are using it. Expect to see React on job applications and in use at companies you might apply to. 
-
-<!-- > -->
-
-Beyond this React has moved frontend web development forward and laid the groundwork for modern front end systems. Expect future front end frameworks to build and evolve on what React has done.
-
-<!-- > -->
+- Twitter
 
 ### What is React?
 
-<!-- > -->
+The React team describes it as:
 
-What does the React team have to say about React? 
+> "A JavaScript library for building user interfaces."
 
-> Pair up and read this: [https://reactjs.org](https://reactjs.org)
+Visit [React's official site](https://react.dev) and explore their introduction.
 
-<!-- > -->
+## Core Concepts of React
 
-React describes itself as: 
+React is built on three main concepts:
 
-> A JavaScript library for building user interfaces
+### 1. Components
 
-React is used for building user interfaces. It's the view in any system. It's a little more but building UI is what React was made to do.
+**React applications are made up of components.** Each component manages its own state and re-renders when data changes.
 
-<!-- > -->
+#### 🔹 Active Learning Task:
+1. **Set up a React project:**
+  - If you don’t have Node.js installed, download it from nodejs.org.- - Open a terminal and run:
+    ```sh
+    npx create-react-app my-app
+    cd my-app
+    npm start
+    ```
+  - This will create and start a React project.
+2. **Explore "A Simple Component":**
+  - Visit React's documentation and find the "A Simple Component" section.
+  - Copy the example code below into your App.js file:
+    ```jsx
+    function Welcome(props) {
+      return <h1>Hello, {props.name}</h1>;
+    }
+    ```
+  - Modify it to display your name and test it in your browser.
+  - Pair up with a classmate to discuss how it works.
 
-### Functional Programming
+### 2. JSX
 
-<!-- > -->
+JSX allows us to write UI elements in a syntax that looks like HTML but is actually JavaScript.
 
-React is built on Functional Reactive programming. In a nutshell, functional programming is programming with functions where the core building block of a program are functions. FP avoids mutable data and shared state.
+#### 🔹 Try This:
 
-Compare this to Object Oriented Programming where the core building blocks are objects. 
+- Visit [Introducing JSX](https://reactjs.org/docs/introducing-jsx.html)
+- Copy this JSX snippet into [Babel's REPL](https://babeljs.io/repl/):
+  ```jsx
+  import React from 'react';
 
-<!-- > -->
+  function App() {
+    return (
+      <div className="App">
+        <h1>Hello, World!</h1>
+      </div>
+    );
+  }
 
-### Reactive Programming
+  export default App;
+  ```
+- Compare the compiled JavaScript output. What changed?
 
-<!-- > -->
+### 3. Virtual DOM
 
-In a nutshell, Reactive programming is programming with Event Streams.
+The **Virtual DOM** improves performance by reducing direct interactions with the real DOM.
 
-React uses Reactive Programming to create a front end architecture that updates views with streams of events as they occur in time. Changing a value will update a view in React.  
+#### 🔹 Discussion Prompt:
 
-Compare this to event based programming where events trigger code that explicitly updates elements. 
+- Read [React's Virtual DOM explanation](https://legacy.reactjs.org/docs/faq-internals.html)
+- Explain the Virtual DOM in your own words to AI and ask for feedback: "Did I explain React's Virtual DOM correctly? How can I improve my explanation?"
+- Why is manipulating the real DOM slow? How does React optimize updates?
 
-<!-- > -->
+## Functional Programming in React
 
-### React core features
+React embraces **functional programming**, where functions play a central role. Key principles:
 
-<!-- > -->
+- Pure functions (no side effects)
+- Immutability (data does not change in place)
+- Higher-order functions (map, filter, reduce)
 
-React is built on three core features:
+### Using map, filter, and reduce
 
-- Components
-- JSX
-- Virtual DOM
+#### `map`
 
-<!-- > -->
+The `map` function creates a new array by applying a function to each element.
 
-#### Components 
-
-<!-- > -->
-
-**Components encapsulate state and view**. A component updates its view in response to changing values. 
-
-> Pair up and read and dicsuss this "A Simple Component" at [https://reactjs.org](https://reactjs.org). Test the code sample and do your best to explain what's going on here. 
-
-<!-- > -->
-
-What you need to know:
-
-- React Projects are built from components
-- Most of your work with React will be writing components. 
-- Components can be nested one within another. In other words, a component can have children or be the child of another component
-- Components are objects. You can make instances of them. 
-- Components encapsulate both logic (methods and code), state (properties), and a view (components render themselves.)
-
-<!-- > -->
-
-### JSX
-
-<!-- > -->
-
-**JSX is an extension of the JavaScript language**. It allows you to write code using an XML like syntax alongside regular JavaScript.
-
-JSX is compiled into vanilla JavaScript.
-
-> Pair and discuss - https://reactjs.org/docs/introducing-jsx.html
-
-<!-- > -->
-
-Here is a sample block of JSX:
-
-```JSX
-import React from 'react';
-// Need this to add middleware
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Hello World</h1>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+```js
+const numbers = [1, 2, 3, 4];
+const doubled = numbers.map(num => num * 2);
+console.log(doubled); // [2, 4, 6, 8]
 ```
 
-<!-- > -->
+🔹 **Try This:** Create an array of names and use map to convert them to uppercase.
+Ask AI for feedback: **"Does my map function follow best practices?"**
 
-> Pair up and copy the code in the Simple Component example. Go to [Babel](https://babeljs.io/repl/#?browsers=defaults%2C%20not%20ie%2011%2C%20not%20ie_mob%2011&build=&builtIns=false&spec=false&loose=false&code_lz=JYWwDg9gTgLgBAJQKYEMDG8BmUIjgcilQ3wG4AoAekrgDkkkATOGAC2AGcWI4VHmQwfgBskAdxRFy5TAFcAdhmAR5cAIJgwACgCUcAN7k4cIjFlRVWo3GvHjAHkbAAbnDTCUHDrRQgkAXgAiDTBAgD5bOwdWVEYkKDcPLx8_IJCAWhi-ePDIqOiARjCACSRhYR4AdWhhRntKViK8u3qsuKgI_Lh6p2dOu2sdCgBfaSQAD0hYODjMFFlheBDSIA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=react&prettier=false&targets=&version=7.11.1&externalPlugins=) and paste the code into the left panel of the editor. Look at and discuss what appears in the right side of the editor. 
+#### `filter`
 
-<!-- > -->
+The filter function creates a new array with only the elements that satisfy a condition.
 
-#### What you need to know: 
+```JS
+const numbers = [1, 2, 3, 4, 5, 6];
+const evens = numbers.filter(num => num % 2 === 0);
+console.log(evens); // [2, 4, 6]
+```
 
-- The _view_ of a component is written in JSX
-- JSX is an _extension_ of the JavaScript language 
-- JSX compiles to _vanilla JavaScript_ 
-- JSX has its own _special syntax_ (More on this in the tutorial)
+🔹 **Try This:** Given an array of numbers, filter out all values less than 10.
+Ask AI for feedback: **"Is my filter condition correct? How can I optimize it?"**
 
-<!-- > -->
+#### `reduce`
 
-### Virtual DOM 
+The `reduce` function applies a function to accumulate values into a single result.
 
-<!-- > -->
+```js
+const numbers = [1, 2, 3, 4];
+const sum = numbers.reduce((acc, num) => acc + num, 0);
+console.log(sum); // 10
+```
 
-**Updating the DOM is a slow operation**. To speed this up React creates a virtual DOM. Manipulating the virtual DOM is much faster than manipulating the DOM directly.
+🔹 **Try This:** Use reduce to find the product of an array of numbers.
+Ask AI for feedback: **"Is my reduce function efficient? Can I improve its readability?"**
 
-> Pair up, read and dicuss the [Virtual DOM](https://reactjs.org/docs/faq-internals.html).
+## After-Class
 
-<!-- > -->
+Complete additional challenges: [React Product List]()
 
-In a React App making changes to the DOM will often not work as expected since those changes will be overwritten by the virtual DOM! You should always rely on components to make changes to the DOM rather than you manipulating the outside of components. 
+Additional Resources
 
-In other words, you won't see code like this `document.getElementById('name').innerHTML ='<h1>Hello</h1>'` in React apps!
-
-ReactDOM looks at the virtual DOM and compares it real DOM making changes only where necessary.
-
-<!-- > -->
-
-What you need to know: 
-
-- React keeps track of all components in the virtual DOM.
-- Making changes to DOM directly does not work with React! 
-- Manipulating the DOM within a React project should almost always be handled with a Component!
-    - `document.getElementById()` is not compatible with React! 
-    - jQuery is also not compatible with react!
-
-<!-- > -->
-
-## Activity
-
-Start the first assignment: [React Product List](../Assignments/Assignment-01.md)
-
-<!-- > -->
-
-## After Class
-
-Complete the challenges here: [React Product List](../Assignments/Assignment-01.md)
-
-<!-- > -->
-
-## Additional Resources
-
-1. [ES6 Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
-1. [tutorial](https://reactjs.org/tutorial/tutorial.html)
-1. [JSX](https://reactjs.org/docs/introducing-jsx.html)
-
-<!-- 
-
-| **Elapsed** | **Time** | **Activity** |
-| ----------- | --------- | ------------ |
-| 0:05 | 0:05 | [Learning Objectives](#class-learning-objectives) |
-| 0:05 | 0:10 | [Single Page Applications](#single-page-applications) |
-| 0:10 | 0:20 | [Lecture](#lecture) |
-| 1:30 | 1:50 | [Lab](#lab) |
-| 0:10 | 2:00 | [Break](#break) |
-| 0:30 | 2:30 | Review progress on Tutorial |
-| 0:10 | 0:10 | Review Homework |
-| 0:05 | 2:45 | Review objectives |
-
- -->
+- [React Tutorial](https://react.dev/learn/tutorial-tic-tac-toe)
+- [Understanding JSX](https://react.dev/learn/writing-markup-with-jsx)
+- [JavaScript Arrow Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
