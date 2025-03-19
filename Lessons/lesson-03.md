@@ -1,339 +1,239 @@
-# FEW 2.3 - Lesson 3
+# ACS 3330 - Lesson 3: React and Forms
 
-<!-- > -->
+## Overview
 
-# React and Forms
+This lesson explores handling forms in React, including:
 
-<!-- > -->
+- Controlled components for form inputs.
+- Fetching data from APIs.
+- Handling network errors gracefully.
+- Using conditional rendering patterns.
 
-The goal of this class will be to look at handling forms with React. 
+By the end, you'll apply these skills in a project that interacts with the OpenWeather API.
 
-<!-- > -->
+## Learning Objectives
 
-## Learning Objectives 
+By the end of this lesson, you will be able to:
 
-- Implement the Controlled Component Pattern
-  - Use forms and form data in React
-- Build an app that works with a public API
-- Build a system to handle network errors gracefully
-- Use conditional rendering patterns in React
+- Implement the Controlled Component Pattern in React forms.
+- Use state hooks to manage form data.
+- Build an app that integrates a public API.
+- Implement conditional rendering to handle different states (loading, errors, empty results).
+- Handle network errors effectively.
 
-<!-- > -->
-
-## Video
-
-Follow this class in these video lessons:
-
-- https://www.youtube.com/playlist?list=PLoN_ejT35AEhmWcDTI6M--ha_E4lTyAtx
-
-The videos are labeled "lesson 03 x" which corresponds to the class lesson numbers. 
-
-<!-- > -->
+---
 
 ## Review
 
-<!-- > -->
+Before we begin, take a few minutes to answer:
 
-**Pop Quiz**
+### 🔹 Pop Quiz
 
-- What is map used for? 
-- What does map return?
-- What parameters does map take?
+- What is .map() used for?
+- What does .map() return?
+- What parameters does .map() take?
 
-<!-- > -->
+### 🔹 Checking Progress
 
-**Checking progress**
+- Where are you on the Product List project?
+- What do you need to do to wrap it up?
+- What challenges have you encountered?
 
-- Where are you on the product list?
-- What do you need to do to wrap up this project?
-- What are your blockers?
+---
 
-<!-- > -->
+## Part 1: Using useState for Form Inputs
 
-## Use useState
+### 1.1 Import useState
+First, import useState in your component.
 
-<!-- > -->
-
-Import `useState` from react
-
-```JS
-import { useState } from 'react'
+```jsx
+import { useState } from 'react';
 ```
 
-<!-- > -->
+### 1.2 Create a Controlled Input
+Modify your component to manage input state:
 
-Use `useState` to generate a state variable and setter function for that variable. 
-
-```JS
+```jsx
 function MyComponent() {
-  const [count, setCount] = useState(0)
-  ...
+  const [name, setName] = useState('');
+
+  return (
+    <input 
+      value={name}
+      onChange={(e) => setName(e.target.value)}
+    />
+  );
 }
 ```
 
-<small>`count` is the variable, and `setCount` is the setter. The initial value of `count` is 0. </small>
+**📌 AI Prompt:** *"What is the controlled component pattern in React?"*
 
-<!-- > -->
+**🐞 AI Debugging Prompt:** *"Why does my input field not update when I type?"*
 
-A complete example component: 
+### 1.3 Controlled Checkbox Example
+Modify your component to add a checkbox:
 
-```JS
-import React, { useState } from 'react';
-
-function Example() {
-  // Declare a new state variable, which we'll call "count"
-  const [count, setCount] = useState(0);
+```jsx
+function MyComponent() {
+  const [name, setName] = useState('');
+  const [newsletter, setNewsletter] = useState(true);
 
   return (
     <>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
+      <input 
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <input 
+        type="checkbox"
+        checked={newsletter}
+        onChange={() => setNewsletter(!newsletter)}
+      />
     </>
   );
 }
 ```
 
-<!-- > -->
+**📌 AI Prompt:** *"What’s the difference between controlling a text input vs. a checkbox in React?"*
 
-### `const [count, setCount] = useState(0);` 🤔
+### 1.4 Why Use Controlled Components?
+- **Keeps input values in sync with React state.**
+- **Easier to manipulate form data** (e.g., validate before submission).
+- **React’s virtual DOM can replace the input component at any time**—storing input values in state prevents loss of data.
 
-What is this? You should already be familiar with deconstruction with Objects. Deconstruction can also be applied to Arrays. 
+## Part 2: Handling API Requests with React
 
-```JS 
-const numbers = [1, 2, 3]
-const [ one, two, three ] = numbers // one == 1
+Now, let's integrate an API to fetch weather data.
+
+### 2.1 Get an API Key
+- Sign up at OpenWeatherMap.
+- Go to your profile page → API Keys.
+- Copy your API key and store it in a .env file:
+
+```env
+REACT_APP_OPENWEATHERMAP_API_KEY=YOUR_API_KEY_HERE
 ```
 
-With an object similar code might look like this: 
+**📌 AI Prompt:** *"What are environment variables, and why should we store API keys this way?"*
 
-```JS 
-const numbers = { one: 1, two: 2, three: 3 }
-const { one, two, three } = numbers
-```
+## Part 3: Making an API Request
 
-With objects, you must use the keys to assign the values. So the new variables created on line 2 have the names `one`, `two`, and `three`. 
+### 3.1 Set Up useEffect to Fetch Data
+Modify your App.js file:
 
-In the Array example on line 2 the new variables created can have any name and values are assigned based on their index!
+```jsx
+import { useState, useEffect } from 'react';
 
-### Why hooks? 
+function WeatherApp() {
+  const [weather, setWeather] = useState(null);
+  const [zip, setZip] = useState('');
 
-React also supports components written as classes. We won't be covering these here as they seem to be out of favor and the world is using functional components and hooks more often. 
-
-Classes take extra syntax to generate and are more complex to decipher and debug. 
-
-### Controlled Component Pattern
-
-<!-- > -->
-
-The controlled component pattern is used to handle form input in React projects. 
-
-<!-- > -->
-
-```JS
-function MyComponent() {
-  const [name, setName] = useState('')
-  return (
-    <input 
-      value={name}
-      onChange={(e) => setName(e.target.value)}
-    />
-  )
-}
-```
-
-<small>Here `name` stores the value displayed in the input.</small>
-
-<!-- > -->
-
-The component was created from a function but has access to state (`count` in ths case). 
-
-To use state with hooks follow these steps:
-
-1. Import `useState`: `import { useState } from 'react'` 
-2. Call `useState(initialValue)` with the initial value inside your component. 
-3. Deconstruct with the return value using Array syntax to get the value and setter function. 
- - In the example above the value is `count`
- - The setter us `useCount`
-4. To change the value of state call your setter with a new value. For example: `setCount(99)`
-
-It's a convention to name your variable and use the same name prefixed with 'set' for the setter. 
-
-You'll use this same pattern for all form controls! Things like `<select>` (creates a menu), checkboxes and radio buttons, etc. You will have a variable for each and that variable will set the value or state of the form element. A change in the value or state of the form element sets state for the variable. 
-
-This is called the controlled component pattern.
-
-Read the docs: https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components
-
-Imagine the component above also had a check box. 
-
-```JS
-function MyComponent() {
-  const [name, setName] = useState('')
-  const [newsletter, setNewsletter] = useState(true)
-
-  return (
-    <input 
-      value={name}
-      onChange={(e) => setName(e.target.value)}
-    />
-    <input 
-      checked={newsletter}
-      type="checkbox"
-      onChange={() => setNewsletter(!newsletter)}
-    />
-  )
-}
-```
-
-Here the check box is controlled by the `newsLetter` "state" variable. This variable reflects its value in the interface element and clicking the checkbox updates the variable. Notice that checkbox doesn't have a `value` attribute, and instead uses `checked` to reflect it's state. 
-
-## Challenge 
-
-Imagine this challenge as an easy front-end interview question. Solve the problem here: https://github.com/Tech-at-DU/ACS-3330-Single-Page-Web-Applications/blob/master/Lessons/lab-03.md
-
-Complete this challenge in class and submit it to gradescope. 
-
-Follow the notes in the rest of this lesson to get started on the next homework assignment. 
-
-## Lifecycle methods and Hooks 
-
-```JS
-import React, { useState, useEffect } from 'react';
-
-function Example() {
-  const [count, setCount] = useState(0);
-
-  // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
-    // Update the document title using the browser API
-    document.title = `You clicked ${count} times`;
-  });
+    if (zip.length === 5) {
+      fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zip}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`)
+        .then(response => response.json())
+        .then(data => setWeather(data))
+        .catch(error => console.error("Error fetching data:", error));
+    }
+  }, [zip]);
 
   return (
     <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
+      <input 
+        value={zip}
+        onChange={(e) => setZip(e.target.value)}
+        placeholder="Enter ZIP code"
+      />
+      <button onClick={() => console.log(weather)}>Check Weather</button>
     </div>
   );
 }
+
+export default WeatherApp;
 ```
 
-<!-- > -->
+**📌 AI Prompt:** *"What does useEffect do in this code?"*
 
-## Introduction 
+**🐞 AI Debugging Prompt:** *"Why does my API call fail when I enter a ZIP code?"*
 
-<!-- > -->
+## Part 4: Handling Network Errors Gracefully
 
-The demo project is a simple web app that displays weather data. You'll need to make an account and get a valid API key. 
+### 4.1 Add Error Handling
+Modify your fetch request to handle errors:
 
-The project needs to accept user input for a zipcode. Text input and other form elements use a special pattern in React called the _Controlled Component Pattern_. 
-
-<!-- > -->
-
-## React State 
-
-<!-- > -->
-
-State represents a value a component stores internally.
-
-<!-- > -->
-
-When state changes a component renders 
-
-<!-- > -->
-
-## Getting Started
-
-Follow the instructions to set up and run the demo project.
-
-- Make an account with [OpenWeatherMap.org](https://home.openweathermap.org/)
- - Go to your profile page: API Keys
- - Generate and copy your API key
- - Add the following to the '.env' file: 
-
-`REACT_APP_OPENWEATHERMAP_API_KEY=YOUR_API_KEY_HERE`
-
-**Pro-tip!** 
-
-- The Create React App starter project is set up to use `dotenv`, you don't need to add this package. 
-- Any environment variables you define **must** begin with `REACT_APP_`. This prevents clashes with environment variables that you may not be aware of. 
-
-Read more about [Adding Custom Environment Variables](https://facebook.github.io/create-react-app/docs/adding-custom-environment-variables)
-
-Everything in the example project happens in App.js. There are many comments explaining what is going on, read these closely.
-
-- `npm install`
-- `npm start` or `yarn start`
-
-## Input Pattern 
-
-The project has a single input field. Find it in the `render` method of App.js. 
-
-```JavaScript
-<input 
-  value={this.state.inputValue} 
-  onChange={e => this.setState({ inputValue: e.target.value })}
-  type="text" 
-  pattern="(\d{5}([\-]\d{4})?)"
-  placeholder="enter zip"
-/>
+```jsx
+useEffect(() => {
+  if (zip.length === 5) {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zip}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => setWeather(data))
+      .catch(error => console.error("Failed to fetch weather data:", error));
+  }
+}, [zip]);
 ```
 
-This started as a simple input element. 
+**📌 AI Prompt:** *"How does response.ok help in error handling?"*
 
-`<input type="text">`
+**🐞 AI Debugging Prompt:** *"Why am I getting a 401 Unauthorized error?"*
 
-The input should take a zip code so I set the placeholder to "enter zip" and used the pattern attribute and a little regex "magic" to limit input to zip code patterns. 
+## Part 5: Conditional Rendering
 
-```JavaScript
-<input 
-  ...
-  type="text" 
-  pattern="(\d{5}([\-]\d{4})?)"
-  placeholder="enter zip"
-/>
+### 5.1 Display Loading and Error States
+Modify your return statement:
+
+```jsx
+return (
+  <div>
+    <input 
+      value={zip}
+      onChange={(e) => setZip(e.target.value)}
+      placeholder="Enter ZIP code"
+    />
+    
+    {weather ? (
+      <div>
+        <h2>Weather: {weather.weather[0].description}</h2>
+        <p>Temperature: {Math.round(weather.main.temp - 273.15)}°C</p>
+      </div>
+    ) : (
+      <p>Enter a ZIP code to see the weather.</p>
+    )}
+  </div>
+);
 ```
 
-The `value` and `onChange` attributes are used for the React input pattern.
+**📌 AI Prompt:** *"What is conditional rendering, and why is it useful?"*
 
-```JavaScript
-<input 
-  value={this.state.inputValue} 
-  onChange={e => this.setState({ inputValue: e.target.value })}
-  ...
-/>
-```
+## 💡 Stretch Challenges
 
-The controlled component pattern stores the value entered on `this.state` and displays the value in the component via its value attribute. 
+### 🔹 Challenge 1: Add a Loading State
 
-Imagine you are entering a zip code into a text input field. You type the first number of the zip code which is 9. The onChange method fires and assigns the value in the text field to state with: `this.setState({zip:e.target.value})`. When the component is rendered the value displayed is the value set on state `this.state.zip`.
+Show "Loading..." while the API request is in progress.
 
-This may seem a little strange, but it's important for two reasons. 
+### 🔹 Challenge 2: Improve Error Handling
 
-- React's virtual DOM may replace the input component at any time when the DOM is redrawn. This would lose values stored in real DOM elements. 
-- It stores input values on `state` where they are easy to access when you need them without having to access the input and retrieve its value. 
+Display a user-friendly error message instead of logging to the console.
 
-- [Controlled Components](https://reactjs.org/docs/forms.html)
+### 🔹 Challenge 3: Add a Search History
 
-## Challenges 
+Save previous ZIP code searches and display them below the form.
 
-Use `array.filter()` to solve some of the challenges. Filter is a method of Array that returns a new array that is a subset of the source array. Like, map and reduce filter takes a callback. The callback is passed to each element from the source array and it determines if that item should be included in the output array by returning true or false if the item should not be included. 
+### 🔹 Challenge 4: Allow City Name Input
+
+Modify the API request to accept a city name instead of a ZIP code.
+
+### 🔹 AI Stretch Prompt: "How can I store past searches using local state?"
 
 ## After Class
 
-[Assignment 3](https://github.com/Make-School-Courses/FEW-2.3-Single-Page-Web-Applications/blob/master/Assignments/Assignment-02.md)
+- Start working on Assignment 3.
 
 ## Additional Resources
 
-1. [Video Tutorials](https://www.youtube.com/playlist?list=PLoN_ejT35AEhmWcDTI6M--ha_E4lTyAtx)
-1. [JSON Formatter](https://jsonformatter.curiousconcept.com)
-1. [React Forms](https://reactjs.org/docs/forms.html)
-1. [JSX in depth](https://reactjs.org/docs/jsx-in-depth.html#comments)
-1. [Conditional Rendering](https://reactjs.org/docs/conditional-rendering.html)
-1. [Conditional Rendering in React](https://blog.logrocket.com/conditional-rendering-in-react-c6b0e5af381e)
-1. [Custom environment variables](https://facebook.github.io/create-react-app/docs/adding-custom-environment-variables)
-
+- [Controlled Components](https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components)
+- [Conditional Rendering in React](https://react.dev/learn/conditional-rendering)
