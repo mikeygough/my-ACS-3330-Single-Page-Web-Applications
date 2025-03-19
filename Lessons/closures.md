@@ -1,252 +1,229 @@
-# Closures
+### **ACS 3330 - Lesson: Closures in JavaScript**
 
-Closures are part of the JavaScript language. The concept of closure is related to scope. 
+*Understanding closures and their impact on JavaScript and React*
 
-## Let's Review Scope
+---
 
-Read this: https://javascript.info/closure
+## **Overview**
 
-- Scope determins where a variable can be "accessed"
-- JS has block scope, function scope, and module scope
+Closures are a **fundamental concept in JavaScript** that allow functions to **remember variables from their original scope** even after they have executed.
 
-Here are some examples to review scope. 
+Closures are important for:
 
-### var 
+- **Callbacks and event handlers** (functions remembering variables).
+- **Managing state and encapsulation** (data hiding).
+- **Avoiding common pitfalls** (stale closures, memory leaks).
+- **Understanding React behavior** (fixing stale closures in `useEffect`).
 
-Variables declared with `var` are scoped to their nearest containing function. 
+By the end of this lesson, you will be able to:
+✅ **Define closures** and explain how they work.
+✅ **Use closures in everyday programming** for state management.
+✅ **Fix stale closures in React applications**.
 
-"Hoisting" essentially moves the declaration to the top of that scope. 
+---
 
-https://developer.mozilla.org/en-US/docs/Glossary/Hoisting
+**Be sure to try these examples with real code. Check the results in the console or the terminal!**
 
-```JS
-// var === function scope 
-// x is scoped to the global scope
-var x = 1 
+If you're not sure how to do that you can ask the AI, the instructor, or classmates!  
 
-function foo() {
-	var y = 2 // scoped to foo
-}
+## **Review: Function Scope & Lexical Environment**
 
-for (var i = 0; i < 5; i += 1) {
-	// i is global scope!
-} 
+Before diving into closures, let’s revisit **scope**.
 
-function bar() {
-	for (var i = 0; i < 5; i += 1) {
-		// i scoped to bar!
-	} 
-}
-```
-
-### const and let
-
-```JS
-// const and let === block scope 
-// 
-const x = 1 // global scope 
-
-// A function creates a block
-function foo() {
-	let y = 2 // scoped to foo
-}
-
-// A for loop creates a block
-for (let i = 0; i < 4; i += 1) {
-	// i scoped to this block (for loop)
-}
-
-// An if state creates a block
-if (x > 3) {
-	let y = x * 7 // scoped to this block 
-}
-
-// You can also create a block with the { }
-// This is not an object! 
-
-{ // block begins here
-	var x = 1 // x is global
-	let y = 2 // scoped to block
-	const z = 3 // Scoped to block
-} // block ends here
-```
-
-## closure (lexical environment)
-
-When a function runs the JS runtime creates a copy of all of the variables in the scope that contains that function. 
-
-The function might need these values to do it's work! This allows the function use the variables that exist in that scope.
-
-A new lexical environment is created each time a function is created!
-
-### Example 1
-
-```JS
-function makeCounter() {
-	let count = 0
-
-	return () => {
-		count += 1
-		return count
-	}
-}
-
-const c1 = makeCounter() // make counter 1
-const c2 = makeCounter() // make counter 2
-
-console.log('Counter 1:', c1()) // 1
-console.log('Counter 1:', c1()) // 2
-console.log('Counter 1:', c1()) // 3
-
-console.log('Counter 2:', c2()) // 1
-console.log('Counter 2:', c2()) // 2
-```
-
-Here `makeCounter` returns a function. The functrion retured captures the variable `count` as part of it's "closure". 
-
-When we make counter 1 it captures a variable `count` and when we make counter 2 it captures another new and unique variable `count`. 
-
-Notice that when we call `c1()` it increments and returns a count. When we call `c2()` it returns a different count. Each of these functions has captured a different variable! 
-
-### Example 2
-
-```JS
-const fruit = ['Apple', 'Banana', 'Cantaloupe']
-const things = ['Fork', 'Shoe']
-
-function iterate(arr) {
-	let index = -1
-	return () => {
-		index += 1
-		if (index === arr.length) {
-			return null
-		}
-		return arr[index] 
-	}
-}
-
-const iterateFruit = iterate(fruit)
-const iterateThings = iterate(things)
-
-console.log(iterateFruit())
-console.log(iterateFruit())
-console.log(iterateFruit())
-console.log(iterateFruit())
-
-console.log(iterateThings())
-console.log(iterateThings())
-console.log(iterateThings())
-```
-
-Explain what is happening in the code sample above related to "closures" and the lexical environment. 
-
-### Example 3 
+### 🔹 **Function Scope vs. Block Scope**
 
 ```js
-function countManager() {
-	let count = 0
-	const next = () => {
-		count += 1
-		return count
-	}
-	const reset = () => {
-		count = 0
-		return count
-	}
-
-	return [next, reset]
+function foo() {
+  var a = 42; // Function scope
 }
 
-const [count, resetCount] = countManager()
+if (true) {
+  let b = 99; // Block scope
+}
 
-console.log('Count Man:', count())
-console.log('Count Man:', count())
-console.log('Count Man:', count())
-console.log('Count Man:', resetCount())
-console.log('Count Man:', count())
-console.log('Count Man:', count())
+{
+  let c = 88;
+}
 ```
 
-Explain what is happening in the code sample above related to "closures" and the lexical environment. 
+📌 **AI Prompt:** *"What happens if you try to access `a`, `b`, and `c` outside their scopes?"*
 
-### Example 4
+📌 **AI Prompt:** *"Can you create scope with just `{}` in JS?"*
 
-```HTML
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
-<body>
-	
-	<script>
-		const arr = ['Apple', 'Banana', 'Cantaloupe', 'Durian']
-		for (let i = 0; i < arr.length; i += 1) {
-			const button = document.createElement('button')
-			button.innerHTML = 'Fruit'
-			button.addEventListener('click', (e) => {
-				console.log(arr[i])
-			})
-			document.body.append(button)
-		}
+---
 
-	</script>
+# **Part 1: Closures as Callback Functions**
 
-</body>
-</html>
+A **closure** happens when a function **remembers** variables from its parent function, even after the parent function has returned.
+
+### **🔹 Example: A Function That Remembers Its Variables**
+
+```js
+function makeCounter() {
+  let count = 0;
+
+  return function() {
+    count += 1;
+    return count;
+  };
+}
+
+const counter1 = makeCounter();
+console.log(counter1()); // 1
+console.log(counter1()); // 2
 ```
 
-Examine the examples and explain what is happening in each. Where is a closure created and what does it "capture"?
+✅ **Concept:** The **inner function** has access to `count`, even after `makeCounter()` has returned.
 
-You create your own code block that makes use of a closure. 
+📌 **AI Debugging Prompt:** *"Why does `counter1` still remember `count`?"*
 
-## Stale Closure
+---
 
-Why is are closures important? 
+# **Part 2: Closures as Variables Captured by Function Scope**
 
-- They are part of the language and how it works
-- They explain why some things happen
-- The can be used for fun and profit! 
-- Closure can also create situations that don't work as expected! 
+Closures **retain variables from their original function scope**, even after execution.
 
-In react projects you can get stale closures. These are closures that capture a value when a function is created but before the function is used the value is updated. You function now uses an out dated value! 
+### **🔹 Example: Closures in a Loop (`var` vs. `let`)**
 
-Most often this happens with `useEffect`! Use effect takes a function as an argument and returns a function. When these functions are created a closure is created! 
+```js
+const buttons = [];
+for (var i = 0; i < 3; i++) {
+  buttons.push(() => console.log(i));
+}
 
-Here is an example from this article: https://dmitripavlutin.com/react-hooks-stale-closures/
+buttons[0](); // 3
+buttons[1](); // 3
+buttons[2](); // 3
+```
 
-```JS 
-import { useState, useEffect } from "react";
+📌 **Why?** `var` is **function-scoped**, so all callbacks share the same `i`, which has already reached `3`.
+
+✅ **Fix:** Use **`let`** (block-scoped) or an **IIFE (Immediately Invoked Function Expression)**:
+
+```js
+for (let i = 0; i < 3; i++) {
+  buttons.push(() => console.log(i));
+}
+```
+
+📌 **AI Debugging Prompt:** *"What happens if we replace `var` with `let`?"*
+
+---
+
+# **Part 3: Using Closures in Everyday Programming**
+
+Closures **help manage state without global variables**.
+
+### **🔹 Example: Data Hiding with Closures**
+
+```js
+function createBankAccount(initialBalance) {
+  let balance = initialBalance;
+
+  return {
+    deposit(amount) {
+      balance += amount;
+      return balance;
+    },
+    withdraw(amount) {
+      balance -= amount;
+      return balance;
+    },
+    checkBalance() {
+      return balance;
+    }
+  };
+}
+
+const myAccount = createBankAccount(100);
+console.log(myAccount.deposit(50)); // 150
+console.log(myAccount.withdraw(30)); // 120
+console.log(myAccount.checkBalance()); // 120
+```
+
+✅ **Concept:** `balance` is **private**—it can’t be modified outside `createBankAccount`.
+
+📌 **AI Prompt:** *"Why can’t we directly access `balance` from `myAccount`?"*
+
+---
+
+# **Part 4: Closures & Callbacks in React Applications**
+
+Closures are **essential** in React, but they **can cause stale closures**.
+
+### **🔹 Example: Stale Closures in React**
+
+```jsx
+import { useState, useEffect, useRef, useCallback } from "react";
 
 function WatchCount() {
   const [count, setCount] = useState(0);
 
-  useEffect(function() {
-    setInterval(function log() {
-      console.log(`Count is: ${count}`);
+  useEffect(() => {
+    setInterval(() => {
+      console.log(`Count is: ${count}`); // ❌ What will this log?
     }, 2000);
   }, []);
 
   return (
     <div>
       {count}
-      <button onClick={() => setCount(count + 1) }>
-        Increase
-      </button>
-
-      <p>Open the Console. This component has created a timer that logs the 
-        value of count to the console. But the value is not updating when 
-        state changes. This is do to a stale closure! 
-      </p>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
     </div>
   );
 }
-
-export default WatchCount
 ```
 
-Solve the stale closure so that this component logs the updated value of count. The article provides one solution but there are others. Stretch challenge, understanding the concept of closure, find a different solution! 
+📌 **AI Prompt:** *"What do you think will happen when you click the button? Will the count update in the console?"*
 
+### **Fix 3: Use `useCallback` to Prevent Stale Closures**
 
+```jsx
+const updateCount = useCallback(() => {
+  setCount(prev => prev + 1);
+}, []);
+
+useEffect(() => {
+  setInterval(updateCount, 2000);
+}, []);
+```
+
+📌 **AI Prompt:** *"How does `useCallback` prevent stale closures in React?"*
+
+---
+
+# **Part 5: Closures in Event Listeners**
+
+### **🔹 Example: Using Closures in Event Listeners**
+
+```js
+function createClickHandler(color) {
+  return function () {
+    console.log(`You clicked a ${color} button!`);
+  };
+}
+
+const redButton = document.querySelector("#red");
+const blueButton = document.querySelector("#blue");
+
+redButton.addEventListener("click", createClickHandler("red"));
+blueButton.addEventListener("click", createClickHandler("blue"));
+```
+
+📌 **AI Debugging Prompt:** *"Why does each button remember its own color?"*
+
+---
+
+## **Final Thoughts**
+
+- ✅ **Closures allow functions to "remember" variables after execution.**
+- ✅ **Closures help in private variables, event handlers, and optimizations.**;
+- ✅ **In React, stale closures happen in `useEffect` when functions capture old values.**
+
+📌 **AI Reflection Prompt:** *"Review my explanation of closures to check my understanding. <Insert your explanation here>"*
+
+---
+
+## **📚 After Class**
+
+- **Read more about closures**: [JavaScript.info: Closures]([https://javascript.info/closure](https://javascript.info/closure))

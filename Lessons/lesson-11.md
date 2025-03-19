@@ -1,226 +1,187 @@
-# FEW 2.3 - Lesson 11
+# **ACS 3330 - Lesson 11: `useEffect` in a Live Weather Dashboard**  
 
-## `useEffect` Hook 🪝
+## **Overview**  
+Students will build a **Live Weather Dashboard** that:  
+- Fetches weather **when the app mounts**.  
+- Updates **when the city changes**.  
+- **Polls for new weather data** every 10 seconds.  
+- Cleans up effects **when the component unmounts**.  
 
-`useEffect` is an important but confusing hook to master. You will run into it in the future!
+By the end of this lesson, students will understand **all key uses of `useEffect`**.  
 
-## Why you should know this 🤔
+---
 
-`useEffect` is important and needed to handle lifecycle and asynchronous actions. 
-
-`useEffect` also has some pitfalls that can cause hard-to-diagnose problems. Understanding `useEffect` will allow you to spot these problems and know how to solve them. 
-
-## Learning Objectives 😱
-
-- Use `useEffect` in projects
-- Describe and explain `useEffect` its purpose and use cases 
-- Implement lifecycle updates with `useEffect`
-
-## Quick Review of callbacks 📞
-
-A callback is a function that is passed to another function. 
-
-Find the callbacks in line of code below: 
-
-```JS
-const arr1 = arr.map(n => n * 2) // 
-const arr2 = arr.filter(function(n) { return n < 20 }) // 
-const arr3 = arr.reduce(function sum(acc, n) { return acc + n }) // 
-
-// Foreach 
-// 
-arr.forEach(n => {
-  console.log(`n = ${n}`)
-})
-
-// setTimeout and setInterval
-setTimeout(() => {
-  console.log('Two seconds later')
-}, 2000)
-
-function message() {
-	console.log('Every ten seconds')
-}
-setInterval(message, 10000)
-
-// There are plenty more
-document.body.addEventListener('click', e => {
-  console.log(`You clicked ${e.target}`)
-})
-
-requestAnimationFrame(timestamp => {
-
-})
-
-navigator.geolocation.getCurrentPosition(pos => {
-  console.log(pos.coords)
-}, err => {
-  console.log(err)
-}, {});
+## **Step 1: Setting Up the Project**  
+Before starting, students should create a **React app**:  
+```sh
+npx create-react-app live-weather-dashboard
+cd live-weather-dashboard
+npm start
+```  
+They’ll install **dotenv** for managing API keys:  
+```sh
+npm install dotenv
+```  
+Then, create a `.env` file in the root folder:  
+```
+REACT_APP_WEATHER_API_KEY=your_openweathermap_api_key
 ```
 
-## Class-based components 🏛️
+---
 
-React also supports components written as classes. In the past, this was the only way to create components that used state. Here is an example: 
+# **Part 1: `useEffect` on Mount – Fetch Weather Data When App Loads**  
+The first effect **runs only once** when the app loads.  
 
-```JS
-import { Component } from 'react'
+### **✏️ Add Initial Fetch in `WeatherDashboard.js`**
+```jsx
+import { useState, useEffect } from "react";
 
-class Counter extends Component {
-	constructor(props) {
-		super(props) 
-		this.state = { count: 0 } // state! 
-	} 
+function WeatherDashboard() {
+  const [weather, setWeather] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [city, setCity] = useState("London");
 
-	render() {
-		return (
-			<button 
-				// updates state 
-				onClick={() => this.setState({ count: this.state.count + 1 })}
-				// Displays state
-			>Hello {this.state.count}</button>
-		)
-	}
+  useEffect(() => {
+    console.log("Fetching weather data on mount...");
+
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
+      .then(response => response.json())
+      .then(data => {
+        setWeather(data);
+        setLoading(false);
+      })
+      .catch(error => console.error("Error fetching data:", error));
+  }, []); // Runs only once on mount
+
+  return (
+    <div>
+      {loading ? <p>Loading weather...</p> : <p>Weather: {weather.weather[0].description}</p>}
+    </div>
+  );
 }
 
-// Use the component above like any other component
-<Counter />
+export default WeatherDashboard;
 ```
 
-This code has lots of dot syntax but is also self documenting. 
+📌 **AI Debugging Prompt:** *"Why does `useEffect` only run once when the component mounts?"*  
 
-The same component as a function: 
+---
 
-```JS
-import { useState } from 'react'
+# **Part 2: `useEffect` with Dependency – Update Weather When City Changes**  
+The next effect **runs when the city changes**.
 
-function Counter() {
-	const [count, setCount] = useState(0)
-		return (
-			<button 
-				// updates state 
-				onClick={() => setCount(count + 1)}
-				// Displays state
-			>Hello {count}</button>
-	)
-}
-
-// 
-<Counter />
-```
-
-The second is shorter but maybe it's harder to understand what is happening. 
-
-## Lifecycle methods 👪
-
-LifeCycle methods are methods that are called during the life of your component. This allows your component to react to situations like when it is created when it is updated when it is added or removed from the DOM. These are important events in the life of a component, just as important as life events like birth, death, and graduation!
-
-In a class-based component lifecycle methods are implemented like this: 
-
-```JS
-class Counter extends Component {
-	...
-
-	// Lifecycle methods
-	componentDidMount() {
-		// When the component is added to the DOM
-	}
-
-	componentWillUnmount() {
-		// Component will be removed from the DOM
-	}
-
-	componentDidUpdate() {
-		// Each time component renders
-	}
-
-	...
-}
-```
-
-This is very clear and the code is self-documenting. 
-
-## `useEffect` 
-
-Components created with functions don't have lifecycle methods. Instead, we have `useEfect`. `useEffect` can be confusing to follow because the code doesn't have the self-documenting quality of the OOP version! 
-
-```JS
-import { useEffect } from 'react'
-
-function Counter() {
-
-	// useEffect takes two arguments
-	useEffect(() => {}, []) 
-	// The first is a callback
-	// The second parameter is an array that lists values that trigger an update
-	...
-}
-```
-
-`useEffect` may return a function. Implementing `useEffect` with all of its features might look like this: 
-
-```JS
+### **✏️ Modify `useEffect` to Fetch Weather on City Change**
+```jsx
 useEffect(() => {
-	...
-	return () => {} // returns a function
-}, []) 
-// The returned function is called when this component is removed from the DOM. 
+  console.log(`Fetching weather for ${city}...`);
+
+  setLoading(true);
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
+    .then(response => response.json())
+    .then(data => {
+      setWeather(data);
+      setLoading(false);
+    })
+    .catch(error => console.error("Error fetching data:", error));
+}, [city]); // Runs whenever `city` changes
 ```
 
-What does this do for us? With `useEffect` you can run code when a component is added to the DOM, run code when a component updates, and run code when a component is removed from the DOM. 
+📌 **AI Debugging Prompt:** *"How does adding `city` as a dependency affect when `useEffect` runs?"*  
 
-How do you use `useEffect`? Below are three uses of `useEffect`. You can use `useEffect` more than once in a component!
+---
 
-```JS
-import { useEffect } from 'react'
+# **Part 3: `useEffect` for Updates – Polling for Weather Every 10 Seconds**  
+Now, students will **fetch updated weather every 10 seconds**.
 
-function Counter() {
-	// --- Component added to DOM ---
-	useEffect(() => {
-		// The first parameter is a function that is executed when 
-		// this component is mounted
-		console.log('1. Component added to DOM')
-		// Return a function that is executed when this
-		// Component is removed from DOM
-		return () => {
-		console.log('4. Component removed from DOM')
-		}
-	}, []) // The second parameter is an array that lists values that trigger an update
-
-	// --- Each update ---
-	useEffect(() => {
-		console.log('2. Component did update*')
-	}) // <- * No array here! So this triggers every update!
-
-	// --- When * count * changes ---
-	useEffect(() => {
-		console.log('3. Count Updated')
-	}, [count]) // Includes count, so only triggers when count is updated
-
-	...
-}
-```
-
-`useEffect` second argument dependency array. 
-
-```JS
-// --- When * count * changes ---
+### **✏️ Modify `useEffect` for Polling**
+```jsx
 useEffect(() => {
-	console.log('3. Count Updated')
-}, [count]) // Includes count, so only triggers when count is updated
+  console.log("Starting weather update interval...");
+
+  const intervalId = setInterval(() => {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
+      .then(response => response.json())
+      .then(data => {
+        setWeather(data);
+        console.log("Weather updated!");
+      })
+      .catch(error => console.error("Error fetching data:", error));
+  }, 10000); // Runs every 10 seconds
+
+  return () => {
+    console.log("Cleaning up interval...");
+    clearInterval(intervalId); // Cleanup when component unmounts
+  };
+}, [city]); // Runs when `city` changes
 ```
 
-Without the array, the first argument to `useEffect` triggers on each update. When the array (second `useEffect` argument) triggers every update. When the array contains values the first callback only triggers when that value changes! 
+📌 **AI Debugging Prompt:** *"Why do we need `clearInterval(intervalId)`? What happens if we forget it?"*  
 
-## Video Lecture
+---
 
-Follow the video lecture here: 
+# **Part 4: `useEffect` on Unmount – Cleanup Side Effects**  
+To prevent memory leaks, we’ll **reset the interval when switching cities**.
 
-- https://www.youtube.com/playlist?list=PLoN_ejT35AEhmWcDTI6M--ha_E4lTyAtx
+📌 **Key Concept:** **Every time `city` updates, a new `setInterval` starts. The old one must be removed!**
 
-Watch lessons 08 1 - 2
+---
 
-## Additional Resources
+# **Part 5: Dynamic Background Color Based on Weather**
+Now, students will change the **background color** dynamically based on the weather condition.
 
-1. https://reactjs.org/docs/hooks-intro.html
+### **✏️ Modify `useEffect` to Change the Background**
+```jsx
+useEffect(() => {
+  if (!weather) return;
 
+  const condition = weather.weather[0].main;
+  let bgColor = "white";
+
+  if (condition === "Clear") bgColor = "lightblue";
+  if (condition === "Rain") bgColor = "gray";
+  if (condition === "Snow") bgColor = "lightgray";
+
+  document.body.style.backgroundColor = bgColor;
+
+  return () => {
+    document.body.style.backgroundColor = "white"; // Reset when unmounting
+  };
+}, [weather]); // Runs when `weather` changes
+```
+
+📌 **AI Prompt:** *"How can I improve this background color logic?"*  
+
+---
+
+# **💡 Stretch Challenges (Combine with OpenWeather API Assignment)**  
+### **💡 Challenge 1: Allow Users to Enter a City**
+- Modify the app to **let users type a city name** instead of hardcoding "London".
+
+### **💡 Challenge 2: Show a "Last Updated" Timestamp**
+- Display the **time of the last API request**.
+
+### **💡 Challenge 3: Cache Previous API Requests**
+- If a user enters the **same city twice**, **reuse old data** instead of making a new request.
+
+### **💡 Challenge 4: Convert Temperature to Fahrenheit**
+- The OpenWeather API returns temperature in **Kelvin**. Convert it to Fahrenheit before displaying.
+
+### **💡 Challenge 5: Add a "Weather History" Feature**
+- Store **past 5 weather results** and allow users to click on them.
+
+📌 **AI Stretch Prompt:** *"How can I store the weather history in local storage so it persists across page reloads?"*
+
+---
+
+## **Final Thoughts**
+- `useEffect` **controls when side effects happen** in React.  
+- Cleanup functions **prevent memory leaks** and improve performance.  
+- `useEffect` is essential for **fetching data, event listeners, and background updates**.  
+
+📌 **AI Reflection Prompt:** *"Review my explanation of the useEffect hook. <You explain the useEffect hook in your own words>."* 
+
+---
+
+## **📚 After Class**
+- **Complete the Weather project**.  
+- Review **React’s Official Docs on `useEffect`**: [React Docs](https://react.dev/reference/react/useEffect).  

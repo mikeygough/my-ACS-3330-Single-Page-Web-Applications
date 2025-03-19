@@ -198,5 +198,5 @@ Modify the shopping cart so each item has a **quantity**, and the total price ac
 ---
 
 ## **After Class**
- 
+
 - Review **React’s useMemo Docs**: [useMemo Docs](https://react.dev/reference/react/useMemo)

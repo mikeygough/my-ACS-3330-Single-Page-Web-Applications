@@ -273,6 +273,17 @@ For this prompt try dragging App.js and Counter.js into the AI window.
 
 ---
 
+## **Final Thoughts**
+
+- ✅ **Props and state are core feature of React components.**
+- ✅ **Props allow components to receive values from outside.**;
+- ✅ **State is stored internally by a component.**
+- ✅ **A component renders when it receives props, or when state chnages.**
+
+📌 **AI Reflection Prompt:** *"Review my explanation of React props and state. <Insert your explanation here>"*
+
+---
+
 ## **After Class**
 - Continue working on [Assignment 1](../Assignments/Assignment-01.md).
 

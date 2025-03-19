@@ -156,6 +156,20 @@ console.log(sum); // 10
 🔹 **Try This:** Use reduce to find the product of an array of numbers.
 Ask AI for feedback: **"Is my reduce function efficient? Can I improve its readability?"**
 
+--- 
+
+## **Final Thoughts**
+
+- ✅ **map, filter, and reduce are methods of the Array class.**
+- ✅ **map, filter, and reduce are built on functional programming ideas.**;
+- ✅ **map, filter, and reduce are abstractions that cover standard operations that programmers perform on arrays.**
+
+📌 **AI Reflection Prompt:** *"Review my explanation of array.map(). <Insert your explanation here>"*
+
+📌 **AI Reflection Prompt:** *"Review my explanation of array.filter(). <Insert your explanation here>"*
+
+📌 **AI Reflection Prompt:** *"Review my explanation of array.reduce(). <Insert your explanation here>"*
+
 ## After-Class
 
 Complete additional challenges: [React Product List]()

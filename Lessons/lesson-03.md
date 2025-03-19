@@ -101,6 +101,8 @@ function MyComponent() {
 - **Easier to manipulate form data** (e.g., validate before submission).
 - **React’s virtual DOM can replace the input component at any time**—storing input values in state prevents loss of data.
 
+---
+
 ## Part 2: Handling API Requests with React
 
 Now, let's integrate an API to fetch weather data.
@@ -115,6 +117,8 @@ REACT_APP_OPENWEATHERMAP_API_KEY=YOUR_API_KEY_HERE
 ```
 
 **📌 AI Prompt:** *"What are environment variables, and why should we store API keys this way?"*
+
+--- 
 
 ## Part 3: Making an API Request
 
@@ -156,6 +160,8 @@ export default WeatherApp;
 
 **🐞 AI Debugging Prompt:** *"Why does my API call fail when I enter a ZIP code?"*
 
+---
+
 ## Part 4: Handling Network Errors Gracefully
 
 ### 4.1 Add Error Handling
@@ -180,6 +186,8 @@ useEffect(() => {
 **📌 AI Prompt:** *"How does response.ok help in error handling?"*
 
 **🐞 AI Debugging Prompt:** *"Why am I getting a 401 Unauthorized error?"*
+
+---
 
 ## Part 5: Conditional Rendering
 
@@ -209,6 +217,8 @@ return (
 
 **📌 AI Prompt:** *"What is conditional rendering, and why is it useful?"*
 
+---
+
 ## 💡 Stretch Challenges
 
 ### 🔹 Challenge 1: Add a Loading State
@@ -228,6 +238,17 @@ Save previous ZIP code searches and display them below the form.
 Modify the API request to accept a city name instead of a ZIP code.
 
 ### 🔹 AI Stretch Prompt: "How can I store past searches using local state?"
+
+---
+
+## **Final Thoughts**
+
+- ✅ **The Controlled Component Pattern is used to handle forms in React projects.**
+- ✅ **In the controlled component pattern the value displayed by a form element is stored in state.**
+
+📌 **AI Reflection Prompt:** *"Review my explanation of the Controlled Component Pattern in React. <Insert your explanation here>"*
+
+---
 
 ## After Class
 
