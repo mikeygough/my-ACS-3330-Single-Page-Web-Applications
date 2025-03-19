@@ -1,70 +1,72 @@
-# FEW 2.3 - Lesson 2
+# ACS 3330 - Lesson 2: React Props and State
 
-<!-- > -->
+## Overview
 
-## React Props and State
+This lesson explores **props and state in React**, essential concepts for managing 
+data flow in your applications. You will learn how to pass data between components, 
+manage local state, and lift state to the parent for better control.
 
-In this class, you will work on improving the codebase you've developed in the previous classes.
-
-<!-- > -->
+---
 
 ## Learning Objectives
 
-1. Describe Props and State
-1. Compare Props and State
-1. Use Props and State
-1. Apply Professional best practice with ESLint
+By the end of this lesson, you will be able to:
+- Describe **Props and State** and their differences.
+- Use **Props** to pass data to components.
+- Use **State** to manage local component data.
+- Lift state to a parent component for shared state management.
+- Apply best practices for **immutability** in React.
+- Implement ESLint for **professional coding standards**.
 
-<!-- > -->
+---
 
-## Video
+## **Review**
+Before we begin, take a few minutes to answer:
+1. What is a **single-page application**?
+2. Name some **pros and cons** of single-page applications.
+3. Create a **new React project**.
+4. In your own words, what is **JSX** and why is it useful?
 
-Follow this class in these video lessons:
+---
 
-- https://www.youtube.com/playlist?list=PLoN_ejT35AEhmWcDTI6M--ha_E4lTyAtx
+## **Props and State in React**
 
-The videos are labeled "lesson 02 x" which corresponds to the class lesson numbers. 
+### **What are Props?**
+Props (**short for "properties"**) are **read-only** values passed from 
+a **parent component** to a **child component**. Props allow components 
+to be reusable and configurable.
 
-<!-- > -->
+### **What is State?**
+State represents **internal component data** that **can change over time**. 
+Updating state triggers a re-render of the component.
 
-## Review
+### **React's Rendering Model**
+A React component **re-renders** when:
+1. **It receives new props.**
+2. **Its internal state changes.**
 
-1. What is a single-page application?
-1. Name some pros and cons of single-page applications.
-1. Create a new react project
-1. What is JSX in your own words?
+Understanding this helps prevent unnecessary renders and optimize performance.
 
-<!-- > -->
+---
 
-## Props and State
+## **Part 1: Creating a Counter Component (Props)**
+Let's create a simple **counter** that displays:
+- A **label** (passed via props)
+- A **count value** (passed via props)
+- Two buttons (`+` and `-`)
 
-Props are values passed to a component from outside. 
-
-State is values stored internally by a component.
-
-<!-- > -->
-
-A component renders when it receives props or state changes. This is one of the most important concepts to understand about React! 
-
-<!-- > -->
-
-### Counter Component
-
-Let's make a count. Each counter will display a label, a value, and an increment and decrement button.
-
-<!-- > -->
-
-Start the example by creating a new React project: 
-
-```
+### **1.1 Set Up a React Project**
+Run:
+```sh
 npx create-react-app props-and-state
+cd props-and-state
+npm start
 ```
 
-<!-- > -->
+### **1.2 Create a Counter Component**
+Create a new file: `Counter.js`
 
-Create a Counter component. Make a new file named: `Counter.js`.
-
-```JS
+```jsx
 function Counter(props) {
   return (
     <div className="Counter">
@@ -73,26 +75,26 @@ function Counter(props) {
       <button>+</button>
       <button>-</button>
     </div>
-  )
+  );
 }
 
-export default Counter
+export default Counter;
 ```
 
-Notice the counter uses props to display its label and value. 
+🔹 **AI Review Prompt:** *"Does my Counter component follow best practices? 
+How could I improve reusability?"*
 
-<!-- > -->
-
-In App.js use your counter. You can the default code. Import your Counter component and render it here: 
-
-```JS
+### **1.3 Use the Counter Component in `App.js`**
+Modify `App.js`:
+```jsx
 import './App.css';
-import Counter from './Counter'
+import Counter from './Counter';
 
 function App() {
   return (
     <div className="App">
-      <Counter label="Apples" value="1" />
+      <Counter label="Apples" value={1} />
+      <Counter label="Oranges" value={3} />
     </div>
   );
 }
@@ -100,318 +102,183 @@ function App() {
 export default App;
 ```
 
-Notice you are setting the `label` and `value` here! This is where these props get their values! 
+Now, the **Counter component is reusable**—just pass different `label` and `value` props.
 
-<!-- > -->
+🔹 **AI Review Prompt:** *"How does React handle multiple instances of the same component?"*
 
-Make another Counter: 
+---
 
-```JS
-<div className="App">
-  <Counter label="Apples" value="1" />
-  <Counter label="Oranges" value="3" />
-</div>
+## **Part 2: Adding State to the Counter**
+Now, let's **store the counter value in state**, so it updates dynamically.
+
+### **2.1 Import `useState`**
+Edit `Counter.js`:
+```jsx
+import { useState } from 'react';
 ```
 
-Notice the second counter has different values for `label` and `value`.
-
-<!-- > -->
-
-Make a couple more counters and give each a different label and value. 
-
-Notice that you made one component but props allows you to configure that component!
-
-<!-- > -->
-
-## Adding State 
-
-Let's add state. State will keep track of the count that is displayed by the component. 
-
-<!-- > -->
-
-Edit `Counter.js`, import `useState` from react at the top:
-
-```JS
-import { useState } from 'react'
-```
-
-<!-- > -->
-
-Now define a new state variable and a setter function with `useState`:
-
-```JS
+### **2.2 Use `useState` to Track Count**
+Modify `Counter.js`:
+```jsx
 function Counter(props) {
-  const [count, setCount] = useState(0)
-  return (
-    ...
-  )
-}
-```
-
-Here `count` is the value and `setCount` is a function that will be used to update the value of `count`. The default value of `count` is `0` (`useState(0)`.)
-
-<!-- > -->
-
-Display the count and update it's value: 
-
-```JS
-<div className="Counter">
-  <small>{props.label}</small>
-  <h1>{count}</h1>
-  <button onClick={() => setCount(count + 1)}>+</button>
-  <button onClick={() => setCount(count - 1)}>-</button>
-</div>
-```
-
-There are three changes here: `<h1>{count}</h1>`, and both: `<button onClick={}>`. 
-
-Notice we use `setCount(newValue)` to change the value of count!
-
-<!-- > -->
-
-Changing state by calling the setter function causes the component to render. This is why we see the component update! 
-
-Just changing the value of state is not enough. For example: `<button onClick={() => count + 1}>` would not display the new count!
-
-<!-- > -->
-
-## Lifting State
-
-What is "lifting state"? This is the process of moving values from a child component to a parent component.
-
-<!-- > -->
-
-Consider the counter-example. What if you needed to show the total of all Counters? How would you do that?
-
-The easiest way to handle this will be to pass the count down to the counter as a prop. The parent component would own and track state. While the child component simply displays the value.
-
-<!-- > -->
-
-The solution is to "lift" the state from each of the Counters and store the state in the parent. You can then pass the value of each counter down as a prop to be displayed. 
-
-<!-- > -->
-
-Edit your Counter.js. Go back to the original version: 
-
-```JS
-function Counter(props) {
+  const [count, setCount] = useState(0);
 
   return (
     <div className="Counter">
       <small>{props.label}</small>
-      <h1>{props.value}</h1>
-      <button >+</button>
-      <button >-</button>
+      <h1>{count}</h1>
+      <button onClick={() => setCount(count + 1)}>+</button>
+      <button onClick={() => setCount(count - 1)}>-</button>
     </div>
-  )
+  );
 }
 
-export default Counter
+export default Counter;
 ```
 
-Here the value and the label are passed to the component as props. 
+🔹 **AI Prompt:** *"Why does counter update when state changes?"*
 
-Notice I removed the `onClick` for now. You'll add these again later.
+🔹 **AI Prompt:** *"Explain what is happening on this line: const [count, setCount] = useState(0);"*
 
-Notice you removed the state! You're going to put the state in the App component. 
+🔹 **AI Prompt:** *"I used useState here, is there an alternative way to create state variables?"*
 
-<!-- > -->
+🔹 **AI Debugging Prompt:** *"Why does my counter not update when I click the buttons?"*
 
-In App.js import `useState` at the top:
+**💡 Key Concept:**  
+Calling `setCount(newValue)` **triggers a re-render**.  
+Simply modifying `count` **without calling `setCount` will not update the UI**.
 
-```JS
-import { useState } from 'react'
-```
+---
 
-<!-- > -->
+## **Part 3: Lifting State**
+Now, let’s **store state at the parent level** (App.js) instead of inside `Counter.js`.
 
-Define a state variable and setter function.
+### **3.1 Why Lift State?**
+- Allows **multiple counters** to **share data**.
+- Enables **calculating totals** across counters.
 
-```JS
+🔹 **AI Prompt:** *"What does 'lifting state' mean?"*
+
+### **3.2 Move State to `App.js`**
+Modify `App.js`:
+```jsx
+import { useState } from 'react';
+import Counter from './Counter';
+
 function App() {
-  const [count, setCount] = useState([1,4,3])
+  const [counts, setCounts] = useState([1, 4, 3]);
 
   return (
     <div className="App">
-      {count.map((value, index) => {
-        return (
-          <Counter 
-            label={`counter ${index}`}
-            value={value} 
-          />)
-      })}
+      {counts.map((value, index) => (
+        <Counter key={index} label={`Counter ${index + 1}`} value={value} />
+      ))}
+    </div>
+  );
+}
+
+export default App;
+```
+
+Now, `App.js` manages the **state** and passes it **down to `Counter.js` as props**.
+
+🔹 **AI Review Prompt:** *"Does lifting state make my app more efficient? Why or why not?"*
+
+---
+
+## **Part 4: Updating State from Child Components**
+Now, let's **modify state from child components** by passing a **callback function** as a prop.
+
+🔹 **AI Prompt:** *"What is a callback function?"*
+
+### **4.1 Pass `increment` and `decrement` Functions as Props**
+Modify `App.js`:
+```jsx
+function App() {
+  const [counts, setCounts] = useState([1, 4, 3]);
+
+  const updateCount = (index, delta) => {
+    const newCounts = [...counts]; // Copy array (immutability)
+    newCounts[index] += delta;
+    setCounts(newCounts);
+  };
+
+  return (
+    <div className="App">
+      {counts.map((value, index) => (
+        <Counter
+          key={index}
+          label={`Counter ${index + 1}`}
+          value={value}
+          increment={() => updateCount(index, 1)}
+          decrement={() => updateCount(index, -1)}
+        />
+      ))}
     </div>
   );
 }
 ```
 
-Notice you're mapping the array of counts into Counter components.
+🔹 **AI Prompt (inlcude the code above):** *"Where is the callback function in this code block?"*
 
-<!-- > -->
+### **4.2 Call These Functions in `Counter.js`**
+Modify `Counter.js`:
+```jsx
+function Counter(props) {
+  return (
+    <div className="Counter">
+      <small>{props.label}</small>
+      <h1>{props.value}</h1>
+      <button onClick={props.increment}>+</button>
+      <button onClick={props.decrement}>-</button>
+    </div>
+  );
+}
 
-## Why did we do this? 
-
-This was working before, and doesn't look any different now, why do it this way? Take a moment and answer this for yourself. 
-
-In the first incarnation, where each component defined its state, it was impossible to display the total count of all of the counters! Each counter holds its state but, the App component doesn't have access to these state values. 
-
-Read more about lifting state: https://react.dev/learn/sharing-state-between-components#lifting-state-up-by-example
-
-You need to lift the state to the application level! The component level state is an island. Application state can be shared with the entire application. 
-
-Add this to your App component: 
-
-```JS
-<h1>{count.reduce((acc, n) => acc += n)}</h1>
+export default Counter;
 ```
 
-Here you used reduce to get the total of all counters and displayed it! 
+🔹 **AI Review Prompt:** *"How does passing functions as props improve component design?"*
 
-Test your work. When you update a counter the total also updates. 
+---
 
-With this change, the values are stored in the parent component and the values are passed down to the child components through props. 
+## **Part 5: Enhancements & Stretch Challenges**
 
-<!-- > -->
-
-The next step is to handle clicks on the + and - buttons. To do this you'll need to pass a function as a prop to the children.
-
-<!-- > -->
-
-Important! When working with state and a [reference type](https://javascript.info/reference-type) you must make a copy!
-
-<!-- > -->
-
-```JS
-// Bad! does NOT work! 
-count[2] += 1 // add 1 to index 2
-setCount(count) // updated 
+### **5.1 Show the Total of All Counters**
+Modify `App.js`:
+```jsx
+<h1>Total Count: { /* TODO: Calculate total count here */ }</h1>
 ```
 
-This doesn't work! This is mutating the original object and setting state. React will not recognize this change!
+🔹 **AI Prompt:** *"How would you calculate `totalCount` from the `counts` array? Try using `.reduce()` to sum the values."*
 
-<!-- > -->
+### **💡 Stretch Challenges**
+#### 🔹 **Stretch Challenge 1: Reset Button**
+- Add a "Reset" button that resets all counters to `0`.
 
-```JS
-// Good! 
-const newCount = [...count] // Copy Count!
-newCount[2] += 1 // add 1 to index 2
-setCount(newCount) // updated 
-```
+#### 🔹 **Stretch Challenge 2: Limit Counter Range**
+- Prevent counters from going **below `0`** or above `10`.
 
-This works! The first line creates a copy of the count array and uses that to update the state! 
+#### 🔹 **Stretch Challenge 3: Dynamic Counter List**
+- Add a "➕ Add Counter" button to dynamically add new counters.
 
-<!-- > -->
+🔹 **AI Stretch Prompt:** *"What’s the best way to dynamically add components in React?"*
 
-Let's apply that to the Counter example. In App.js:
+#### 🔹 **Stretch Challenge 3: Dynamic Counter List**
+- Add a "➖ remove Counter" button to dynamically remove a counter. 
+This might be best added to in the Counter Component. You may need a callback... 
 
-```JS
-<div className="App">
-  {count.map((value, index) => {
-    return (
-      <Counter 
-        label={`counter ${index}`}
-        value={value} 
+🔹 **AI Stretch Prompt:** *"How can I add a button that will remove a counter?"* 
+For this prompt try dragging App.js and Counter.js into the AI window. 
 
-        increment={() => {
-          const newCount = [...count]
-          newCount[index] += 1
-          setCount(newCount)
-        }}
+---
 
-      />)
-  })}
-</div>
-```
+## **After Class**
+- Continue working on [Assignment 1](../Assignments/Assignment-01.md).
 
-Here you added a new `increment` prop. This is a function that will update the count at the index. 
+---
 
-<!-- > -->
-
-Update Counter.js:
-
-```JS
-<div className="Counter">
-  <small>{props.label}</small>
-  <h1>{props.value}</h1>
-
-  <button onClick={props.increment}>+</button>
-
-  <button >-</button>
-</div>
-```
-
-Here you called the increment function you passed down to this function through props. 
-
-<!-- > -->
-
-## Immutable data and state 
-
-React works on functional programming concepts. An important idea is an immutable state and avoiding a shared mutable state. In this example, you used an array. Since arrays are stored as a reference, updating the array mutates the shared reference which creates a problem in your system that relies on immutable state! 
-
-When using arrays as the state in React you must copy the array whenever you mutate it! In the example you did this: 
-
-```JS
-// Good! 
-const newCount = [...count] // Created copy of the original array! 
-newCount[2] += 1 // Mutate the NEW array
-setCount(newCount) // Update state
-```
-
-Read more about this here: 
-
-https://react.dev/learn/updating-arrays-in-state
-
-<!-- > -->
-
-**Challenge!** Add a decrement function that will decrease the count when the - button is clicked.
-
-<!-- > -->
-
-**Solution!**
-
-Setup a decrement function like this: 
-
-In App.js
-
-```JS
-decrement={() => {
-  const newCount = [...count]
-  newCount[index] -= 1
-  setCount(newCount)
-}}
-```
-
-In Count.js use props to call the decrement function: 
-
-```JS
-<button onClick={props.decrement}>-</button>
-```
-
-<!-- > -->
-
-**Stretch Challenge**
-
-Display the total of all counters at the bottom of App.js.
-
-<!-- > -->
-
-**Solution!**
-
-```JS
-<h1>{count.reduce((acc, val) => acc + val)}</h1>
-```
-
-<!-- > -->
-
-## After Class
-
-Continue working on [Assignment 1](../Assignments/Assignment-01.md)
-
-<!-- > -->
-
-## Resources
-
+## **Resources**
 - [React State](https://reactjs.org/docs/faq-state.html)
 - [React Props](https://reactjs.org/docs/components-and-props.html)
-- [Video Playlist](https://www.youtube.com/playlist?list=PLoN_ejT35AEhmWcDTI6M--ha_E4lTyAtx)
-- [Lifting State](https://reactjs.org/docs/lifting-state-up.html)
+- [Lifting State](https://react.dev/learn/sharing-state-between-components)
