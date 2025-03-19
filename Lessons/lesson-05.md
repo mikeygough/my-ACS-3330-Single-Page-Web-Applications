@@ -1,304 +1,302 @@
-# FEW 2.3 - Lesson 4
+# **ACS 3330 - Lesson 5: Conditional Rendering in React**
 
-<!-- > -->
+## **Overview**
+Conditional rendering allows React components to **display different UI elements based on state or props**. This lesson covers:
+- **Conditional rendering patterns** in React.
+- **Higher-order components** for conditional logic.
+- **Using logical operators (`&&`, ternary `? :`, and `if/else`).**
 
-## Conditional Rendering
+By the end, you'll build components that dynamically show and hide content.
 
-Conditional rendering is the process of showing one component or another depending on state or possibly showing or not showing a component at all. 
+---
 
-<!-- > -->
+## **Learning Objectives**
+By the end of this lesson, you will be able to:
+✅ Identify **when and why** to use conditional rendering.  
+✅ Implement **multiple conditional rendering patterns**.  
+✅ Apply **React's logical operators** to control rendering.  
+✅ Use **higher-order components (HOCs)** to wrap components dynamically.  
 
-## Learning Objectives
+---
 
-1. Identify use cases for conditional rendering
-1. Define patterns used for conditional rendering
-1. Use conditional rendering
+## **Review: React Forms and State**
+Before we begin, take a few minutes to answer:
 
-<!-- > -->
+🔹 **Pop Quiz**
+- What is the **controlled component pattern** in forms?  
+- How does **lifting state** improve data flow in React?  
+- What are **derived state values** and why are they useful?
 
-## Video
+🔹 **Checking Progress**
+- Where are you on the **API-powered app project**?  
+- What blockers have you encountered?  
 
-Follow this class in these video lessons:
+---
 
-- https://www.youtube.com/playlist?list=PLoN_ejT35AEhmWcDTI6M--ha_E4lTyAtx
+# **Part 1: Introduction to Conditional Rendering**
 
-The videos are labeled "lesson 05 x" which corresponds to the class lesson numbers. 
+### **1.1 What is Conditional Rendering?**
+Conditional rendering **determines which UI elements should be displayed based on state or props**.
 
-<!-- > -->
+📝 **Example: Rendering Based on Loading State**
+```jsx
+function Weather({ isLoaded }) {
+  return isLoaded ? <WeatherData /> : <LoadingSpinner />;
+}
+```
 
-##  Review 
+📌 **AI Prompt:** *"What are some real-world examples where conditional rendering is useful?"*
 
-- Use the controlled component pattern to create a form
-  - Create a new component
-  - Use useState to define variables and setters for: 
-    - name
-    - password 
-  - Create a form with two inputs: name and password
+---
 
-<!-- > -->
+# **Part 2: Five Conditional Rendering Patterns in React**
 
-## Conditional Rendering
+Remember **a component is a function that returns a block of JSX.** All of these conditional rendering patterns use that idea in different ways. 
 
-Commonly in React, you will need to render different components under different conditions. Here are two patterns you can apply to your work: 
+## **Pattern 1: `if/else` Statements**
+Use `if/else` inside functions to **return different components**.
 
-<!-- > -->
-
-**Pattern 1**
-
-The idea is to render one component or another depending on some logic. One method to handle this is with a function:
-
-```JS 
-function WeatherData(isLoaded) {
+📝 **Example: Displaying Weather Data When Loaded**
+```jsx
+function Weather({ isLoaded }) {
   if (isLoaded) {
-    return <Weather />
+    return <WeatherData />;
   }
-
-  return <Loading />
+  return <LoadingSpinner />;
 }
 ```
 
-<small>Here the function returns either the Weather component or the Loading Component depending in weather `isLoaded` is truthy.</small>
+✅ **Use Case:** When rendering **one component or another**.
 
-<!-- > -->
+📌 **AI Prompt:** *"Why might `if/else` be a better choice than `&&` in some cases?"*
 
-You might use the example above like this: 
+---
 
-```JS
-function App() {
-  return (
-    <div>
-      {WeatherData(false)} // displays <Loading />
-    </div>
-  )
-}
-```
+## **Pattern 2: Element Variables**
+Store JSX elements in a **variable** and return it.
 
-<small>You can take the idea above one step further. Since a Component is a function you treat it like a component. **Note! parameters are passed via props!**</small>
-
-<!-- > -->
-
-```JS 
-function WeatherData({ isLoaded }) { // Notice the change here!
-  if (isLoaded) {
-    return <Weather />
-  }
-
-  return <Loading />
-}
-```
-
-This component renders the Weather component or the Loading component. 
-
-<!-- > -->
-
-You might use this in an other component like this: 
-
-```JS
-function App() {
-  return (
-    <div>
-      <WeatherData isLoaded={true} /> // displays <Weather />
-    </div>
-  )
-}
-```
-
-Notice that the function above returns JSX so it can be used like any other component! 
-
-<!-- > -->
-
-**Pattern 2** - Assign a JSX element to a variable and render it. This works for situations where a list of components might be used. 
-
-```JavaScript
-function WhatToEat(props) {
-  const { time } = props
-  let element // declare an empty variable
-  if (time === 'morning') {
-    element = <Eggs />
-  } else if (time === 'lunch') {
-    element = <Burrito />
+📝 **Example: Showing Different Meals Based on Time of Day**
+```jsx
+function WhatToEat({ time }) {
+  let element;
+  if (time === "morning") {
+    element = <Eggs />;
+  } else if (time === "lunch") {
+    element = <Burrito />;
   } else {
-    element = <Icecream />
+    element = <IceCream />;
   }
 
-  return (
-    <div>
-      {element}
-    </div>
-  )
+  return <div>{element}</div>;
 }
 ```
 
-Since this function return JSX is can be used as a component! 
+✅ **Use Case:** When **more than two options** need rendering.
 
-```JS
-function App() {
-  return (
-    <div>
-      <WhatToEat time="lunch" /> // displays <Burrito />
-    </div>
-  )
-}
-```
+📌 **AI Prompt:** *"How can you refactor this using an object lookup instead of `if/else`?"*
 
-<!-- > -->
+---
 
-**Pattern 3** Use the && operator. Here you'd render a component or render nothing. This is the standard JS comparison AND operator. If both sides are true then the right side of the && operator is rendered. 
+## **Pattern 3: `&&` Logical Operator**
+Render **a component only if a condition is true**.
 
-```JS 
+📝 **Example: Showing Unread Messages Notification**
+```jsx
 <div>
-  <h1>Hello!</h1>
-  {unreadMessages.length > 0 &&
-    <h2>
-      You have {unreadMessages.length} unread messages.
-    </h2>
-  }
+  <h1>Welcome!</h1>
+  {unreadMessages.length > 0 && (
+    <h2>You have {unreadMessages.length} unread messages.</h2>
+  )}
 </div>
 ```
 
-<small>`false && 99` evaluates to false, and `true && 99` evaluates to 99. In this example if `unreadMessages.length` is greater than 0 the left side of && is true and the right side is displayed.</small>
+✅ **Use Case:** When rendering **something or nothing**.
 
-To understand this better read about [JS truthy and falsy.](https://javascript.info/logical-operators) 
+📌 **AI Debugging Prompt:** *"What happens if `unreadMessages` is `undefined`? How can we prevent errors?"*
 
-<!-- > -->
+---
 
-**Pattern 4** The ternary operator is like a single line if else. You can use this anywhere! it also works with React components! 
+## **Pattern 4: Ternary (`? :`) Operator**
+Ternary operators provide a **one-line `if/else` statement**.
 
-```JSX
-function LoginButton(props) {
-  const { isLoggedIn } = props;
+📝 **Example: Toggling Between Login and Logout Buttons**
+```jsx
+function LoginButton({ isLoggedIn }) {
   return (
     <div>
-      {isLoggedIn
-        ? <LogoutButton />
-        : <LoginButton />
-      }
+      {isLoggedIn ? <LogoutButton /> : <LoginButton />}
     </div>
   );
 }
 ```
 
-<small>In this example if `isLoggedIn` is true then LogoutButton is displayed. Otherwise LoginButton is displayed.</small>
+✅ **Use Case:** When rendering **one of two components** inline.
 
-The ternary operator `condition ? truthy expression : falsey expression` works with three elements: a condition, a truthy expression, and a falsey experssion.
+📌 **AI Prompt:** *"How can I improve readability when using multiple ternary conditions?"*
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+---
 
-<!-- > -->
+## **Pattern 5: Preventing Component Rendering with `null`**
+Returning `null` prevents React from rendering a component.
 
-**Pattern 5** In some cases you'll want to show a component or nothing at all. React won't render `null` if it appears in a component. 
-
-```JSX 
+📝 **Example: Warning Message That Can Be Hidden**
+```jsx
 function Warning({ show, message }) {
-  if (show === false) {
-    return null
+  if (!show) {
+    return null;
   }
-  return (
-    <div>
-      Warning: {message}
-    </div>
-  ) 
+  return <div>Warning: {message}</div>;
 }
 ```
 
-Above the Warning component "short circuits" and returns null if `show` is false. 
+✅ **Use Case:** When a component **should disappear without breaking layout**.
 
-```JSX
-function App() {
-  return (
-    <div>
-      <Warning show={false}> // displays nothing
-      <Warning show={true} message="Look out!"> // displays the message
-    </div>
-  )
+📌 **AI Debugging Prompt:** *"Why is returning `null` better than using `display: none` in CSS?"*
+
+---
+
+# **Part 3: Higher-Order Components (HOCs) for Conditional Rendering**
+
+### **3.1 What is a Higher-Order Component (HOC)?**
+A HOC **wraps another component** and adds extra functionality.
+
+📝 **Example: HOC for Showing/Hiding Components**
+```jsx
+function withVisibility(Component) {
+  return function WrappedComponent({ isVisible, ...props }) {
+    return isVisible ? <Component {...props} /> : null;
+  };
 }
+
+const Fizz = withVisibility(() => <p>Fizz</p>);
+const Buzz = withVisibility(() => <p>Buzz</p>);
 ```
 
-The first Warning returns null which React ignores without an error. 
+✅ **Use Case:** When **multiple components** need similar conditional logic.
 
-The second Warning returns the div with the a message and is displayed. 
+📌 **AI Prompt:** *"How do HOCs compare to hooks for conditional logic?"*
 
-## Bonus Topic Higher Order Components
+---
 
-You can take the first example a step further using a Higher Order Component. A higher order component is a function that takes a component as a parameter and returns a new component that "wraps" the provided component. 
+# **Part 4: Stretch Challenges**
 
-Here is an example that adds an `isVisible` prop to any component. 
+### **💡 Challenge 1: Expand the `WhatToEat` Component**
+- Modify `WhatToEat` to **include more meal times**.
 
-```JS
-import React, { useState } from 'react'
+### **💡 Challenge 2: Create a "Dark Mode" Toggle**
+- Add a **toggle switch** that **conditionally applies dark mode styling**.
 
-// Message - Displays a message 
-function Message({text}) { 
-	return <i>{text}</i>
-}
+### **💡 Challenge 3: Make a Reusable HOC for Authentication**
+- Create an HOC that **hides components unless a user is authenticated**.
 
-// Wraps another component with hide and show capability
-// Higher Order Component 
-function makeHidden(BaseComp) {
-	return (props) => {
-		
-		if (props.isVisible === true) {
-			return (
-				<BaseComp {...props} />
-				// <i>?</i>
-			)
-		}
-		return null
-	}
-}
+📌 **AI Stretch Prompt:** *"How can HOCs be used to enforce user authentication?"*
 
-// Make two wrapped components 
-const Fizz = makeHidden(Message)
-const Buzz = makeHidden(Message)
-const MessageHideable = makeHidden(Message)
+---
 
-function Conditional_4() {
-	const [count, setCount] = useState(false)
+# **Part 4: Stretch Challenges (OpenWeather API Edition 🌦️)**  
 
-	return (
-		<div>
-			<button onClick={() => setCount(count + 1)}>Count: {count}</button>
-			{/* Display the wrapped components */}
-			<Fizz isVisible={count % 3 === 0} text='Fizz' />
-			<Buzz isVisible={count % 5 === 0} text='Buzz' />
-		</div>
-	)
-}
+### **💡 Challenge 4: Display an Error Message When the API Fails**  
+- Modify your OpenWeather API request to **detect errors** (e.g., invalid ZIP codes).  
+- Use **conditional rendering** to **show an error message** when a request fails.  
 
-export default Conditional_4
+📝 **Example: Show Error Message If API Request Fails**
+```jsx
+{error && <p className="error">⚠️ Error: {error.message}</p>}
 ```
 
-Here the `Message` component can be passed to the `makeHidden` function which returns a new component that hides and shows itself based on the prop `isVisible`.
+📌 **AI Debugging Prompt:** *"How do I check for errors in an API response before rendering data?"*
 
-### Using Conditional Rendering
+---
 
-This might be good when you want to see the logic at the point where something is rendered. 
+### **💡 Challenge 5: Show a Loading Spinner While Fetching Weather Data**  
+- Add a **loading state** when fetching data.  
+- Use **conditional rendering** to display **a spinner or “Loading…” message** before the API response returns.  
 
-Read more about [Conditional Rendering in React](https://react.dev/learn/conditional-rendering)
+📝 **Example: Display a Loading Message While Fetching Data**
+```jsx
+{loading ? <p>Loading weather data...</p> : <WeatherDisplay data={weather} />}
+```
 
-Conditional Rendering techniques
+📌 **AI Prompt:** *"What are the benefits of showing a loading state in API-driven apps?"*
 
-- A function returns a component
-- Element Variables
-- Inline if with logical && Operator
-- Inline if-else with Conditional Operator (ternary)
-- Prevent Component from rendering
+---
 
-https://scotch.io/tutorials/7-ways-to-implement-conditional-rendering-in-react-applications
+### **💡 Challenge 6: Show a "Last Updated" Timestamp**  
+- Use **state** to store the **last updated time** for the weather data.  
+- Conditionally render the timestamp **only when fresh data is available**.  
 
-## In Class 
+📝 **Example: Displaying Last Updated Time**
+```jsx
+{weather && <p>Last updated: {new Date(lastUpdated).toLocaleTimeString()}</p>}
+```
 
-Start on Assignment 2. In this assignment you will create an app that works with a web API. It will need to load data and display it. To build the app you will make use of conditional rendering.
+📌 **AI Debugging Prompt:** *"How can I format the timestamp for better readability?"*
 
-[Assignment 2](../Assignments/Assignment-02.md)
+---
 
-## After Class
+### **💡 Challenge 7: Change Background Based on Weather Conditions**  
+- Use **conditional rendering** to apply **different background colors or images** based on the current weather.  
 
-Continue working on [Assignment 2](../Assignments/Assignment-02.md)
+📝 **Example: Setting the Background Dynamically**
+```jsx
+const background = weather?.main === "Rain" ? "rainy-bg" : "sunny-bg";
+return <div className={background}>{weather.main}</div>;
+```
 
-## Additional Resources
+📌 **AI Stretch Prompt:** *"How can I use CSS classes dynamically in React for theming?"*
 
-1. https://reactjs.org/docs/conditional-rendering.html
-1. https://reactjs.org/docs/thinking-in-react.html
-1. https://reactjs.org/docs/design-principles.html
+---
 
+### **💡 Challenge 8: Display a Weather Icon Instead of Text**  
+- Use **conditional rendering** to **display weather icons** from OpenWeatherMap instead of just text descriptions.  
+
+📝 **Example: Rendering an Icon Based on API Data**
+```jsx
+{weather && <img src={`https://openweathermap.org/img/wn/${weather.icon}.png`} alt={weather.description} />}
+```
+
+📌 **AI Prompt:** *"What’s the best way to handle images dynamically in React?"*
+
+---
+
+### **💡 Challenge 9: Suggest an Outfit Based on the Temperature**  
+- Use **conditional logic** to **display outfit suggestions** based on the weather.  
+  - 🌡️ **Below 40°F** → "Wear a warm coat and gloves!"  
+  - ☀️ **Above 70°F** → "A T-shirt and shorts should be fine!"  
+
+📝 **Example: Dynamic Outfit Suggestions**
+```jsx
+const outfitSuggestion =
+  temperature < 40 ? "Wear a warm coat!" :
+  temperature > 70 ? "T-shirt and shorts!" :
+  "A light jacket should be fine.";
+  
+return <p>{outfitSuggestion}</p>;
+```
+
+📌 **AI Stretch Prompt:** *"How can I make these suggestions more personalized?"*
+
+---
+
+## **Final Thoughts**
+- These **stretch challenges** encourage applying **conditional rendering** in **real-world API-driven apps**.  
+- They also introduce **UI enhancements**, **error handling**, and **dynamic styling**.  
+
+📌 **AI Final Reflection Prompt:** *"How does conditional rendering improve the user experience in an API-based app?"*
+
+---
+
+# **Final Thoughts**
+- **Use `if/else` for clear branching logic.**
+- **Use `&&` when rendering something or nothing.**
+- **Use ternary `? :` when choosing between two components.**
+- **Use higher-order components (HOCs) to wrap multiple components with shared logic.**
+
+📌 **AI Reflection Prompt:** *"How would you explain conditional rendering to a beginner? Get AI feedback on your explanation!"*
+
+---
+
+## **After Class**  
+- Review **React’s Conditional Rendering Docs**: [React Docs](https://react.dev/learn/conditional-rendering).
+- Apply these **stretch challenges** in **Assignment 2: OpenWeather API App**.  
+- Explore **React’s official docs on Conditional Rendering**: [React Docs](https://react.dev/learn/conditional-rendering).  
