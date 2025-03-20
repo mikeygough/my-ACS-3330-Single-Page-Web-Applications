@@ -42,15 +42,13 @@ By the end of the course, you will be able to:
 
 **Class Times:** Tuesday, Thursday 1:00 PM to 3:45 PM Virtual online.
 
-<!-- Hybrid sections are a mixture of online and in person components.  In person sessions include labs and group work as noted on your schedule.  These sections will run according to the Hybrid Delivery Policy: [make.sc/hybrid-delivery-policy](make.sc/hybrid-delivery-policy) -->
-
 | Class | Date | Topics | Assignment |
 |:------|:-----|:-------|:-----------|
 |  -    | **Week 1**  | - | - | - |
 |  1    | Tue, Mar 25 | [React and functional Programming] | [Assignment 1 - React Product List] - React Tutorial |
 |  2    | Thr, Mar 27 | [React, Props, and State] |
 |  -    | **Week 2**  | - | - | - |
-|  3    | Tue, Apr  1 | [React and Forms] | - |
+|  3    | Tue, Apr  1 | [React and Forms] [React State Management] | - |
 |  4    | Thr, Apr  3 | [Conditional Rendering] | [Assignment 2 - Weather API] |
 |  -    | **Week 3**  | - | - | - |
 |  5    | Tue, Apr  8 | [useEffect Hook] | - |
@@ -71,6 +69,7 @@ By the end of the course, you will be able to:
 [React and functional Programming]: Lessons/lesson-01.md
 [React, Props, and State]: Lessons/lesson-02.md
 [React and Forms]: Lessons/lesson-03.md
+[React State Management]: Lessons/lesson-03-new.md
 [React Lab]: Lessons/lesson-04.md
 [Conditional Rendering]: Lessons/lesson-05.md
 [Callbacks and Promises]: Lessons/lesson-06.md

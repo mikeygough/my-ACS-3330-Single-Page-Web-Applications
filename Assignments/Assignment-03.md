@@ -1,48 +1,122 @@
-# Class - FEW 2.3 - React + Redux Tutorial Assignment
+# **ACS 3330 - Assignment 3: React + Redux Tutorial**
 
-## Description 
+## **Overview**
+Managing **application state** is a crucial skill in React development. This assignment will introduce you to **React + Redux** through hands-on practice with tutorials. By working through one of the provided tutorials, you will gain a solid understanding of **state management patterns** and how Redux helps structure a React application.
 
-Application state is a big subject. You need to practice. A good place to start is with a tutorial.  
+---
 
-### Why this assignment?
+## **Why This Assignment?**
+Application state is at the core of every modern web application. Mastering a **predictable update pattern** like Redux will make you a more effective developer. This assignment will help you:
+✅ **Understand how Redux works with React** to manage application state.  
+✅ **Practice working with reducers, actions, and the store.**  
+✅ **Gain hands-on experience with Redux through a structured tutorial.**
 
-Application state is at the core of every app. Using a modern update pattern and understanding that pattern will make you a stronger developer. 
+---
 
-## Project requirements
+## **Project Requirements**
+Your goal is to **select and complete one of the tutorials** listed below. The tutorials are ranked by **difficulty level**.
 
-Your goal is to choose one of the tutorials below and complete it. The tutorials are ranked in level of difficulty.
+### **Choose One of the Following Tutorials:**
+1. **[React + Redux Password List](https://github.com/Tech-at-DU/React-Redux-passwords-Tutorial) - Beginner**  
+   - A password management app that tracks usernames and generates random passwords.  
+   - Uses **React for the UI**, **Redux for state management**, and **local storage for persistence**.  
+   - **Difficulty Level:** Beginner  
 
-1. [React+Redux Password List](https://github.com/Tech-at-DU/React-Redux-passwords-Tutorial) - This is an alternate take on the Todo List. The app keeps track of a list of user names and passwords, and generates random passwords. It uses React for views, Redux to manage application state, and resists data in local storage.
-2. [React+Redux Timers App](https://github.com/Tech-at-DU/React-Redux-Timers-Tutorial) - An advanced alternative to the Todo list. The app stores a list of timers, timers can be stoped and started. You could use this app to keep track of time spent working projects or billing clients. This project is like the seed for: https://toggl.com. It uses React for views, Redux for application state management, and persists data with local storage.
-3. [React+Redux Tetris](https://github.com/Tech-at-DU/React-Redux-Tetris-Tutorial) - This is the classic arcade game [Tetris](https://en.wikipedia.org/wiki/Tetris) implemented with JavaScript. This app uses React for views and Redux for application state management. 
+2. **[React + Redux Timers App](https://github.com/Tech-at-DU/React-Redux-Timers-Tutorial) - Intermediate**  
+   - A **timer tracking app** that lets users start and stop multiple timers.  
+   - Useful for **tracking work hours** or **billing clients**.  
+   - Similar to **[Toggl](https://toggl.com)**.  
+   - Uses **React for views**, **Redux for state**, and **local storage for persistence**.  
+   - **Difficulty Level:** Intermediate  
 
-### Challenges 
+3. **[React + Redux Tetris](https://github.com/Tech-at-DU/React-Redux-Tetris-Tutorial) - Advanced**  
+   - A full **Tetris game** built using **React and Redux**.  
+   - Requires handling **real-time game state updates** with Redux.  
+   - **Difficulty Level:** Advanced  
 
-**Challenge 1** Read the descriptions of the tutorials above. Choose the tutorial that would be the best fit for your abilities. 
+📌 **AI Prompt:** *"Which of these projects aligns best with my skill level? Ask AI to help assess your choice."*
 
-**Challenge 2** put a system in place to complete this tutorial. Do this by scheduling 6 hours time to work. Find someone to work with. 
+---
 
-**Challenge 3** complete the tutorial! If you have a question at any point while working on the tutorial post these to the class Slack channel. 
+## **Challenges**
 
-**Stretch Challenge** review your work with another student. Explain your code, get feedback on your work. 
+### **📌 Challenge 1: Choose a Tutorial**
+- Read the descriptions and **select a tutorial** that matches your **current skill level**.  
+- Consider **how much time you have** and **how comfortable you are with Redux.**  
 
-**Stretch Challenge** try any of the stretch challenges in the tutorial (if the tutorial has stretch challenges)
+📌 **AI Prompt:** *"What Redux concepts should I review before starting this tutorial?"*
 
-**Stretch Challenge** ask the instructor for challenges you can try. 
+---
 
-**Stretch Challenge** make up your own stretch goals! Invent yout own new features and additions to the tutorial. This can be CSS 
+### **📌 Challenge 2: Create a Work Plan**
+- **Set aside at least 6 hours** to work on this tutorial.  
+- **Schedule your work sessions** and track your progress.  
+- **Find a study partner** to work with or discuss concepts.  
 
-### Due date
+📌 **AI Prompt:** *"What’s the best way to break this project into manageable tasks?"*
 
-**Class 9** - 
+---
 
-## Assessing the assignment
+### **📌 Challenge 3: Complete the Tutorial**
+- **Work through the tutorial step by step.**  
+- **Test your understanding** by explaining key Redux concepts aloud or writing them down.  
+- If you get stuck, **post your questions in the class Slack channel**.  
 
-| - | **Does not meet expectations** | **Meets expectations** | **Exceeds expectations** |
-|:-------------|:---------------------------|:-------------------------|:---------------------|
-| **Completed** | **Did not complete** the tutorial **by class 9** | **Completed** the tutorial **by class 9** | **Completed** the tutorial and reviewed work with another student. |
-| **Functional** | Is not functional or _throws errors_ | Project fucntions _without errors or wanrings_ | - |
-| **Code quality** | Indentation and spacing is _inconsistent_ | Uses _consistent indentation and spacing_ | Well written and well commented, variable and function names are self commenting |
-| **Code Architecture and Structure** | Built from well designed and well named components | Components are well organized easy to navigate for the developer |
-| **Work Ethic** | Did not commit when working on project | Initial commit at class and commit while working | Commits show 3 hours and clearly documents process | 
+📌 **AI Debugging Prompt:** *"I’m stuck on this Redux error. Can AI help me troubleshoot?"*
 
+---
+
+## **Stretch Challenges**
+
+### 💡 **Stretch Challenge 1: Code Review with a Peer**
+- Review your work with **another student**.  
+- **Explain your code** and get feedback on **your implementation and structure**.  
+
+### 💡 **Stretch Challenge 2: Extend the Tutorial**
+- Complete any **stretch challenges** in the tutorial.  
+- **Ask the instructor for extra challenges** or **invent your own feature**.  
+
+### 💡 **Stretch Challenge 3: Add Custom Features**
+- Improve the **UI with CSS or animations**.  
+- Add **extra functionality** (e.g., sorting passwords, saving timers, new game modes in Tetris).  
+
+📌 **AI Stretch Prompt:** *"What are some creative ways I can extend this tutorial?"*
+
+---
+
+## **Due Date**
+📅 **Due: Class 9**
+
+---
+
+## **Assessment Criteria**
+
+| **Category**       | **Does Not Meet Expectations**          | **Meets Expectations**                       | **Exceeds Expectations** |
+|--------------------|--------------------------------------|---------------------------------------------|--------------------------|
+| **Completion**     | Did not complete the tutorial by Class 9 | Completed the tutorial by Class 9         | Completed the tutorial and **reviewed work with a peer** |
+| **Functionality**  | The project is **not functional** or has errors | The project runs **without errors or warnings** | - |
+| **Code Quality**   | Indentation and spacing are **inconsistent** | Uses **consistent indentation and spacing** | Code is **well-structured and commented**, variables and functions are self-explanatory |
+| **Architecture & Structure** | The app lacks **clear component organization** | The app is built from **well-designed and named components** | Components are **well-structured and easy to navigate** |
+| **Work Ethic**     | Did not commit while working        | **Commits show consistent progress**       | **Commits show at least 3 hours of work and document the development process** |
+
+📌 **AI Review Prompt:** *"How can I improve my code structure before submitting?"*
+
+---
+
+## **Final Thoughts**
+Completing this assignment will give you **practical experience working with Redux**, a critical skill for managing state in large React applications. By the end of this project, you should:  
+✅ **Feel more confident using Redux for state management.**  
+✅ **Understand the importance of structured state updates.**  
+✅ **Be able to debug and troubleshoot Redux-based applications.**  
+
+📌 **AI Reflection Prompt:** *"What was the biggest challenge I faced while working on this project? How did I overcome it?"*
+
+---
+
+## **📚 After Class**
+🔗 **Review Redux concepts:** [Redux Docs](https://redux.js.org/)  
+🔗 **Watch a Redux crash course:** [Redux Tutorial (YouTube)](https://www.youtube.com/watch?v=poQXNp9ItL4)  
+
+---
+
+🚀 **Now, choose your tutorial and start coding!**  
