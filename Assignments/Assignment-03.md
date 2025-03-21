@@ -17,8 +17,8 @@ Application state is at the core of every modern web application. Mastering a **
 Your goal is to **select and complete one of the tutorials** listed below. The tutorials are ranked by **difficulty level**.
 
 ### **Choose One of the Following Tutorials:**
-1. **[React + Redux Password List](https://github.com/Tech-at-DU/React-Redux-passwords-Tutorial) - Beginner**  
-   - A password management app that tracks usernames and generates random passwords.  
+1. **[React + Redux Todo List](https://github.com/Tech-at-DU/React-Redux-Todo-Tutorial) - Beginner**  
+   - A todo list that stores todo items, sorts, and filters those items.  
    - Uses **React for the UI**, **Redux for state management**, and **local storage for persistence**.  
    - **Difficulty Level:** Beginner  
 
