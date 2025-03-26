@@ -1,0 +1,9 @@
+.ShowAllButton {
+  border: 2px solid rgba(209, 171, 20, 0.916);
+}
+
+.ShowAllButton__active {
+  background-color: rgba(0, 128, 0, 0.5);
+  font-weight: bold;
+  border: revert;
+}

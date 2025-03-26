@@ -57,3 +57,5 @@ export const categoryTotalValue = data.reduce((acc, product) => {
   acc[product.category] = (acc[product.category] || 0) + price;
   return acc;
 }, {});
+
+export default data;
