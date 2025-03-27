@@ -1,0 +1,11 @@
+.ProductHeader {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.ProductHeader__Item {
+  background-color: white;
+  padding: 16px;
+  border-bottom: 1.5px solid black;
+  border-radius: 3px;
+}
